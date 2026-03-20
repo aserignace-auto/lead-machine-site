@@ -76,12 +76,11 @@ const sectors = [
   },
 ];
 
-const pricingPlans = [
+const pricingPacks = [
   {
-    tier: "Essentiel",
+    tier: "Pack 1",
     amount: "1 000\u20AC",
-    period: "HT + 100\u20AC/mois",
-    note: "1er mois de recurrence offert",
+    period: "HT — mise en place",
     features: [
       "Systeme de prospection automatise",
       "Sequences email & SMS",
@@ -92,12 +91,11 @@ const pricingPlans = [
     featured: false,
   },
   {
-    tier: "Performance",
+    tier: "Pack 2",
     amount: "2 500\u20AC",
-    period: "HT + 250\u20AC/mois",
-    note: "1er mois de recurrence offert",
+    period: "HT — mise en place",
     features: [
-      "Tout le forfait Essentiel",
+      "Tout le Pack 1",
       "Scoring IA avance des prospects",
       "Integration CRM complete",
       "Prise de RDV automatique",
@@ -107,12 +105,11 @@ const pricingPlans = [
     featured: true,
   },
   {
-    tier: "Excellence",
+    tier: "Pack 3",
     amount: "5 000\u20AC",
-    period: "HT + 500\u20AC/mois",
-    note: "1er mois de recurrence offert",
+    period: "HT — mise en place",
     features: [
-      "Tout le forfait Performance",
+      "Tout le Pack 2",
       "Automatisation complete sur mesure",
       "Multi-canaux (email, SMS, LinkedIn)",
       "Reporting IA avance & predictif",
@@ -121,6 +118,12 @@ const pricingPlans = [
     ],
     featured: false,
   },
+];
+
+const recurrenceOptions = [
+  { name: "Essentiel", price: "100\u20AC HT/mois" },
+  { name: "Performance", price: "250\u20AC HT/mois" },
+  { name: "Excellence", price: "500\u20AC HT/mois" },
 ];
 
 const faqItems = [
@@ -353,51 +356,71 @@ export default function Home() {
           />
         </ScrollReveal>
 
-        <div className="mx-auto mt-14 grid max-w-[1000px] grid-cols-1 gap-px border border-border bg-border md:mt-20 md:grid-cols-3">
-          {pricingPlans.map((plan, i) => (
-            <ScrollReveal key={plan.tier} delay={i * 60}>
-              <div
-                className={`relative p-8 md:p-10 ${
-                  plan.featured ? "bg-gold/[0.05]" : "bg-bg-card"
-                }`}
-              >
-                {plan.featured && (
-                  <div className="absolute -top-px left-1/2 -translate-x-1/2 bg-gold px-4 py-1 text-xs font-bold uppercase tracking-[0.15em] text-bg-primary whitespace-nowrap">
-                    Le plus populaire
-                  </div>
-                )}
-                <div className="text-xs uppercase tracking-[0.18em] text-text-dimmed mb-4">
-                  {plan.tier}
-                </div>
-                <div className="font-serif text-4xl font-light text-gold-light leading-none md:text-5xl">
-                  {plan.amount}
-                </div>
-                <div className="mt-1 text-sm text-text-dimmed">{plan.period}</div>
-                {plan.note && (
-                  <div className="mt-1 mb-8 text-xs text-green-400">{plan.note}</div>
-                )}
-                {!plan.note && <div className="mb-8" />}
-                <ul className="mb-8 flex flex-col gap-2.5">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex gap-2.5 text-base text-white/75">
-                      <span className="flex-shrink-0 text-gold">&mdash;</span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="#contact"
-                  className={`block w-full rounded-sm py-3.5 text-center text-sm uppercase tracking-[0.12em] transition-all duration-200 no-underline ${
-                    plan.featured
-                      ? "bg-gold font-semibold text-bg-primary"
-                      : "border border-gold/35 text-gold hover:bg-gold/10"
+        <div className="mx-auto mt-14 max-w-[1000px] md:mt-20">
+          <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
+            {pricingPacks.map((pack, i) => (
+              <ScrollReveal key={pack.tier} delay={i * 60}>
+                <div
+                  className={`relative p-8 md:p-10 ${
+                    pack.featured ? "bg-gold/[0.05]" : "bg-bg-card"
                   }`}
                 >
-                  Demarrer maintenant
-                </Link>
+                  {pack.featured && (
+                    <div className="absolute -top-px left-1/2 -translate-x-1/2 bg-gold px-4 py-1 text-xs font-bold uppercase tracking-[0.15em] text-bg-primary whitespace-nowrap">
+                      Le plus populaire
+                    </div>
+                  )}
+                  <div className="text-xs uppercase tracking-[0.18em] text-text-dimmed mb-4">
+                    {pack.tier}
+                  </div>
+                  <div className="font-serif text-4xl font-light text-gold-light leading-none md:text-5xl">
+                    {pack.amount}
+                  </div>
+                  <div className="mt-1 mb-8 text-sm text-text-dimmed">{pack.period}</div>
+                  <ul className="mb-8 flex flex-col gap-2.5">
+                    {pack.features.map((f) => (
+                      <li key={f} className="flex gap-2.5 text-base text-white/75">
+                        <span className="flex-shrink-0 text-gold">&mdash;</span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href="#contact"
+                    className={`block w-full rounded-sm py-3.5 text-center text-sm uppercase tracking-[0.12em] transition-all duration-200 no-underline ${
+                      pack.featured
+                        ? "bg-gold font-semibold text-bg-primary"
+                        : "border border-gold/35 text-gold hover:bg-gold/10"
+                    }`}
+                  >
+                    Demarrer maintenant
+                  </Link>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          {/* Recurrence options - shared across all packs */}
+          <ScrollReveal delay={200}>
+            <div className="mt-px border border-border bg-bg-card p-6 md:p-8">
+              <div className="mb-4 text-center">
+                <span className="text-xs uppercase tracking-[0.18em] text-white/75">
+                  Recurrence mensuelle au choix — independante du pack
+                </span>
               </div>
-            </ScrollReveal>
-          ))}
+              <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
+                {recurrenceOptions.map((r) => (
+                  <div key={r.name} className="flex items-baseline gap-2 text-center">
+                    <span className="text-base font-medium text-text-primary">{r.name}</span>
+                    <span className="font-serif text-xl text-gold-light">{r.price}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-3 text-center text-xs text-green-400">
+                1er mois de recurrence offert — quel que soit le pack choisi
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

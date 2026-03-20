@@ -148,11 +148,10 @@ const processSteps = [
 
 const offers = [
   {
-    tier: "Forfait Essentiel",
+    tier: "Pack 1",
     name: "Prospecteur",
     amount: "1 000\u20AC",
-    period: "HT + 100\u20AC/mois",
-    note: "1er mois de recurrence offert",
+    period: "HT — mise en place",
     tagline: "Pour demarrer l'automatisation de votre prospection PAP et Leboncoin.",
     features: [
       "Scraping PAP & Leboncoin sur votre zone",
@@ -163,14 +162,13 @@ const offers = [
     featured: false,
   },
   {
-    tier: "Forfait Performance",
+    tier: "Pack 2",
     name: "Convertisseur",
     amount: "2 500\u20AC",
-    period: "HT + 250\u20AC/mois",
-    note: "1er mois de recurrence offert",
+    period: "HT — mise en place",
     tagline: "La solution complete pour maximiser votre taux de mandats.",
     features: [
-      "Tout le forfait Prospecteur",
+      "Tout le Pack Prospecteur",
       "Scoring IA avance",
       "Integration CRM complete",
       "Prise de RDV automatique",
@@ -180,14 +178,13 @@ const offers = [
     featured: true,
   },
   {
-    tier: "Forfait Excellence",
+    tier: "Pack 3",
     name: "Domination",
     amount: "5 000\u20AC",
-    period: "HT + 500\u20AC/mois",
-    note: "1er mois de recurrence offert",
+    period: "HT — mise en place",
     tagline: "Pour les structures qui veulent l'automatisation totale et un avantage concurrentiel maximal.",
     features: [
-      "Tout le forfait Convertisseur",
+      "Tout le Pack Convertisseur",
       "Multi-canaux (email + SMS + LinkedIn)",
       "Reporting IA predictif",
       "Accompagnement strategique mensuel",
@@ -195,6 +192,12 @@ const offers = [
     ],
     featured: false,
   },
+];
+
+const immoRecurrenceOptions = [
+  { name: "Essentiel", price: "100\u20AC HT/mois" },
+  { name: "Performance", price: "250\u20AC HT/mois" },
+  { name: "Excellence", price: "500\u20AC HT/mois" },
 ];
 
 const roiBefore = [
@@ -384,57 +387,80 @@ export default function ImmobilierPage() {
           />
         </ScrollReveal>
 
-        <div className="mx-auto mt-16 grid max-w-[1100px] grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
-          {offers.map((offer, i) => (
-            <ScrollReveal key={offer.name} delay={i * 80}>
-              <div
-                className={`relative p-8 md:p-10 ${
-                  offer.featured ? "bg-gold/[0.04]" : "bg-bg-card"
-                }`}
-              >
-                {offer.featured && (
-                  <div className="absolute -top-px left-1/2 -translate-x-1/2 bg-gold px-4 py-1 text-xs font-bold uppercase tracking-[0.15em] text-bg-primary whitespace-nowrap">
-                    Le plus populaire
-                  </div>
-                )}
-                <div className="mb-3 text-xs uppercase tracking-[0.18em] text-text-dimmed">
-                  {offer.tier}
-                </div>
-                <div className="mb-1 font-serif text-3xl font-normal text-gold-light">
-                  {offer.name}
-                </div>
-                <div className="font-serif text-[2.4rem] font-light leading-none text-gold-light md:text-[2.8rem]">
-                  {offer.amount}
-                </div>
-                <div className="mt-1 text-sm text-text-dimmed">{offer.period}</div>
-                <div className="mt-1 mb-4 text-xs text-green-400">{offer.note}</div>
-                <p className="mb-5 text-sm leading-relaxed text-text-dimmed">
-                  {offer.tagline}
-                </p>
-                <div className="mb-6 h-px w-10 bg-gold/30" />
-                <ul className="mb-8 flex flex-col gap-2">
-                  {offer.features.map((f) => (
-                    <li key={f} className="flex gap-2.5 text-base leading-relaxed text-white/75">
-                      <span className="mt-0.5 flex-shrink-0 text-xs text-gold">
-                        {"\u2726"}
-                      </span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="#contact"
-                  className={`block w-full rounded-sm py-3.5 text-center text-sm uppercase tracking-[0.12em] transition-all duration-200 no-underline ${
-                    offer.featured
-                      ? "bg-gold font-semibold text-bg-primary"
-                      : "border border-gold/30 text-gold hover:bg-gold/10"
+        <div className="mx-auto mt-16 max-w-[1100px]">
+          <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
+            {offers.map((offer, i) => (
+              <ScrollReveal key={offer.name} delay={i * 80}>
+                <div
+                  className={`relative p-8 md:p-10 ${
+                    offer.featured ? "bg-gold/[0.04]" : "bg-bg-card"
                   }`}
                 >
-                  Demarrer maintenant
-                </Link>
+                  {offer.featured && (
+                    <div className="absolute -top-px left-1/2 -translate-x-1/2 bg-gold px-4 py-1 text-xs font-bold uppercase tracking-[0.15em] text-bg-primary whitespace-nowrap">
+                      Le plus populaire
+                    </div>
+                  )}
+                  <div className="mb-3 text-xs uppercase tracking-[0.18em] text-text-dimmed">
+                    {offer.tier}
+                  </div>
+                  <div className="mb-1 font-serif text-3xl font-normal text-gold-light">
+                    {offer.name}
+                  </div>
+                  <div className="font-serif text-[2.4rem] font-light leading-none text-gold-light md:text-[2.8rem]">
+                    {offer.amount}
+                  </div>
+                  <div className="mt-1 mb-4 text-sm text-text-dimmed">{offer.period}</div>
+                  <p className="mb-5 text-sm leading-relaxed text-text-dimmed">
+                    {offer.tagline}
+                  </p>
+                  <div className="mb-6 h-px w-10 bg-gold/30" />
+                  <ul className="mb-8 flex flex-col gap-2">
+                    {offer.features.map((f) => (
+                      <li key={f} className="flex gap-2.5 text-base leading-relaxed text-white/75">
+                        <span className="mt-0.5 flex-shrink-0 text-xs text-gold">
+                          {"\u2726"}
+                        </span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href="#contact"
+                    className={`block w-full rounded-sm py-3.5 text-center text-sm uppercase tracking-[0.12em] transition-all duration-200 no-underline ${
+                      offer.featured
+                        ? "bg-gold font-semibold text-bg-primary"
+                        : "border border-gold/30 text-gold hover:bg-gold/10"
+                    }`}
+                  >
+                    Demarrer maintenant
+                  </Link>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          {/* Recurrence options - shared across all packs */}
+          <ScrollReveal delay={250}>
+            <div className="mt-px border border-border bg-bg-card p-6 md:p-8">
+              <div className="mb-4 text-center">
+                <span className="text-xs uppercase tracking-[0.18em] text-white/75">
+                  Recurrence mensuelle au choix — independante du pack
+                </span>
               </div>
-            </ScrollReveal>
-          ))}
+              <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
+                {immoRecurrenceOptions.map((r) => (
+                  <div key={r.name} className="flex items-baseline gap-2 text-center">
+                    <span className="text-base font-medium text-text-primary">{r.name}</span>
+                    <span className="font-serif text-xl text-gold-light">{r.price}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-3 text-center text-xs text-green-400">
+                1er mois de recurrence offert — quel que soit le pack choisi
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

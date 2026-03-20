@@ -231,7 +231,7 @@ export default function AProposPage() {
         <div className="mx-auto grid max-w-[1100px] grid-cols-1 border border-border bg-border sm:grid-cols-2 lg:grid-cols-4" style={{ gap: '1px' }}>
           {VALUES.map((v, i) => (
             <ScrollReveal key={v.title} delay={i * 80}>
-              <div className="bg-bg-card p-6 text-center transition-colors hover:bg-gold/4 md:p-8">
+              <div className="h-full bg-bg-card p-6 text-center transition-colors hover:bg-gold/4 md:p-8">
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg border border-white/15 text-white/70">{v.icon}</div>
                 <div className="font-serif text-xl font-light">{v.title}</div>
                 <p className="mt-3 text-base leading-[1.75] text-text-dimmed">{v.text}</p>
