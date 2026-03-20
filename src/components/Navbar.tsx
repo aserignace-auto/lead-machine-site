@@ -78,7 +78,7 @@ export default function Navbar() {
         {/* Mobile hamburger button */}
         <button
           type="button"
-          className="relative z-50 flex h-10 w-10 items-center justify-center lg:hidden"
+          className="relative z-[70] flex h-10 w-10 items-center justify-center lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={mobileOpen}
@@ -105,7 +105,7 @@ export default function Navbar() {
 
       {/* Mobile menu overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-bg-primary/98 backdrop-blur-lg transition-all duration-500 lg:hidden ${
+        className={`fixed inset-0 z-[60] bg-bg-primary backdrop-blur-lg transition-all duration-500 lg:hidden ${
           mobileOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
