@@ -148,11 +148,11 @@ export default function RdvPage() {
       </section>
 
       {/* ── AGENDA ── */}
-      <section className="bg-[#111111] px-5 py-20 md:px-[6vw]">
+      <section className="bg-[#141414] px-5 py-20 md:px-[6vw]">
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
             <div className="mb-12">
-              <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/40">
+              <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/60">
                 Programme de l&apos;appel
               </span>
               <h2 className="font-serif text-[clamp(1.8rem,3.5vw,3rem)] font-light leading-[1.15]">
@@ -171,7 +171,7 @@ export default function RdvPage() {
               <ScrollReveal key={item.time} delay={i * 80}>
                 <div className="flex h-full flex-col bg-bg-card p-6 md:p-7">
                   <div className="font-serif text-3xl font-light leading-none text-gold-light">{item.time}</div>
-                  <div className="mt-2 text-xs uppercase tracking-[0.14em] text-white/35">Minutes</div>
+                  <div className="mt-2 text-xs uppercase tracking-[0.14em] text-white/55">Minutes</div>
                   <div className="mt-3 text-base font-medium text-text-primary">{item.title}</div>
                   <p className="mt-2 text-base leading-[1.7] text-text-dimmed">{item.text}</p>
                 </div>
@@ -185,7 +185,7 @@ export default function RdvPage() {
       <section className="px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mx-auto max-w-[900px] text-center">
-            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/40">
+            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/60">
               Nos engagements
             </span>
             <h2 className="font-serif text-[clamp(1.8rem,3.5vw,3rem)] font-light leading-[1.15]">

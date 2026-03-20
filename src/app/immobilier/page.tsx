@@ -109,8 +109,8 @@ const features = [
       sequence: [
         { icon: "email1" as const, label: "Email 1er contact", time: "J0 — 09h00", status: "OUVERT", statusClass: "bg-gold/[0.15] text-gold-light" },
         { icon: "sms" as const, label: "SMS avec lien Calendly", time: "J0 — 11h00", status: "ENVOYE", statusClass: "bg-green-400/10 text-green-400" },
-        { icon: "email2" as const, label: "Email relance #1", time: "J+2 — planifie", status: "EN ATTENTE", statusClass: "bg-white/[0.06] text-white/40" },
-        { icon: "phone" as const, label: "Alerte appel qualification", time: "J+3 — alerte agent", status: "EN ATTENTE", statusClass: "bg-white/[0.06] text-white/40" },
+        { icon: "email2" as const, label: "Email relance #1", time: "J+2 — planifie", status: "EN ATTENTE", statusClass: "bg-white/[0.06] text-white/60" },
+        { icon: "phone" as const, label: "Alerte appel qualification", time: "J+3 — alerte agent", status: "EN ATTENTE", statusClass: "bg-white/[0.06] text-white/60" },
       ],
     },
   },
@@ -233,7 +233,7 @@ function ScoreTag({ type, label }: { type: "hot" | "warm" | "cold"; label: strin
   const cls = {
     hot: "bg-gold/[0.15] text-gold-light",
     warm: "bg-orange-400/10 text-orange-400",
-    cold: "bg-white/[0.06] text-white/40",
+    cold: "bg-white/[0.06] text-white/60",
   };
   return (
     <span className={`rounded px-2 py-0.5 text-xs font-semibold ${cls[type]}`}>
@@ -263,7 +263,7 @@ export default function ImmobilierPage() {
 
         <div className="relative z-10 max-w-[640px]">
           <ScrollReveal>
-            <div className="mb-6 flex items-center gap-2.5 text-xs uppercase tracking-[0.12em] text-white/30">
+            <div className="mb-6 flex items-center gap-2.5 text-xs uppercase tracking-[0.12em] text-white/50">
               <Link href="/" className="text-gold no-underline hover:text-gold-light">
                 Accueil
               </Link>
@@ -317,19 +317,19 @@ export default function ImmobilierPage() {
               <div className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]" />
               <div className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
               <div className="h-2.5 w-2.5 rounded-full bg-[#27c93f]" />
-              <span className="ml-2 text-xs text-white/30">Pipeline Immobilier — Live</span>
+              <span className="ml-2 text-xs text-white/50">Pipeline Immobilier — Live</span>
             </div>
             <div className="flex flex-col gap-4 p-5">
               <div className="flex items-center justify-between rounded-md border border-gold/[0.08] bg-white/[0.03] px-4 py-3">
                 <div>
-                  <div className="text-xs uppercase tracking-[0.1em] text-white/40">
+                  <div className="text-xs uppercase tracking-[0.1em] text-white/60">
                     Vendeurs detectes
                   </div>
                   <div className="font-serif text-3xl text-gold-light">43</div>
                 </div>
                 <span className="text-xs text-green-400">&uarr; Aujourd&apos;hui</span>
               </div>
-              <div className="text-xs uppercase tracking-[0.14em] text-white/30">
+              <div className="text-xs uppercase tracking-[0.14em] text-white/50">
                 Sequences en cours
               </div>
               {[
@@ -439,7 +439,7 @@ export default function ImmobilierPage() {
       </section>
 
       {/* ── BEFORE / AFTER ── */}
-      <section className="bg-[#111111] px-5 py-20 md:px-[6vw] md:py-24">
+      <section className="bg-[#141414] px-5 py-20 md:px-[6vw] md:py-24">
         <ScrollReveal>
           <SectionHeader
             label="Le constat"
@@ -486,7 +486,7 @@ export default function ImmobilierPage() {
                   <div className="mb-1 font-serif text-5xl font-light text-gold/[0.15] leading-none md:text-6xl">
                     {feat.num}
                   </div>
-                  <span className="mb-3 block text-xs uppercase tracking-[0.2em] text-white/40">
+                  <span className="mb-3 block text-xs uppercase tracking-[0.2em] text-white/60">
                     {feat.tag}
                   </span>
                   <h3 className="mb-4 font-serif text-2xl font-normal leading-tight md:text-[1.8rem]">
@@ -505,7 +505,7 @@ export default function ImmobilierPage() {
 
                 {/* Demo */}
                 <div className="flex flex-col justify-center gap-3 bg-[#0D0D0D] p-6 md:p-10">
-                  <div className="mb-3 text-xs uppercase tracking-[0.14em] text-white/30">
+                  <div className="mb-3 text-xs uppercase tracking-[0.14em] text-white/50">
                     {feat.demo.title}
                   </div>
                   <div className="rounded-lg border border-gold/10 bg-white/[0.03] p-5">
@@ -552,7 +552,7 @@ export default function ImmobilierPage() {
                             </div>
                             <div className="flex-1">
                               <div className="text-sm text-white/[0.78]">{s.label}</div>
-                              <div className="text-xs text-white/30">{s.time}</div>
+                              <div className="text-xs text-white/50">{s.time}</div>
                             </div>
                             <span
                               className={`rounded px-2 py-0.5 text-xs font-semibold ${s.statusClass}`}
@@ -572,7 +572,7 @@ export default function ImmobilierPage() {
                             key={d.label}
                             className="rounded-md border border-gold/[0.08] bg-white/[0.03] p-3"
                           >
-                            <div className="text-xs uppercase tracking-[0.1em] text-white/30">
+                            <div className="text-xs uppercase tracking-[0.1em] text-white/50">
                               {d.label}
                             </div>
                             <div className="font-serif text-2xl text-gold-light leading-none mt-1">
@@ -592,7 +592,7 @@ export default function ImmobilierPage() {
       </section>
 
       {/* ── PROCESS ── */}
-      <section id="deploiement" className="bg-[#111111] px-5 py-20 md:px-[6vw] md:py-24">
+      <section id="deploiement" className="bg-[#141414] px-5 py-20 md:px-[6vw] md:py-24">
         <ScrollReveal>
           <SectionHeader
             label="Deploiement"
@@ -625,7 +625,7 @@ export default function ImmobilierPage() {
       </section>
 
       {/* ── ROI PROJECTION ── */}
-      <section id="roi" className="bg-[#111111] px-5 py-20 md:px-[6vw] md:py-24">
+      <section id="roi" className="bg-[#141414] px-5 py-20 md:px-[6vw] md:py-24">
         <ScrollReveal>
           <SectionHeader
             label="Projection estimee"
@@ -641,7 +641,7 @@ export default function ImmobilierPage() {
 
               {/* Before */}
               <div className="mb-4 rounded-md border border-gold/10 bg-white/[0.03] p-5">
-                <div className="mb-3 text-xs uppercase tracking-[0.15em] text-white/40">
+                <div className="mb-3 text-xs uppercase tracking-[0.15em] text-white/60">
                   Situation typique sans automatisation
                 </div>
                 {roiBefore.map((r) => (
@@ -657,7 +657,7 @@ export default function ImmobilierPage() {
 
               {/* After */}
               <div className="rounded-md border border-gold/10 bg-white/[0.03] p-5">
-                <div className="mb-3 text-xs uppercase tracking-[0.15em] text-white/40">
+                <div className="mb-3 text-xs uppercase tracking-[0.15em] text-white/60">
                   Objectif avec Lead Machine (mois 1)
                 </div>
                 {roiAfter.map((r) => (
