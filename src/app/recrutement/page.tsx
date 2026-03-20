@@ -6,7 +6,7 @@ import ScrollReveal from '@/components/ScrollReveal';
 /* ── Data ── */
 const STATS = [
   { big: '100%', desc: 'télétravail — travaillez depuis où vous voulez' },
-  { big: '0\u20AC', desc: 'de frais — outils, formations et supports fournis' },
+  { big: '0\€', desc: 'de frais — outils, formations et supports fournis' },
   { big: '10j', desc: 'pour être autonome après la première vente' },
   { big: '5/10', desc: 'paiement garanti entre le 5 et le 10 du mois' },
 ];
@@ -70,8 +70,8 @@ const SETTER_COMMISSION = [
 
 const CLOSER_COMMISSION = [
   { label: 'Commission sur chaque vente conclue', val: '30%' },
-  { label: 'Prime forfait récurrent intermédiaire', val: '+ 50 \u20AC HT' },
-  { label: 'Prime forfait récurrent premium', val: '+ 100 \u20AC HT' },
+  { label: 'Prime forfait récurrent intermédiaire', val: '+ 50 \€ HT' },
+  { label: 'Prime forfait récurrent premium', val: '+ 100 \€ HT' },
   { label: 'Base de calcul', val: 'CA HT client' },
   { label: 'Versement', val: '5 au 10 / mois' },
 ];
@@ -81,10 +81,10 @@ const SETTER_EXAMPLE = {
   rows: [
     { label: 'RDV posés / mois', val: '~20' },
     { label: 'Taux de closing closers (30%)', val: '~2 ventes/mois' },
-    { label: 'Panier moyen client HT', val: '2 500 \u20AC' },
-    { label: 'Commission 20% sur 2 ventes', val: '1 000 \u20AC' },
+    { label: 'Panier moyen client HT', val: '2 500 \€' },
+    { label: 'Commission 20% sur 2 ventes', val: '1 000 \€' },
   ],
-  total: { label: 'Commission mensuelle estimée', val: '~1 000 \u20AC' },
+  total: { label: 'Commission mensuelle estimée', val: '~1 000 \€' },
 };
 
 const CLOSER_EXAMPLE = {
@@ -92,11 +92,11 @@ const CLOSER_EXAMPLE = {
   rows: [
     { label: 'RDV reçus / mois', val: '~13' },
     { label: 'Ventes conclues (30% close rate)', val: '~4 ventes' },
-    { label: 'Panier moyen client HT', val: '2 500 \u20AC' },
-    { label: 'Commission 30% sur 4 ventes', val: '3 000 \u20AC' },
-    { label: 'Primes récurrence (moy. 75 \u20AC \u00D7 4)', val: '+ 300 \u20AC' },
+    { label: 'Panier moyen client HT', val: '2 500 \€' },
+    { label: 'Commission 30% sur 4 ventes', val: '3 000 \€' },
+    { label: 'Primes récurrence (moy. 75 \€ \u00D7 4)', val: '+ 300 \€' },
   ],
-  total: { label: 'Commission mensuelle estimée', val: '~3 300 \u20AC' },
+  total: { label: 'Commission mensuelle estimée', val: '~3 300 \€' },
 };
 
 const STEPS = [
@@ -332,7 +332,7 @@ function EarningsSimulator() {
 
         <div className="mb-5">
           <span className="mb-2 block text-xs uppercase tracking-[0.14em] text-text-dimmed">
-            Panier moyen client HT : <span className="text-gold-light">{panier} \u20AC</span>
+            Panier moyen client HT : <span className="text-gold-light">{panier} \€</span>
           </span>
           <input
             type="range"
@@ -355,9 +355,9 @@ function EarningsSimulator() {
               onChange={(e) => setForfait(Number(e.target.value))}
               className="w-full cursor-pointer appearance-none rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors focus:border-gold/40"
             >
-              <option value={0}>Entrée de gamme (prime 0 \u20AC)</option>
-              <option value={50}>Intermédiaire (prime 50 \u20AC HT)</option>
-              <option value={100}>Premium (prime 100 \u20AC HT)</option>
+              <option value={0}>Entrée de gamme (prime 0 \€)</option>
+              <option value={50}>Intermédiaire (prime 50 \€ HT)</option>
+              <option value={100}>Premium (prime 100 \€ HT)</option>
             </select>
           </div>
         )}
@@ -384,10 +384,10 @@ function EarningsSimulator() {
         <div className="rounded-md border border-gold/15 bg-gold/6 p-4">
           <div className="text-xs uppercase tracking-[0.14em] text-white/75">Commission {results.tauxComm * 100}%</div>
           <div className="font-serif text-4xl font-light text-green-400">
-            {results.comm.toLocaleString('fr-FR')} \u20AC
+            {results.comm.toLocaleString('fr-FR')} \€
           </div>
           <div className="mt-1 text-xs text-white/75">
-            {results.ventes} ventes &times; {panier.toLocaleString('fr-FR')} \u20AC &times; {results.tauxComm * 100}%
+            {results.ventes} ventes &times; {panier.toLocaleString('fr-FR')} \€ &times; {results.tauxComm * 100}%
           </div>
         </div>
 
@@ -395,10 +395,10 @@ function EarningsSimulator() {
           <div className="rounded-md border border-gold/15 bg-gold/6 p-4">
             <div className="text-xs uppercase tracking-[0.14em] text-white/75">Primes récurrence</div>
             <div className="font-serif text-3xl font-light text-gold-light">
-              + {results.primesTotal.toLocaleString('fr-FR')} \u20AC
+              + {results.primesTotal.toLocaleString('fr-FR')} \€
             </div>
             <div className="mt-1 text-xs text-white/75">
-              {results.ventes} ventes &times; {forfait} \u20AC/vente
+              {results.ventes} ventes &times; {forfait} \€/vente
             </div>
           </div>
         )}
@@ -406,13 +406,13 @@ function EarningsSimulator() {
         <div className="rounded-md border border-green-400/20 bg-green-400/6 p-5">
           <div className="text-xs uppercase tracking-[0.14em] text-white/75">Total mensuel estime</div>
           <div className="font-serif text-5xl font-light text-green-400">
-            {results.total.toLocaleString('fr-FR')} \u20AC
+            {results.total.toLocaleString('fr-FR')} \€
           </div>
           <div className="mt-2 text-sm text-white/75">
-            soit ~{Math.round(results.total * 12).toLocaleString('fr-FR')} \u20AC / an
+            soit ~{Math.round(results.total * 12).toLocaleString('fr-FR')} \€ / an
           </div>
           <p className="mt-3 border-t border-white/6 pt-3 text-xs leading-relaxed text-white/70">
-            Estimation indicative basee sur les parametres saisis. Panier moyen reel : 2 500\u20AC HT.
+            Estimation indicative basee sur les parametres saisis. Panier moyen reel : 2 500\€ HT.
             Les resultats dependent de votre implication et du marche.
           </p>
         </div>

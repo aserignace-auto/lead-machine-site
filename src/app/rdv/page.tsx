@@ -132,14 +132,15 @@ export default function RdvPage() {
                     30 min &middot; Visio ou Telephone
                   </div>
                 </div>
-                {/* Calendly iframe */}
+                {/* Odoo Appointment module */}
                 <iframe
-                  src="https://calendly.com/aserignace/nouvelle-reunion?background_color=161616&text_color=fafaf8&primary_color=c9a84c"
+                  src="https://lead-machine.odoo.com/appointment/1?embed=true"
                   width="100%"
                   height="620"
                   frameBorder="0"
                   className="block h-[400px] lg:h-[620px]"
-                  title="Calendly - Reserver un appel decouverte"
+                  title="Reserver un appel decouverte - Lead Machine"
+                  allow="camera; microphone"
                 />
               </div>
             </ScrollReveal>
