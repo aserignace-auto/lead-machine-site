@@ -38,7 +38,7 @@ export default function ContactForm() {
   }
 
   const inputClasses =
-    "w-full bg-white/[0.04] border border-white/10 text-text-primary font-sans text-[0.88rem] px-4 py-3.5 rounded-sm outline-none transition-all duration-200 focus:border-gold/50 focus:bg-gold/[0.04] placeholder:text-text-muted";
+    "w-full bg-white/[0.04] border border-white/10 text-text-primary font-sans text-base px-4 py-3.5 rounded-sm outline-none transition-all duration-200 focus:border-gold/50 focus:bg-gold/[0.04] placeholder:text-text-muted";
 
   return (
     <form ref={formRef} onSubmit={handleSubmit}>
@@ -96,7 +96,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={submitted || sending}
-        className={`mt-6 w-full py-4 rounded-sm font-sans text-[0.88rem] font-semibold uppercase tracking-[0.1em] transition-all duration-200 ${
+        className={`mt-6 w-full py-4 rounded-sm font-sans text-base font-semibold uppercase tracking-[0.1em] transition-all duration-200 ${
           submitted
             ? "bg-gradient-to-r from-green-400 to-green-500 text-bg-primary"
             : sending

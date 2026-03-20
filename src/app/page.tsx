@@ -152,7 +152,7 @@ export default function Home() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative flex min-h-[95vh] items-center justify-center overflow-hidden px-[6vw] pt-28 pb-28">
+      <section className="relative flex min-h-[95vh] items-center justify-center overflow-hidden px-5 pt-28 pb-20 md:px-[6vw] md:pb-28">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(201,168,76,0.07)_0%,transparent_70%)]" />
 
         <div className="relative z-10 max-w-[860px] text-center">
@@ -164,7 +164,7 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <h1 className="font-serif text-[clamp(3rem,7vw,6.5rem)] font-light leading-[1.08] tracking-tight">
+            <h1 className="font-serif text-[clamp(2rem,7vw,6.5rem)] font-light leading-[1.08] tracking-tight">
               Votre croissance,
               <br />
               <em className="text-gradient-gold not-italic">automatisee a 360&deg;</em>
@@ -172,7 +172,7 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
-            <p className="mx-auto mt-8 max-w-[580px] text-[1.15rem] font-light leading-relaxed text-text-dimmed">
+            <p className="mx-auto mt-8 max-w-[580px] text-base font-light leading-relaxed text-text-dimmed md:text-[1.15rem]">
               Lead Machine deploie des systemes d&apos;automatisation par IA sur mesure qui generent
               des leads, qualifient vos prospects et convertissent — pendant que vous vous concentrez
               sur l&apos;essentiel.
@@ -180,11 +180,11 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal delay={300}>
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
-              <Button href="#contact" size="lg">
+            <div className="mt-10 flex flex-col items-center gap-4 md:mt-12 md:flex-row md:justify-center">
+              <Button href="#contact" size="lg" className="w-full md:w-auto">
                 Demander ma demo gratuite &rarr;
               </Button>
-              <Button href="#avantages" variant="secondary" size="lg">
+              <Button href="#avantages" variant="secondary" size="lg" className="w-full md:w-auto">
                 Decouvrir la solution &darr;
               </Button>
             </div>
@@ -193,15 +193,15 @@ export default function Home() {
       </section>
 
       {/* ── STATS BAR ── */}
-      <section className="border-y border-border bg-[linear-gradient(180deg,transparent,rgba(201,168,76,0.03),transparent)] py-24 px-[6vw]">
-        <div className="mx-auto grid max-w-[1100px] grid-cols-2 gap-8 lg:grid-cols-4 lg:gap-0">
+      <section className="border-y border-border bg-[linear-gradient(180deg,transparent,rgba(201,168,76,0.03),transparent)] px-5 py-16 md:px-[6vw] md:py-24">
+        <div className="mx-auto grid max-w-[1100px] grid-cols-2 gap-6 lg:grid-cols-4 lg:gap-0">
           {stats.map((s) => (
             <ScrollReveal key={s.value}>
-              <div className="px-6 py-8 text-center lg:border-r lg:border-border lg:last:border-r-0">
-                <div className="text-gradient-gold font-serif text-[clamp(3rem,5.5vw,4.5rem)] font-light leading-none">
+              <div className="px-4 py-4 text-center md:px-6 md:py-8 lg:border-r lg:border-border lg:last:border-r-0">
+                <div className="text-gradient-gold font-serif text-[clamp(2.2rem,5.5vw,4.5rem)] font-light leading-none">
                   {s.value}
                 </div>
-                <div className="mt-3 text-[0.95rem] text-text-dimmed">{s.desc}</div>
+                <div className="mt-3 text-sm text-text-dimmed md:text-base">{s.desc}</div>
               </div>
             </ScrollReveal>
           ))}
@@ -209,7 +209,7 @@ export default function Home() {
       </section>
 
       {/* ── ADVANTAGES ── */}
-      <section id="avantages" className="px-[6vw] py-36">
+      <section id="avantages" className="px-5 py-20 md:px-[6vw] md:py-36">
         <ScrollReveal>
           <SectionHeader
             label="Pourquoi Lead Machine"
@@ -218,15 +218,21 @@ export default function Home() {
           />
         </ScrollReveal>
 
-        <div className="mx-auto mt-20 grid max-w-[1100px] grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
-          {advantages.map((adv) => (
-            <ScrollReveal key={adv.title}>
-              <div className="bg-bg-card p-12 transition-colors duration-300 hover:bg-gold/[0.04]">
-                <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-lg border border-white/15 text-white/70">
+        <div className="mx-auto mt-14 flex max-w-[900px] flex-col gap-0 md:mt-20">
+          {advantages.map((adv, i) => (
+            <ScrollReveal key={adv.title} delay={i * 80}>
+              <div
+                className={`flex flex-col gap-5 px-6 py-8 sm:flex-row sm:items-start sm:gap-8 md:px-10 md:py-10 ${
+                  i % 2 === 1 ? "bg-[#111111]" : "bg-transparent"
+                } transition-colors duration-300 hover:bg-gold/[0.04]`}
+              >
+                <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl border border-gold/20 bg-gold/[0.06] text-gold">
                   {adv.icon}
                 </div>
-                <h3 className="mb-4 font-serif text-2xl font-normal">{adv.title}</h3>
-                <p className="text-[0.95rem] leading-[1.75] text-text-dimmed">{adv.text}</p>
+                <div>
+                  <h3 className="mb-2 font-serif text-2xl font-normal">{adv.title}</h3>
+                  <p className="text-base leading-[1.75] text-text-dimmed">{adv.text}</p>
+                </div>
               </div>
             </ScrollReveal>
           ))}
@@ -234,7 +240,7 @@ export default function Home() {
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section id="fonctionnement" className="bg-[#111111] px-[6vw] py-36">
+      <section id="fonctionnement" className="bg-[#111111] px-5 py-20 md:px-[6vw] md:py-36">
         <ScrollReveal>
           <SectionHeader
             label="Comment ca fonctionne"
@@ -243,25 +249,47 @@ export default function Home() {
           />
         </ScrollReveal>
 
-        <div className="relative mx-auto mt-20 grid max-w-[1100px] grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="pointer-events-none absolute top-[30px] left-[12.5%] right-[12.5%] hidden h-px bg-gradient-to-r from-transparent via-gold to-transparent opacity-30 lg:block" />
-
-          {steps.map((step) => (
-            <ScrollReveal key={step.num}>
-              <div className="text-center px-6">
+        {/* Desktop: horizontal with connecting line */}
+        <div className="relative mx-auto mt-14 hidden max-w-[1100px] grid-cols-4 gap-10 lg:grid lg:mt-20">
+          <div className="pointer-events-none absolute top-[30px] left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-gold to-transparent opacity-30" />
+          {steps.map((step, i) => (
+            <ScrollReveal key={step.num} delay={i * 100}>
+              <div className="text-center px-4">
                 <div className="mx-auto mb-6 flex h-[60px] w-[60px] items-center justify-center rounded-full border border-gold/40 bg-gold/[0.06] font-serif text-xl text-gold">
                   {step.num}
                 </div>
                 <h3 className="mb-3 text-lg font-medium">{step.title}</h3>
-                <p className="text-[0.95rem] leading-[1.7] text-text-dimmed">{step.text}</p>
+                <p className="text-base leading-[1.7] text-text-dimmed">{step.text}</p>
               </div>
             </ScrollReveal>
           ))}
         </div>
+
+        {/* Mobile/Tablet: vertical timeline with gold line */}
+        <div className="relative mx-auto mt-14 max-w-[600px] lg:hidden">
+          {/* Gold connecting line */}
+          <div className="absolute top-2 bottom-2 left-[19px] w-px bg-gradient-to-b from-gold/50 via-gold/30 to-gold/10" />
+
+          <div className="flex flex-col gap-8">
+            {steps.map((step, i) => (
+              <ScrollReveal key={step.num} delay={i * 80}>
+                <div className="relative flex gap-6 pl-0">
+                  <div className="relative z-10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-gold/40 bg-[#111111] font-serif text-sm text-gold">
+                    {step.num}
+                  </div>
+                  <div className="pt-1">
+                    <h3 className="mb-1.5 text-lg font-medium">{step.title}</h3>
+                    <p className="text-base leading-[1.7] text-text-dimmed">{step.text}</p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ── SECTORS ── */}
-      <section id="secteurs" className="px-[6vw] py-36">
+      <section id="secteurs" className="px-5 py-20 md:px-[6vw] md:py-36">
         <ScrollReveal>
           <SectionHeader
             label="Secteurs d'activite"
@@ -270,24 +298,24 @@ export default function Home() {
           />
         </ScrollReveal>
 
-        <div className="mx-auto mt-20 grid max-w-[1100px] grid-cols-1 gap-px border border-border bg-border md:grid-cols-2">
-          {sectors.map((sector) => {
+        <div className="mx-auto mt-14 grid max-w-[1100px] grid-cols-1 gap-5 md:mt-20 md:grid-cols-2 md:gap-6">
+          {sectors.map((sector, i) => {
             const content = (
               <div
-                className={`relative flex flex-col gap-5 overflow-hidden bg-bg-card p-12 transition-colors duration-300 ${
+                className={`relative flex h-full flex-col gap-5 overflow-hidden rounded-xl border border-border bg-bg-card p-8 transition-colors duration-300 md:p-12 ${
                   sector.dimmed
                     ? "pointer-events-none opacity-50"
-                    : "group hover:bg-gold/[0.04]"
+                    : "group hover:bg-gold/[0.04] hover:border-gold/20"
                 }`}
               >
                 {!sector.dimmed && (
                   <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-gold to-gold-light scale-x-0 origin-left transition-transform duration-400 group-hover:scale-x-100" />
                 )}
-                <span className="text-[0.7rem] uppercase tracking-[0.18em] text-white/40">
+                <span className="text-xs uppercase tracking-[0.18em] text-white/40">
                   {sector.tag}
                 </span>
                 <h3 className="font-serif text-3xl font-light">{sector.title}</h3>
-                <p className="text-[0.95rem] leading-[1.75] text-text-dimmed">{sector.desc}</p>
+                <p className="text-base leading-[1.75] text-text-dimmed">{sector.desc}</p>
                 <span
                   className={`text-sm font-medium uppercase tracking-wider transition-all duration-200 ${
                     sector.dimmed
@@ -301,7 +329,7 @@ export default function Home() {
             );
 
             return (
-              <ScrollReveal key={sector.title}>
+              <ScrollReveal key={sector.title} delay={i * 60}>
                 {sector.href ? (
                   <Link href={sector.href} className="block no-underline text-inherit">
                     {content}
@@ -316,7 +344,7 @@ export default function Home() {
       </section>
 
       {/* ── PRICING ── */}
-      <section id="offres" className="px-[6vw] py-36">
+      <section id="offres" className="px-5 py-20 md:px-[6vw] md:py-36">
         <ScrollReveal>
           <SectionHeader
             label="Nos offres"
@@ -325,11 +353,11 @@ export default function Home() {
           />
         </ScrollReveal>
 
-        <div className="mx-auto mt-20 grid max-w-[1000px] grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
-          {pricingPlans.map((plan) => (
-            <ScrollReveal key={plan.tier}>
+        <div className="mx-auto mt-14 grid max-w-[1000px] grid-cols-1 gap-px border border-border bg-border md:mt-20 md:grid-cols-3">
+          {pricingPlans.map((plan, i) => (
+            <ScrollReveal key={plan.tier} delay={i * 60}>
               <div
-                className={`relative p-10 ${
+                className={`relative p-8 md:p-10 ${
                   plan.featured ? "bg-gold/[0.05]" : "bg-bg-card"
                 }`}
               >
@@ -338,20 +366,20 @@ export default function Home() {
                     Le plus populaire
                   </div>
                 )}
-                <div className="text-[0.72rem] uppercase tracking-[0.18em] text-text-dimmed mb-4">
+                <div className="text-xs uppercase tracking-[0.18em] text-text-dimmed mb-4">
                   {plan.tier}
                 </div>
-                <div className="font-serif text-5xl font-light text-gold-light leading-none">
+                <div className="font-serif text-4xl font-light text-gold-light leading-none md:text-5xl">
                   {plan.amount}
                 </div>
-                <div className="mt-1 text-[0.78rem] text-text-dimmed">{plan.period}</div>
+                <div className="mt-1 text-sm text-text-dimmed">{plan.period}</div>
                 {plan.note && (
-                  <div className="mt-1 mb-8 text-[0.68rem] text-green-400">{plan.note}</div>
+                  <div className="mt-1 mb-8 text-xs text-green-400">{plan.note}</div>
                 )}
                 {!plan.note && <div className="mb-8" />}
                 <ul className="mb-8 flex flex-col gap-2.5">
                   {plan.features.map((f) => (
-                    <li key={f} className="flex gap-2.5 text-[0.84rem] text-white/75">
+                    <li key={f} className="flex gap-2.5 text-base text-white/75">
                       <span className="flex-shrink-0 text-gold">&mdash;</span>
                       {f}
                     </li>
@@ -359,7 +387,7 @@ export default function Home() {
                 </ul>
                 <Link
                   href="#contact"
-                  className={`block rounded-sm py-3.5 text-center text-[0.8rem] uppercase tracking-[0.12em] transition-all duration-200 no-underline ${
+                  className={`block w-full rounded-sm py-3.5 text-center text-sm uppercase tracking-[0.12em] transition-all duration-200 no-underline ${
                     plan.featured
                       ? "bg-gold font-semibold text-bg-primary"
                       : "border border-gold/35 text-gold hover:bg-gold/10"
@@ -374,7 +402,7 @@ export default function Home() {
       </section>
 
       {/* ── FAQ ── */}
-      <section id="faq" className="bg-[#111111] px-[6vw] py-36">
+      <section id="faq" className="bg-[#111111] px-5 py-20 md:px-[6vw] md:py-36">
         <ScrollReveal>
           <SectionHeader
             label="Questions frequentes"
@@ -388,21 +416,21 @@ export default function Home() {
       </section>
 
       {/* ── CONTACT ── */}
-      <section id="contact" className="px-[6vw] py-36">
+      <section id="contact" className="px-5 py-20 md:px-[6vw] md:py-36">
         <ScrollReveal>
-          <div className="mx-auto max-w-[1100px] grid grid-cols-1 border border-border bg-border md:grid-cols-2">
+          <div className="mx-auto max-w-[1100px] grid grid-cols-1 gap-0 overflow-hidden rounded-xl border border-border md:grid-cols-2">
             {/* Left info */}
-            <div className="flex flex-col justify-between border-b border-border bg-bg-card p-12 md:border-b-0 md:border-r">
+            <div className="flex flex-col justify-between border-b border-border bg-bg-card p-8 md:border-b-0 md:border-r md:p-12">
               <div>
-                <span className="mb-6 block text-[0.7rem] uppercase tracking-[0.2em] text-white/40">
+                <span className="mb-6 block text-xs uppercase tracking-[0.2em] text-white/40">
                   Demarrer maintenant
                 </span>
-                <h2 className="mb-6 font-serif text-4xl font-light leading-[1.2]">
+                <h2 className="mb-6 font-serif text-3xl font-light leading-[1.2] md:text-4xl">
                   Demandez votre
                   <br />
                   <em className="text-gradient-gold not-italic">demo gratuite</em>
                 </h2>
-                <p className="mb-8 text-[0.95rem] leading-[1.8] text-text-dimmed">
+                <p className="mb-8 text-base leading-[1.8] text-text-dimmed">
                   Un audit de 30 minutes pour analyser votre processus actuel et vous presenter
                   concretement ce qu&apos;un systeme Lead Machine peut generer pour votre activite.
                 </p>
@@ -416,7 +444,7 @@ export default function Home() {
                 ].map((perk) => (
                   <li
                     key={perk}
-                    className="flex items-center gap-3 text-[0.95rem] text-text-dimmed"
+                    className="flex items-center gap-3 text-base text-text-dimmed"
                   >
                     <span className="flex-shrink-0 text-[0.58rem] text-gold">{"\u2726"}</span>
                     {perk}
@@ -426,17 +454,17 @@ export default function Home() {
             </div>
 
             {/* Right form */}
-            <div className="bg-[#0F0F0F] p-12">
+            <div className="bg-[#0F0F0F] p-8 md:p-12">
               <ContactForm />
               <div className="mt-6 text-center">
                 <div className="mb-3 flex items-center gap-3">
                   <div className="h-px flex-1 bg-white/10" />
-                  <span className="text-[0.72rem] uppercase tracking-[0.15em] text-white/30">ou</span>
+                  <span className="text-xs uppercase tracking-[0.15em] text-white/30">ou</span>
                   <div className="h-px flex-1 bg-white/10" />
                 </div>
                 <a
                   href="/rdv"
-                  className="inline-flex items-center gap-2 rounded-sm border border-gold/30 px-6 py-3 text-[0.82rem] font-medium tracking-wide text-gold transition-all hover:border-gold/60 hover:bg-gold/5"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-sm border border-gold/30 px-6 py-3 text-sm font-medium tracking-wide text-gold transition-all hover:border-gold/60 hover:bg-gold/5 md:w-auto"
                 >
                   Reservez directement un creneau Calendly
                 </a>

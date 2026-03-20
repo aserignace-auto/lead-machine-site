@@ -68,7 +68,7 @@ export default function RdvPage() {
   return (
     <>
       {/* ── HERO (2-column) ── */}
-      <section className="relative overflow-hidden bg-bg-primary px-[6vw] pt-28 pb-16">
+      <section className="relative overflow-hidden bg-bg-primary px-5 pt-28 pb-16 md:px-[6vw]">
         {/* Decorative backgrounds */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_30%,rgba(201,168,76,0.07)_0%,transparent_70%)]" />
         <div
@@ -92,7 +92,7 @@ export default function RdvPage() {
                   Appel decouverte &middot; 30 minutes &middot; Gratuit
                 </div>
 
-                <h1 className="font-serif text-[clamp(2.2rem,4vw,4rem)] font-light leading-[1.1] tracking-tight">
+                <h1 className="font-serif text-[clamp(2rem,4vw,4rem)] font-light leading-[1.1] tracking-tight">
                   Planifiez votre
                   <br />
                   <em className="text-gradient-gold italic">appel decouverte</em>
@@ -100,7 +100,7 @@ export default function RdvPage() {
                   gratuit
                 </h1>
 
-                <p className="mt-5 max-w-[480px] text-[0.95rem] leading-[1.8] text-text-dimmed">
+                <p className="mt-5 max-w-[480px] text-base leading-[1.8] text-text-dimmed">
                   30 minutes pour analyser votre situation, identifier vos axes d&apos;automatisation et vous
                   presenter concretement ce qu&apos;un systeme Lead Machine peut generer pour votre activite.
                   Zero engagement, zero pression commerciale.
@@ -108,7 +108,7 @@ export default function RdvPage() {
 
                 <div className="mt-8 flex flex-col gap-3">
                   {HERO_BENEFITS.map((benefit) => (
-                    <div key={benefit} className="flex items-start gap-3 text-[0.85rem] text-text-dimmed">
+                    <div key={benefit} className="flex items-start gap-3 text-base text-text-dimmed">
                       <span className="mt-0.5 text-green-400">&#10003;</span>
                       {benefit}
                     </div>
@@ -138,7 +138,7 @@ export default function RdvPage() {
                   width="100%"
                   height="620"
                   frameBorder="0"
-                  className="block"
+                  className="block h-[400px] lg:h-[620px]"
                   title="Calendly - Reserver un appel decouverte"
                 />
               </div>
@@ -148,7 +148,7 @@ export default function RdvPage() {
       </section>
 
       {/* ── AGENDA ── */}
-      <section className="bg-[#111111] px-[6vw] py-20">
+      <section className="bg-[#111111] px-5 py-20 md:px-[6vw]">
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
             <div className="mb-12">
@@ -169,11 +169,11 @@ export default function RdvPage() {
           <div className="grid grid-cols-1 border border-border bg-border sm:grid-cols-2 lg:grid-cols-4" style={{ gap: '1px' }}>
             {AGENDA_ITEMS.map((item, i) => (
               <ScrollReveal key={item.time} delay={i * 80}>
-                <div className="flex h-full flex-col bg-bg-card p-7">
+                <div className="flex h-full flex-col bg-bg-card p-6 md:p-7">
                   <div className="font-serif text-3xl font-light leading-none text-gold-light">{item.time}</div>
-                  <div className="mt-2 text-[0.68rem] uppercase tracking-[0.14em] text-white/35">Minutes</div>
-                  <div className="mt-3 text-[0.95rem] font-medium text-text-primary">{item.title}</div>
-                  <p className="mt-2 text-[0.8rem] leading-[1.7] text-text-dimmed">{item.text}</p>
+                  <div className="mt-2 text-xs uppercase tracking-[0.14em] text-white/35">Minutes</div>
+                  <div className="mt-3 text-base font-medium text-text-primary">{item.title}</div>
+                  <p className="mt-2 text-base leading-[1.7] text-text-dimmed">{item.text}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -182,7 +182,7 @@ export default function RdvPage() {
       </section>
 
       {/* ── GUARANTEES ── */}
-      <section className="px-[6vw] py-20">
+      <section className="px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mx-auto max-w-[900px] text-center">
             <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
@@ -197,10 +197,10 @@ export default function RdvPage() {
         <div className="mx-auto mt-12 grid max-w-[900px] grid-cols-1 border border-border bg-border md:grid-cols-3" style={{ gap: '1px' }}>
           {GUARANTEES.map((g, i) => (
             <ScrollReveal key={g.title} delay={i * 80}>
-              <div className="flex h-full flex-col bg-bg-card p-8">
+              <div className="flex h-full flex-col bg-bg-card p-6 md:p-8">
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg border border-white/15 text-white/70">{g.icon}</div>
-                <div className="text-[0.95rem] font-medium text-text-primary">{g.title}</div>
-                <p className="mt-2 text-[0.8rem] leading-[1.7] text-text-dimmed">{g.text}</p>
+                <div className="text-base font-medium text-text-primary">{g.title}</div>
+                <p className="mt-2 text-base leading-[1.7] text-text-dimmed">{g.text}</p>
               </div>
             </ScrollReveal>
           ))}

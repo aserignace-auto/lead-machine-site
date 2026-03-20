@@ -23,11 +23,11 @@ export default function FaqAccordion({ items }: FaqAccordionProps) {
             <button
               type="button"
               onClick={() => setOpenIndex(isOpen ? null : i)}
-              className="w-full flex items-center justify-between gap-4 px-8 py-5 text-left font-sans text-[0.92rem] font-normal text-text-primary transition-colors duration-200 hover:text-gold-light"
+              className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left font-sans text-base font-normal text-text-primary transition-colors duration-200 hover:text-gold-light min-h-[48px] md:px-8 md:py-5"
             >
               <span>{item.question}</span>
               <span
-                className={`flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-gold/30 text-gold text-sm transition-all duration-300 ${
+                className={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-gold/30 text-gold text-sm transition-all duration-300 ${
                   isOpen ? "rotate-45 bg-gold/10" : ""
                 }`}
               >
@@ -36,10 +36,10 @@ export default function FaqAccordion({ items }: FaqAccordionProps) {
             </button>
             <div
               className={`overflow-hidden transition-all duration-400 ease-in-out ${
-                isOpen ? "max-h-80 pb-6 px-8" : "max-h-0 px-8"
+                isOpen ? "max-h-80 pb-6 px-5 md:px-8" : "max-h-0 px-5 md:px-8"
               }`}
             >
-              <p className="text-sm leading-[1.8] text-text-dimmed">
+              <p className="text-base leading-[1.8] text-text-dimmed">
                 {item.answer}
               </p>
             </div>

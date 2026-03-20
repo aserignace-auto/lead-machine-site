@@ -154,7 +154,7 @@ function JobPanel({
   footerNote: string;
 }) {
   return (
-    <section className={`px-[6vw] py-20 ${role === 'setter' ? 'bg-[#111111]' : 'bg-bg-primary'}`}>
+    <section className={`px-5 py-20 md:px-[6vw] ${role === 'setter' ? 'bg-[#111111]' : 'bg-bg-primary'}`}>
       <ScrollReveal>
         <div className="mb-12">
           <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
@@ -171,29 +171,29 @@ function JobPanel({
 
       <div className="mx-auto grid max-w-[1100px] grid-cols-1 border border-border bg-border lg:grid-cols-2" style={{ gap: 0 }}>
         {/* Left - Role details */}
-        <div className="border-b border-border bg-bg-card p-8 lg:border-b-0 lg:border-r lg:p-10">
-          <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.2em] text-white/40">{roleLabel}</span>
-          <div className="font-serif text-4xl font-light">Ton rôle au quotidien</div>
-          <p className="mt-4 text-[0.88rem] leading-[1.8] text-text-dimmed">{description}</p>
+        <div className="border-b border-border bg-bg-card p-6 lg:border-b-0 lg:border-r lg:p-10">
+          <span className="mb-3 block text-xs uppercase tracking-[0.2em] text-white/40">{roleLabel}</span>
+          <div className="font-serif text-3xl font-light md:text-4xl">Ton role au quotidien</div>
+          <p className="mt-4 text-base leading-[1.8] text-text-dimmed">{description}</p>
 
-          <span className="mb-3 mt-6 block text-[0.7rem] uppercase tracking-[0.16em] text-white/40">
+          <span className="mb-3 mt-6 block text-xs uppercase tracking-[0.16em] text-white/40">
             Missions principales
           </span>
           <ul className="flex flex-col gap-2">
             {missions.map((m) => (
-              <li key={m} className="flex gap-2.5 text-[0.84rem] text-white/78">
+              <li key={m} className="flex gap-2.5 text-base text-white/78">
                 <span className="flex-shrink-0 text-gold">&mdash;</span>
                 {m}
               </li>
             ))}
           </ul>
 
-          <span className="mb-3 mt-6 block text-[0.7rem] uppercase tracking-[0.16em] text-white/40">
-            Profil recherché
+          <span className="mb-3 mt-6 block text-xs uppercase tracking-[0.16em] text-white/40">
+            Profil recherche
           </span>
           <ul className="flex flex-col gap-2">
             {profile.map((p) => (
-              <li key={p} className="flex gap-2.5 text-[0.84rem] text-white/78">
+              <li key={p} className="flex gap-2.5 text-base text-white/78">
                 <span className="flex-shrink-0 text-gold">&mdash;</span>
                 {p}
               </li>
@@ -217,14 +217,14 @@ function JobPanel({
         </div>
 
         {/* Right - Commission & examples */}
-        <div className="bg-[#0D0D0D] p-8 lg:p-10">
+        <div className="bg-[#0D0D0D] p-6 lg:p-10">
           {/* Commission box */}
-          <div className="mb-6 rounded-md border border-gold/20 bg-gold/6 p-5">
-            <div className="mb-4 text-[0.68rem] uppercase tracking-[0.16em] text-white/40">{commissionTitle}</div>
+          <div className="mb-6 rounded-md border border-gold/20 bg-gold/6 p-4 md:p-5">
+            <div className="mb-4 text-xs uppercase tracking-[0.16em] text-white/40">{commissionTitle}</div>
             {commissionRows.map((r) => (
               <div
                 key={r.label}
-                className="flex items-baseline justify-between border-b border-gold/10 py-1.5 text-[0.83rem] last:border-b-0"
+                className="flex items-baseline justify-between border-b border-gold/10 py-1.5 text-base last:border-b-0"
               >
                 <span className="text-text-dimmed">{r.label}</span>
                 <span className="font-serif text-xl text-gold-light">{r.val}</span>
@@ -233,32 +233,32 @@ function JobPanel({
           </div>
 
           {/* Example */}
-          <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.16em] text-white/40">
+          <span className="mb-3 block text-xs uppercase tracking-[0.16em] text-white/40">
             Exemple de revenus
           </span>
-          <div className="mb-5 rounded-md border border-white/6 bg-white/3 p-5">
-            <div className="mb-3 text-[0.68rem] uppercase tracking-[0.12em] text-white/35">
+          <div className="mb-5 rounded-md border border-white/6 bg-white/3 p-4 md:p-5">
+            <div className="mb-3 text-xs uppercase tracking-[0.12em] text-white/35">
               {example.scenario}
             </div>
             {example.rows.map((r) => (
-              <div key={r.label} className="flex items-baseline justify-between border-b border-gold/10 py-1.5 text-[0.83rem]">
+              <div key={r.label} className="flex items-baseline justify-between border-b border-gold/10 py-1.5 text-base">
                 <span className="text-text-dimmed">{r.label}</span>
-                <span className="text-[0.9rem] font-medium text-text-primary">{r.val}</span>
+                <span className="text-base font-medium text-text-primary">{r.val}</span>
               </div>
             ))}
-            <div className="flex items-baseline justify-between pt-1.5 text-[0.83rem]">
+            <div className="flex items-baseline justify-between pt-1.5 text-base">
               <span className="text-text-primary">{example.total.label}</span>
               <span className="font-serif text-3xl text-green-400">{example.total.val}</span>
             </div>
           </div>
 
           {/* Access note */}
-          <span className="mb-2 block text-[0.7rem] uppercase tracking-[0.16em] text-white/40">
-            Condition d&apos;accès au CRM
+          <span className="mb-2 block text-xs uppercase tracking-[0.16em] text-white/40">
+            Condition d&apos;acces au CRM
           </span>
-          <p className="text-[0.83rem] leading-[1.75] text-text-dimmed">{accessNote}</p>
+          <p className="text-base leading-[1.75] text-text-dimmed">{accessNote}</p>
 
-          <div className="mt-5 rounded border border-gold/20 bg-gold/6 p-4 text-[0.82rem] text-gold-lighter">
+          <div className="mt-5 rounded border border-gold/20 bg-gold/6 p-4 text-base text-gold-lighter">
             <span className="mr-1">{'\u2726'}</span> {footerNote}
           </div>
         </div>
@@ -287,7 +287,7 @@ function EarningsSimulator() {
 
   return (
     <div className="mx-auto max-w-[900px] grid grid-cols-1 border border-border bg-border lg:grid-cols-2" style={{ gap: 0 }}>
-      <div className="border-b border-border bg-bg-card p-8 lg:border-b-0 lg:border-r">
+      <div className="border-b border-border bg-bg-card p-6 lg:border-b-0 lg:border-r lg:p-8">
         <div className="mb-6 font-serif text-2xl font-light">Votre profil commercial</div>
 
         <div className="mb-5">
@@ -363,7 +363,7 @@ function EarningsSimulator() {
         )}
       </div>
 
-      <div className="flex flex-col justify-center gap-4 bg-[#0D0D0D] p-8">
+      <div className="flex flex-col justify-center gap-4 bg-[#0D0D0D] p-6 lg:p-8">
         <div className="mb-2 text-[0.68rem] uppercase tracking-[0.16em] text-white/40">
           Projection mensuelle — {role === 'setter' ? 'Setter (20%)' : 'Closer (30% + primes)'}
         </div>
@@ -459,7 +459,7 @@ export default function RecrutementPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative flex min-h-[80vh] items-center justify-center overflow-hidden px-[6vw] pt-28 pb-16 text-center">
+      <section className="relative flex min-h-[80vh] items-center justify-center overflow-hidden px-5 pt-28 pb-16 text-center md:px-[6vw]">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(201,168,76,0.07)_0%,transparent_70%)]" />
         <div
           className="pointer-events-none absolute inset-0"
@@ -481,38 +481,38 @@ export default function RecrutementPage() {
             Recrutement &middot; Commission uniquement &middot; 100% remote
           </div>
 
-          <h1 className="font-serif text-[clamp(2.8rem,6vw,6rem)] font-light leading-[1.08] tracking-tight">
+          <h1 className="font-serif text-[clamp(2rem,6vw,6rem)] font-light leading-[1.08] tracking-tight">
             Rejoignez l&apos;équipe
             <br />
             <em className="text-gradient-gold italic">Lead Machine</em>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-[600px] text-[1.05rem] font-light text-text-dimmed">
+          <p className="mx-auto mt-6 max-w-[600px] text-base font-light text-text-dimmed md:text-[1.05rem]">
             Nous recrutons des commerciaux ambitieux qui veulent gagner à la hauteur de leurs résultats. Pas
             de salaire fixe, pas de plafond. Vos revenus dépendent uniquement de vous.
           </p>
 
           {/* Role Toggle */}
-          <div className="mx-auto mt-10 flex max-w-[640px] overflow-hidden rounded border border-border bg-border" style={{ gap: '1px' }}>
+          <div className="mx-auto mt-10 flex w-full max-w-[640px] flex-col overflow-hidden rounded border border-border bg-border sm:flex-row" style={{ gap: '1px' }}>
             <button
               onClick={() => handleTab('setter')}
-              className={`flex-1 py-4 text-[0.85rem] font-medium tracking-wide transition-colors ${
+              className={`flex-1 min-h-[48px] py-4 text-base font-medium tracking-wide transition-colors ${
                 activeRole === 'setter'
                   ? 'bg-gold/12 text-gold-light'
                   : 'bg-bg-card text-text-dimmed hover:bg-white/4 hover:text-text-primary'
               }`}
             >
-              Je cherche à faire du Setting
+              Je cherche a faire du Setting
             </button>
             <button
               onClick={() => handleTab('closer')}
-              className={`flex-1 py-4 text-[0.85rem] font-medium tracking-wide transition-colors ${
+              className={`flex-1 min-h-[48px] py-4 text-base font-medium tracking-wide transition-colors ${
                 activeRole === 'closer'
                   ? 'bg-gold/12 text-gold-light'
                   : 'bg-bg-card text-text-dimmed hover:bg-white/4 hover:text-text-primary'
               }`}
             >
-              Je cherche à faire du Closing
+              Je cherche a faire du Closing
             </button>
           </div>
         </div>
@@ -522,11 +522,11 @@ export default function RecrutementPage() {
       <div className="grid grid-cols-2 border-y border-border bg-gold/2 lg:grid-cols-4">
         {STATS.map((s, i) => (
           <ScrollReveal key={s.big} delay={i * 80}>
-            <div className="border-r border-border p-6 text-center last:border-r-0 lg:p-8">
-              <div className="text-gradient-gold font-serif text-[clamp(2rem,4vw,3rem)] font-light leading-none">
+            <div className="border-r border-border p-4 text-center last:border-r-0 md:p-6 lg:p-8">
+              <div className="text-gradient-gold font-serif text-[clamp(1.8rem,4vw,3rem)] font-light leading-none">
                 {s.big}
               </div>
-              <div className="mt-1.5 text-[0.78rem] text-text-dimmed">{s.desc}</div>
+              <div className="mt-1.5 text-xs text-text-dimmed md:text-sm">{s.desc}</div>
             </div>
           </ScrollReveal>
         ))}
@@ -568,7 +568,7 @@ export default function RecrutementPage() {
       )}
 
       {/* ── ONBOARDING STEPS ── */}
-      <section className="bg-[#111111] px-[6vw] py-20">
+      <section className="bg-[#111111] px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mb-12">
             <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
@@ -585,10 +585,10 @@ export default function RecrutementPage() {
         <div className="mx-auto grid max-w-[1100px] grid-cols-1 border border-border bg-border md:grid-cols-3" style={{ gap: '1px' }}>
           {STEPS.map((step, i) => (
             <ScrollReveal key={step.num} delay={i * 80}>
-              <div className="bg-bg-card p-8">
+              <div className="bg-bg-card p-6 md:p-8">
                 <div className="font-serif text-5xl font-light leading-none text-gold/18">{step.num}</div>
                 <div className="mt-3 text-base font-medium text-text-primary">{step.title}</div>
-                <p className="mt-2 text-[0.83rem] leading-[1.75] text-text-dimmed">{step.text}</p>
+                <p className="mt-2 text-base leading-[1.75] text-text-dimmed">{step.text}</p>
               </div>
             </ScrollReveal>
           ))}
@@ -596,7 +596,7 @@ export default function RecrutementPage() {
       </section>
 
       {/* ── EARNINGS SIMULATOR ── */}
-      <section className="px-[6vw] py-20">
+      <section className="px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mb-12">
             <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
@@ -619,10 +619,10 @@ export default function RecrutementPage() {
       </section>
 
       {/* ── APPLICATION FORM ── */}
-      <section className="bg-[#111111] px-[6vw] py-20" id="candidature">
+      <section className="bg-[#111111] px-5 py-20 md:px-[6vw]" id="candidature">
         <div className="mx-auto grid max-w-[1000px] grid-cols-1 border border-border bg-border lg:grid-cols-2" style={{ gap: 0 }}>
           {/* Left */}
-          <div className="border-b border-border bg-bg-card p-10 lg:border-b-0 lg:border-r">
+          <div className="border-b border-border bg-bg-card p-6 lg:border-b-0 lg:border-r lg:p-10">
             <span className="mb-4 block text-[0.7rem] uppercase tracking-[0.2em] text-white/40">
               Postuler maintenant
             </span>
@@ -631,14 +631,14 @@ export default function RecrutementPage() {
               <br />
               <em className="text-gold-light italic">l&apos;équipe</em>
             </h2>
-            <p className="mt-4 text-[0.86rem] leading-[1.8] text-text-dimmed">
+            <p className="mt-4 text-base leading-[1.8] text-text-dimmed">
               Remplissez ce formulaire. Nous examinons chaque candidature et revenons vers vous sous 48h pour
-              un premier échange de 20 minutes.
+              un premier echange de 20 minutes.
             </p>
 
             <ul className="mt-8 flex flex-col gap-3">
               {PERKS.map((perk) => (
-                <li key={perk} className="flex items-start gap-3 text-[0.84rem] text-text-dimmed">
+                <li key={perk} className="flex items-start gap-3 text-base text-text-dimmed">
                   <span className="mt-1 flex-shrink-0 text-[0.55rem] text-gold">{'\u2726'}</span>
                   {perk}
                 </li>
@@ -647,7 +647,7 @@ export default function RecrutementPage() {
           </div>
 
           {/* Right - Form */}
-          <div className="bg-[#0F0F0F] p-10">
+          <div className="bg-[#0F0F0F] p-6 lg:p-10">
             <form onSubmit={handleApply}>
               <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>

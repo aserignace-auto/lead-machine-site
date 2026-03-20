@@ -77,7 +77,7 @@ export default function AProposPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden px-[6vw] pt-28 pb-16">
+      <section className="relative overflow-hidden px-5 pt-28 pb-16 md:px-[6vw]">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_70%_at_70%_50%,rgba(201,168,76,0.07)_0%,transparent_70%)]" />
         <div
           className="pointer-events-none absolute inset-0"
@@ -98,7 +98,7 @@ export default function AProposPage() {
               MRC &middot; Lead Machine &middot; Fonde par Maxime
             </div>
 
-            <h1 className="font-serif text-[clamp(2.5rem,5vw,5rem)] font-light leading-[1.1] tracking-tight">
+            <h1 className="font-serif text-[clamp(2rem,5vw,5rem)] font-light leading-[1.1] tracking-tight">
               Nous croyons que votre
               <br />
               croissance ne devrait pas
@@ -107,17 +107,17 @@ export default function AProposPage() {
               <em className="text-gradient-gold italic">temps disponible.</em>
             </h1>
 
-            <p className="mt-5 max-w-[540px] text-[0.95rem] leading-[1.8] text-text-dimmed">
+            <p className="mt-5 max-w-[540px] text-base leading-[1.8] text-text-dimmed">
               Lead Machine est une jeune entreprise specialisee dans l&apos;automatisation par IA pour les
               professionnels B2B. Notre mission : vous rendre le temps que vous perdez sur des taches
               repetitives — et l&apos;utiliser pour faire croitre votre activite.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Button href="/rdv" size="md">
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+              <Button href="/rdv" size="md" className="w-full sm:w-auto">
                 Rencontrer Maxime &rarr;
               </Button>
-              <Button href="/immobilier" variant="secondary" size="md">
+              <Button href="/immobilier" variant="secondary" size="md" className="w-full sm:w-auto">
                 Decouvrir nos solutions
               </Button>
             </div>
@@ -155,7 +155,7 @@ export default function AProposPage() {
       </section>
 
       {/* ── STORY ── */}
-      <section className="px-[6vw] py-20">
+      <section className="px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mb-12">
             <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
@@ -171,9 +171,9 @@ export default function AProposPage() {
 
         <div className="mx-auto max-w-[1100px]">
           <ScrollReveal>
-            <div className="rounded-lg border border-border bg-bg-card p-10">
-              <div className="mb-6 font-serif text-3xl font-light">Le probleme qu&apos;on a voulu resoudre</div>
-              <p className="mb-5 text-[0.88rem] leading-[1.9] text-text-dimmed">
+            <div className="rounded-lg border border-border bg-bg-card p-6 md:p-10">
+              <div className="mb-6 font-serif text-2xl font-light md:text-3xl">Le probleme qu&apos;on a voulu resoudre</div>
+              <p className="mb-5 text-base leading-[1.9] text-text-dimmed">
                 En travaillant avec des professionnels B2B de secteurs varies, nous avons observe le meme
                 probleme partout :{' '}
                 <strong className="font-medium text-text-primary">
@@ -181,7 +181,7 @@ export default function AProposPage() {
                   n&apos;importe quel programme pourrait faire a leur place.
                 </strong>
               </p>
-              <p className="mb-5 text-[0.88rem] leading-[1.9] text-text-dimmed">
+              <p className="mb-5 text-base leading-[1.9] text-text-dimmed">
                 Un agent immobilier qui passe 3 heures sur PAP chaque matin. Un coach qui relance ses prospects
                 a la main dans une feuille Excel. Un artisan qui oublie de rappeler un client parce qu&apos;il
                 etait sur un chantier.{' '}
@@ -189,7 +189,7 @@ export default function AProposPage() {
                   Ce n&apos;est pas un probleme de motivation — c&apos;est un probleme de systeme.
                 </strong>
               </p>
-              <p className="text-[0.88rem] leading-[1.9] text-text-dimmed">
+              <p className="text-base leading-[1.9] text-text-dimmed">
                 Lead Machine est ne de cette conviction : si vous etes bon dans votre metier, vous meritez un
                 systeme qui travaille pour vous en dehors de vos heures — et qui vous ramene uniquement les
                 opportunites qui valent votre attention.
@@ -200,9 +200,9 @@ export default function AProposPage() {
       </section>
 
       {/* ── VISION QUOTE ── */}
-      <section className="bg-[#111111] px-[6vw] py-20">
+      <section className="bg-[#111111] px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
-          <div className="mx-auto max-w-[900px] rounded-lg border border-gold/20 bg-bg-card p-12 text-center lg:p-16">
+          <div className="mx-auto max-w-[900px] rounded-lg border border-gold/20 bg-bg-card p-8 text-center md:p-12 lg:p-16">
             <p className="font-serif text-[clamp(1.5rem,3vw,2.3rem)] font-light italic leading-[1.4] text-white/90">
               &laquo; Je veux que dans 5 ans, chaque professionnel B2B en France ait acces a un systeme IA qui
               travaille pour lui la nuit — et lui ramene des opportunites qualifiees le matin.{' '}
@@ -216,7 +216,7 @@ export default function AProposPage() {
       </section>
 
       {/* ── VALUES ── */}
-      <section className="px-[6vw] py-20">
+      <section className="px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mb-12 text-center">
             <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
@@ -231,10 +231,10 @@ export default function AProposPage() {
         <div className="mx-auto grid max-w-[1100px] grid-cols-1 border border-border bg-border sm:grid-cols-2 lg:grid-cols-4" style={{ gap: '1px' }}>
           {VALUES.map((v, i) => (
             <ScrollReveal key={v.title} delay={i * 80}>
-              <div className="bg-bg-card p-8 text-center transition-colors hover:bg-gold/4">
+              <div className="bg-bg-card p-6 text-center transition-colors hover:bg-gold/4 md:p-8">
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg border border-white/15 text-white/70">{v.icon}</div>
                 <div className="font-serif text-xl font-light">{v.title}</div>
-                <p className="mt-3 text-[0.82rem] leading-[1.75] text-text-dimmed">{v.text}</p>
+                <p className="mt-3 text-base leading-[1.75] text-text-dimmed">{v.text}</p>
               </div>
             </ScrollReveal>
           ))}
@@ -242,7 +242,7 @@ export default function AProposPage() {
       </section>
 
       {/* ── TEAM ── */}
-      <section className="bg-[#111111] px-[6vw] py-20">
+      <section className="bg-[#111111] px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mb-12 text-center">
             <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">L&apos;equipe</span>
@@ -257,16 +257,16 @@ export default function AProposPage() {
         <ScrollReveal>
           <div className="mx-auto grid max-w-[900px] grid-cols-1 border border-border bg-border md:grid-cols-2" style={{ gap: '1px' }}>
             {TEAM.map((member) => (
-              <div key={member.name} className="grid grid-cols-[70px_1fr] items-start gap-5 bg-bg-card p-8">
-                <div className="flex h-[70px] w-[70px] flex-shrink-0 items-center justify-center rounded-full border border-gold/30 bg-gold/7 font-serif text-2xl">
+              <div key={member.name} className="flex flex-col gap-4 bg-bg-card p-6 sm:grid sm:grid-cols-[70px_1fr] sm:items-start sm:gap-5 md:p-8">
+                <div className="flex h-[60px] w-[60px] flex-shrink-0 items-center justify-center rounded-full border border-gold/30 bg-gold/7 font-serif text-2xl sm:h-[70px] sm:w-[70px]">
                   {member.initial}
                 </div>
                 <div>
                   <div className="font-serif text-xl font-light">{member.name}</div>
-                  <div className="mt-0.5 text-[0.68rem] uppercase tracking-[0.15em] text-white/40">
+                  <div className="mt-0.5 text-xs uppercase tracking-[0.15em] text-white/40">
                     {member.role}
                   </div>
-                  <p className="mt-2.5 text-[0.82rem] leading-[1.75] text-text-dimmed">{member.text}</p>
+                  <p className="mt-2.5 text-base leading-[1.75] text-text-dimmed">{member.text}</p>
                 </div>
               </div>
             ))}
@@ -275,7 +275,7 @@ export default function AProposPage() {
       </section>
 
       {/* ── CLIENT ENGAGEMENTS ── */}
-      <section className="px-[6vw] py-20">
+      <section className="px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mb-12 text-center">
             <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
@@ -292,10 +292,10 @@ export default function AProposPage() {
         <div className="mx-auto grid max-w-[1100px] grid-cols-1 border border-border bg-border md:grid-cols-3" style={{ gap: '1px' }}>
           {ENGAGEMENTS.map((eng, i) => (
             <ScrollReveal key={eng.title} delay={i * 80}>
-              <div className="bg-bg-card p-8">
+              <div className="bg-bg-card p-6 md:p-8">
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg border border-white/15 text-white/70">{eng.icon}</div>
                 <div className="font-serif text-2xl font-light">{eng.title}</div>
-                <p className="mt-3 text-[0.83rem] leading-[1.8] text-text-dimmed">{eng.text}</p>
+                <p className="mt-3 text-base leading-[1.8] text-text-dimmed">{eng.text}</p>
               </div>
             </ScrollReveal>
           ))}
@@ -303,7 +303,7 @@ export default function AProposPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="border-t border-border bg-[radial-gradient(ellipse_60%_100%_at_50%_100%,rgba(201,168,76,0.08)_0%,transparent_70%)] px-[6vw] py-20 text-center">
+      <section className="border-t border-border bg-[radial-gradient(ellipse_60%_100%_at_50%_100%,rgba(201,168,76,0.08)_0%,transparent_70%)] px-5 py-20 text-center md:px-[6vw]">
         <ScrollReveal>
           <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light">
             Vous partagez
@@ -313,11 +313,11 @@ export default function AProposPage() {
           <p className="mx-auto mt-4 max-w-[500px] text-[0.9rem] text-text-dimmed">
             Rencontrez Maxime en 30 minutes pour voir si Lead Machine peut accelerer votre croissance.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button href="/rdv" size="md">
+          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <Button href="/rdv" size="md" className="w-full sm:w-auto">
               Reserver un appel avec Maxime &rarr;
             </Button>
-            <Button href="/immobilier" variant="secondary" size="md">
+            <Button href="/immobilier" variant="secondary" size="md" className="w-full sm:w-auto">
               Decouvrir nos solutions
             </Button>
           </div>

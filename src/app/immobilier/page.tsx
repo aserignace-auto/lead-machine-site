@@ -248,7 +248,7 @@ export default function ImmobilierPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative grid min-h-[90vh] items-center gap-16 overflow-hidden px-[6vw] pt-24 pb-20 lg:grid-cols-[1fr_auto]">
+      <section className="relative grid min-h-[90vh] items-center gap-10 overflow-hidden px-5 pt-24 pb-20 md:px-[6vw] lg:grid-cols-[1fr_auto] lg:gap-16">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_70%_50%,rgba(201,168,76,0.06)_0%,transparent_70%)]" />
         <div
           className="pointer-events-none absolute inset-0"
@@ -283,7 +283,7 @@ export default function ImmobilierPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <h1 className="font-serif text-[clamp(2.8rem,5.5vw,5.5rem)] font-light leading-[1.1] tracking-tight">
+            <h1 className="font-serif text-[clamp(2rem,5.5vw,5.5rem)] font-light leading-[1.1] tracking-tight">
               Arretez de prospecter.
               <br />
               Laissez <em className="text-gradient-gold not-italic">l&apos;IA le faire.</em>
@@ -299,11 +299,11 @@ export default function ImmobilierPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Button href="#contact" size="lg">
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+              <Button href="#contact" size="lg" className="w-full sm:w-auto">
                 Demander ma demo gratuite &rarr;
               </Button>
-              <Button href="#fonctions" variant="secondary" size="lg">
+              <Button href="#fonctions" variant="secondary" size="lg" className="w-full sm:w-auto">
                 Voir les fonctions &darr;
               </Button>
             </div>
@@ -364,18 +364,18 @@ export default function ImmobilierPage() {
         {stats.map((s) => (
           <div
             key={s.value}
-            className="flex-1 min-w-[50%] sm:min-w-0 border-r border-border py-8 text-center last:border-r-0"
+            className="flex-1 min-w-[50%] sm:min-w-0 border-r border-border px-3 py-6 text-center last:border-r-0 md:py-8"
           >
-            <div className="text-gradient-gold font-serif text-[clamp(2rem,4vw,3rem)] font-light leading-none">
+            <div className="text-gradient-gold font-serif text-[clamp(1.8rem,4vw,3rem)] font-light leading-none">
               {s.value}
             </div>
-            <div className="mt-1 text-[0.78rem] text-text-dimmed">{s.desc}</div>
+            <div className="mt-1 text-xs text-text-dimmed md:text-sm">{s.desc}</div>
           </div>
         ))}
       </section>
 
       {/* ── OFFERS ── */}
-      <section id="offres" className="px-[6vw] py-24">
+      <section id="offres" className="px-5 py-20 md:px-[6vw] md:py-24">
         <ScrollReveal>
           <SectionHeader
             label="Nos offres immobilier"
@@ -388,7 +388,7 @@ export default function ImmobilierPage() {
           {offers.map((offer, i) => (
             <ScrollReveal key={offer.name} delay={i * 80}>
               <div
-                className={`relative p-10 ${
+                className={`relative p-8 md:p-10 ${
                   offer.featured ? "bg-gold/[0.04]" : "bg-bg-card"
                 }`}
               >
@@ -397,24 +397,24 @@ export default function ImmobilierPage() {
                     Le plus populaire
                   </div>
                 )}
-                <div className="mb-3 text-[0.7rem] uppercase tracking-[0.18em] text-text-dimmed">
+                <div className="mb-3 text-xs uppercase tracking-[0.18em] text-text-dimmed">
                   {offer.tier}
                 </div>
                 <div className="mb-1 font-serif text-3xl font-normal text-gold-light">
                   {offer.name}
                 </div>
-                <div className="font-serif text-[2.8rem] font-light leading-none text-gold-light">
+                <div className="font-serif text-[2.4rem] font-light leading-none text-gold-light md:text-[2.8rem]">
                   {offer.amount}
                 </div>
-                <div className="mt-1 text-[0.78rem] text-text-dimmed">{offer.period}</div>
-                <div className="mt-1 mb-4 text-[0.68rem] text-green-400">{offer.note}</div>
-                <p className="mb-5 text-[0.8rem] leading-relaxed text-text-dimmed">
+                <div className="mt-1 text-sm text-text-dimmed">{offer.period}</div>
+                <div className="mt-1 mb-4 text-xs text-green-400">{offer.note}</div>
+                <p className="mb-5 text-sm leading-relaxed text-text-dimmed">
                   {offer.tagline}
                 </p>
                 <div className="mb-6 h-px w-10 bg-gold/30" />
                 <ul className="mb-8 flex flex-col gap-2">
                   {offer.features.map((f) => (
-                    <li key={f} className="flex gap-2.5 text-[0.81rem] leading-relaxed text-white/75">
+                    <li key={f} className="flex gap-2.5 text-base leading-relaxed text-white/75">
                       <span className="mt-0.5 flex-shrink-0 text-[0.52rem] text-gold">
                         {"\u2726"}
                       </span>
@@ -424,7 +424,7 @@ export default function ImmobilierPage() {
                 </ul>
                 <Link
                   href="#contact"
-                  className={`block rounded-sm py-3.5 text-center text-[0.78rem] uppercase tracking-[0.12em] transition-all duration-200 no-underline ${
+                  className={`block w-full rounded-sm py-3.5 text-center text-sm uppercase tracking-[0.12em] transition-all duration-200 no-underline ${
                     offer.featured
                       ? "bg-gold font-semibold text-bg-primary"
                       : "border border-gold/30 text-gold hover:bg-gold/10"
@@ -439,7 +439,7 @@ export default function ImmobilierPage() {
       </section>
 
       {/* ── BEFORE / AFTER ── */}
-      <section className="bg-[#111111] px-[6vw] py-24">
+      <section className="bg-[#111111] px-5 py-20 md:px-[6vw] md:py-24">
         <ScrollReveal>
           <SectionHeader
             label="Le constat"
@@ -451,16 +451,16 @@ export default function ImmobilierPage() {
         <div className="mx-auto mt-16 grid max-w-[1000px] grid-cols-1 gap-px border border-border bg-border md:grid-cols-2">
           {problems.map((p, i) => (
             <ScrollReveal key={i} delay={i % 2 === 0 ? 0 : 80}>
-              <div className="bg-bg-card p-8">
+              <div className="bg-bg-card p-6 md:p-8">
                 <div
-                  className={`mb-2.5 text-[0.68rem] uppercase tracking-[0.15em] ${
+                  className={`mb-2.5 text-xs uppercase tracking-[0.15em] ${
                     p.type === "before" ? "text-red-400" : "text-green-400"
                   }`}
                 >
                   {p.type === "before" ? "Avant Lead Machine" : "Avec Lead Machine"}
                 </div>
                 <h3 className="mb-2 text-base font-medium">{p.title}</h3>
-                <p className="text-[0.82rem] leading-[1.7] text-text-dimmed">{p.text}</p>
+                <p className="text-base leading-[1.7] text-text-dimmed">{p.text}</p>
               </div>
             </ScrollReveal>
           ))}
@@ -468,7 +468,7 @@ export default function ImmobilierPage() {
       </section>
 
       {/* ── FEATURES ── */}
-      <section id="fonctions" className="px-[6vw] py-24">
+      <section id="fonctions" className="px-5 py-20 md:px-[6vw] md:py-24">
         <ScrollReveal>
           <SectionHeader
             label="Fonctionnalites"
@@ -482,20 +482,20 @@ export default function ImmobilierPage() {
             <ScrollReveal key={feat.num}>
               <div className="grid grid-cols-1 border border-border bg-border md:grid-cols-2">
                 {/* Info */}
-                <div className="border-b border-border bg-bg-card p-10 md:border-b-0 md:border-r">
-                  <div className="mb-1 font-serif text-6xl font-light text-gold/[0.15] leading-none">
+                <div className="border-b border-border bg-bg-card p-6 md:border-b-0 md:border-r md:p-10">
+                  <div className="mb-1 font-serif text-5xl font-light text-gold/[0.15] leading-none md:text-6xl">
                     {feat.num}
                   </div>
-                  <span className="mb-3 block text-[0.65rem] uppercase tracking-[0.2em] text-white/40">
+                  <span className="mb-3 block text-xs uppercase tracking-[0.2em] text-white/40">
                     {feat.tag}
                   </span>
-                  <h3 className="mb-4 font-serif text-[1.8rem] font-normal leading-tight">
+                  <h3 className="mb-4 font-serif text-2xl font-normal leading-tight md:text-[1.8rem]">
                     {feat.title}
                   </h3>
-                  <p className="mb-6 text-[0.86rem] leading-[1.8] text-text-dimmed">{feat.text}</p>
+                  <p className="mb-6 text-base leading-[1.8] text-text-dimmed">{feat.text}</p>
                   <ul className="flex flex-col gap-2">
                     {feat.items.map((item) => (
-                      <li key={item} className="flex gap-2.5 text-[0.82rem] text-white/[0.72]">
+                      <li key={item} className="flex gap-2.5 text-base text-white/[0.72]">
                         <span className="flex-shrink-0 text-gold">&mdash;</span>
                         {item}
                       </li>
@@ -504,7 +504,7 @@ export default function ImmobilierPage() {
                 </div>
 
                 {/* Demo */}
-                <div className="flex flex-col justify-center gap-3 bg-[#0D0D0D] p-10">
+                <div className="flex flex-col justify-center gap-3 bg-[#0D0D0D] p-6 md:p-10">
                   <div className="mb-3 text-[0.62rem] uppercase tracking-[0.14em] text-white/30">
                     {feat.demo.title}
                   </div>
@@ -592,7 +592,7 @@ export default function ImmobilierPage() {
       </section>
 
       {/* ── PROCESS ── */}
-      <section id="deploiement" className="bg-[#111111] px-[6vw] py-24">
+      <section id="deploiement" className="bg-[#111111] px-5 py-20 md:px-[6vw] md:py-24">
         <ScrollReveal>
           <SectionHeader
             label="Deploiement"
@@ -604,13 +604,18 @@ export default function ImmobilierPage() {
         <div className="mx-auto mt-16 flex max-w-[1000px] flex-col gap-px border border-border bg-border">
           {processSteps.map((step, i) => (
             <ScrollReveal key={step.num} delay={i * 40}>
-              <div className="grid grid-cols-[70px_1fr_auto] items-center gap-6 bg-bg-card px-8 py-6 transition-colors duration-300 hover:bg-gold/[0.03]">
-                <div className="font-serif text-3xl font-light text-gold/30">{step.num}</div>
-                <div>
-                  <h3 className="text-[0.95rem] font-medium">{step.title}</h3>
-                  <p className="mt-1 text-[0.8rem] text-text-dimmed">{step.text}</p>
+              <div className="flex flex-col gap-3 bg-bg-card px-6 py-5 transition-colors duration-300 hover:bg-gold/[0.03] sm:grid sm:grid-cols-[70px_1fr_auto] sm:items-center sm:gap-6 md:px-8 md:py-6">
+                <div className="flex items-center gap-3 sm:block">
+                  <div className="font-serif text-3xl font-light text-gold/30">{step.num}</div>
+                  <span className="whitespace-nowrap rounded-full border border-gold/25 px-3 py-1 text-xs uppercase tracking-[0.1em] text-gold sm:hidden">
+                    {step.time}
+                  </span>
                 </div>
-                <span className="hidden whitespace-nowrap rounded-full border border-gold/25 px-3 py-1 text-[0.68rem] uppercase tracking-[0.1em] text-gold sm:block">
+                <div>
+                  <h3 className="text-base font-medium">{step.title}</h3>
+                  <p className="mt-1 text-base text-text-dimmed">{step.text}</p>
+                </div>
+                <span className="hidden whitespace-nowrap rounded-full border border-gold/25 px-3 py-1 text-xs uppercase tracking-[0.1em] text-gold sm:block">
                   {step.time}
                 </span>
               </div>
@@ -620,7 +625,7 @@ export default function ImmobilierPage() {
       </section>
 
       {/* ── ROI PROJECTION ── */}
-      <section id="roi" className="bg-[#111111] px-[6vw] py-24">
+      <section id="roi" className="bg-[#111111] px-5 py-20 md:px-[6vw] md:py-24">
         <ScrollReveal>
           <SectionHeader
             label="Projection estimee"
@@ -631,7 +636,7 @@ export default function ImmobilierPage() {
 
         <div className="mx-auto mt-16 grid max-w-[1100px] grid-cols-1 border border-border bg-border md:grid-cols-2">
           <ScrollReveal>
-            <div className="border-b border-border bg-bg-card p-10 md:border-b-0 md:border-r">
+            <div className="border-b border-border bg-bg-card p-6 md:border-b-0 md:border-r md:p-10">
               <h3 className="mb-6 font-serif text-2xl font-normal">Projection estimee — 1 agent</h3>
 
               {/* Before */}
@@ -642,7 +647,7 @@ export default function ImmobilierPage() {
                 {roiBefore.map((r) => (
                   <div
                     key={r.label}
-                    className="flex items-baseline justify-between border-b border-white/[0.04] py-1.5 text-[0.82rem] last:border-b-0"
+                    className="flex items-baseline justify-between border-b border-white/[0.04] py-1.5 text-base last:border-b-0"
                   >
                     <span className="text-text-dimmed">{r.label}</span>
                     <span className="font-medium">{r.value}</span>
@@ -652,13 +657,13 @@ export default function ImmobilierPage() {
 
               {/* After */}
               <div className="rounded-md border border-gold/10 bg-white/[0.03] p-5">
-                <div className="mb-3 text-[0.68rem] uppercase tracking-[0.15em] text-white/40">
+                <div className="mb-3 text-xs uppercase tracking-[0.15em] text-white/40">
                   Objectif avec Lead Machine (mois 1)
                 </div>
                 {roiAfter.map((r) => (
                   <div
                     key={r.label}
-                    className="flex items-baseline justify-between border-b border-white/[0.04] py-1.5 text-[0.82rem] last:border-b-0"
+                    className="flex items-baseline justify-between border-b border-white/[0.04] py-1.5 text-base last:border-b-0"
                   >
                     <span className="text-text-dimmed">{r.label}</span>
                     <span
@@ -680,13 +685,13 @@ export default function ImmobilierPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={80}>
-            <div className="bg-[#0D0D0D] p-10">
+            <div className="bg-[#0D0D0D] p-6 md:p-10">
               <h4 className="mb-5 font-serif text-xl font-normal">
                 Ce que vous arretez de faire
               </h4>
               <ul className="mb-8 flex flex-col gap-3">
                 {stopDoing.map((item) => (
-                  <li key={item} className="flex gap-3 text-[0.83rem] text-text-dimmed">
+                  <li key={item} className="flex gap-3 text-base text-text-dimmed">
                     <span className="flex-shrink-0 text-red-400">{"\u2715"}</span>
                     {item}
                   </li>
@@ -698,7 +703,7 @@ export default function ImmobilierPage() {
               </h4>
               <ul className="flex flex-col gap-3">
                 {startDoing.map((item) => (
-                  <li key={item} className="flex gap-3 text-[0.83rem] text-text-dimmed">
+                  <li key={item} className="flex gap-3 text-base text-text-dimmed">
                     <span className="flex-shrink-0 text-green-400">{"\u2713"}</span>
                     {item}
                   </li>
@@ -712,7 +717,7 @@ export default function ImmobilierPage() {
       {/* ── CTA BAND ── */}
       <section
         id="contact"
-        className="border-t border-border px-[6vw] py-20 text-center"
+        className="border-t border-border px-5 py-20 text-center md:px-[6vw]"
         style={{
           background: "radial-gradient(ellipse 60% 100% at 50% 100%, rgba(201,168,76,0.08) 0%, transparent 70%)",
         }}
@@ -727,11 +732,11 @@ export default function ImmobilierPage() {
             Demo gratuite de 30 minutes. Analyse de votre zone et simulation de vos resultats
             potentiels. Sans engagement.
           </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <Button href="/#contact" size="lg">
+          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <Button href="/#contact" size="lg" className="w-full sm:w-auto">
               Demander ma demo gratuite &rarr;
             </Button>
-            <Button href="/rdv" variant="secondary" size="lg">
+            <Button href="/rdv" variant="secondary" size="lg" className="w-full sm:w-auto">
               Prendre rendez-vous
             </Button>
           </div>
