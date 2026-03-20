@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import ScrollReveal from '@/components/ScrollReveal';
-import SectionHeader from '@/components/SectionHeader';
 
 export const metadata: Metadata = {
   title: 'Prendre rendez-vous — Appel decouverte 30 min gratuit',
@@ -66,7 +65,7 @@ const HERO_BENEFITS = [
 export default function RdvPage() {
   return (
     <>
-      {/* ── HERO ── */}
+      {/* ── HERO (2-column) ── */}
       <section className="relative overflow-hidden bg-bg-primary px-[6vw] pt-28 pb-16">
         {/* Decorative backgrounds */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_30%,rgba(201,168,76,0.07)_0%,transparent_70%)]" />
@@ -81,53 +80,63 @@ export default function RdvPage() {
           }}
         />
 
-        <div className="relative z-10 mx-auto max-w-[1100px]">
-          <div className="mx-auto max-w-[640px] text-center">
-            <div className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-gold/30 px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-gold">
-              <span className="h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_8px_var(--gold)]" style={{ animation: 'pulse-dot 2s ease-in-out infinite' }} />
-              Appel decouverte &middot; 30 minutes &middot; Gratuit
-            </div>
-
-            <h1 className="font-serif text-[clamp(2.5rem,5vw,5rem)] font-light leading-[1.1] tracking-tight">
-              Planifiez votre
-              <br />
-              <em className="text-gradient-gold italic">appel decouverte</em>
-              <br />
-              gratuit
-            </h1>
-
-            <p className="mt-5 text-[0.95rem] leading-[1.8] text-text-dimmed">
-              30 minutes pour analyser votre situation, identifier vos axes d&apos;automatisation et vous
-              presenter concretement ce qu&apos;un systeme Lead Machine peut generer pour votre activite.
-              Zero engagement, zero pression commerciale.
-            </p>
-
-            <div className="mt-8 flex flex-col gap-3 text-left mx-auto max-w-[440px]">
-              {HERO_BENEFITS.map((benefit) => (
-                <div key={benefit} className="flex items-center gap-3 text-[0.85rem] text-text-dimmed">
-                  <span className="text-green-400">&#10003;</span>
-                  {benefit}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Calendly Embed */}
-          <div className="mt-16">
+        <div className="relative z-10 mx-auto max-w-[1200px]">
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            {/* Left column: Text content */}
             <ScrollReveal>
-              <div className="mx-auto max-w-[900px] overflow-hidden rounded-xl border border-border bg-bg-card shadow-[0_30px_80px_rgba(0,0,0,0.5),0_0_0_1px_rgba(201,168,76,0.06)]">
-                <div className="flex items-center gap-2.5 border-b border-border bg-[#0D0D0D] px-5 py-3">
-                  <div className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]" />
-                  <div className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
-                  <div className="h-2.5 w-2.5 rounded-full bg-[#27c93f]" />
-                  <span className="ml-3 text-[0.7rem] text-white/30">Reservez votre creneau</span>
+              <div>
+                <div className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-gold/30 px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-gold">
+                  <span className="h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_8px_var(--gold)]" style={{ animation: 'pulse-dot 2s ease-in-out infinite' }} />
+                  Appel decouverte &middot; 30 minutes &middot; Gratuit
                 </div>
+
+                <h1 className="font-serif text-[clamp(2.2rem,4vw,4rem)] font-light leading-[1.1] tracking-tight">
+                  Planifiez votre
+                  <br />
+                  <em className="text-gradient-gold italic">appel decouverte</em>
+                  <br />
+                  gratuit
+                </h1>
+
+                <p className="mt-5 max-w-[480px] text-[0.95rem] leading-[1.8] text-text-dimmed">
+                  30 minutes pour analyser votre situation, identifier vos axes d&apos;automatisation et vous
+                  presenter concretement ce qu&apos;un systeme Lead Machine peut generer pour votre activite.
+                  Zero engagement, zero pression commerciale.
+                </p>
+
+                <div className="mt-8 flex flex-col gap-3">
+                  {HERO_BENEFITS.map((benefit) => (
+                    <div key={benefit} className="flex items-start gap-3 text-[0.85rem] text-text-dimmed">
+                      <span className="mt-0.5 text-green-400">&#10003;</span>
+                      {benefit}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Right column: Calendly embed */}
+            <ScrollReveal delay={120}>
+              <div className="overflow-hidden rounded-xl border border-border bg-bg-card shadow-[0_30px_80px_rgba(0,0,0,0.5),0_0_0_1px_rgba(201,168,76,0.06)]">
+                {/* Top bar */}
+                <div className="flex items-center justify-between border-b border-border bg-[#0D0D0D] px-5 py-3">
+                  <div className="flex items-center gap-2.5">
+                    <div className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]" />
+                    <div className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
+                    <div className="h-2.5 w-2.5 rounded-full bg-[#27c93f]" />
+                    <span className="ml-3 text-[0.75rem] font-medium text-white/50">Choisir un creneau</span>
+                  </div>
+                  <div className="rounded-full border border-gold/20 bg-gold/5 px-3 py-1 text-[0.65rem] font-medium text-gold">
+                    30 min &middot; Visio ou Telephone
+                  </div>
+                </div>
+                {/* Calendly iframe */}
                 <iframe
                   src="https://calendly.com/aserignace/nouvelle-reunion"
                   width="100%"
-                  height="700"
+                  height="620"
                   frameBorder="0"
-                  className="rounded-b-lg"
+                  className="block"
                   title="Calendly - Reserver un appel decouverte"
                 />
               </div>
@@ -138,7 +147,7 @@ export default function RdvPage() {
 
       {/* ── AGENDA ── */}
       <section className="bg-[#111111] px-[6vw] py-20">
-        <div className="mx-auto max-w-[1100px]">
+        <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
             <div className="mb-12">
               <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-gold">
@@ -158,7 +167,7 @@ export default function RdvPage() {
           <div className="grid grid-cols-1 border border-border bg-border sm:grid-cols-2 lg:grid-cols-4" style={{ gap: '1px' }}>
             {AGENDA_ITEMS.map((item, i) => (
               <ScrollReveal key={item.time} delay={i * 80}>
-                <div className="bg-bg-card p-7">
+                <div className="flex h-full flex-col bg-bg-card p-7">
                   <div className="font-serif text-3xl font-light leading-none text-gold-light">{item.time}</div>
                   <div className="mt-2 text-[0.68rem] uppercase tracking-[0.14em] text-white/35">Minutes</div>
                   <div className="mt-3 text-[0.95rem] font-medium text-text-primary">{item.title}</div>
@@ -186,7 +195,7 @@ export default function RdvPage() {
         <div className="mx-auto mt-12 grid max-w-[900px] grid-cols-1 border border-border bg-border md:grid-cols-3" style={{ gap: '1px' }}>
           {GUARANTEES.map((g, i) => (
             <ScrollReveal key={g.title} delay={i * 80}>
-              <div className="bg-bg-card p-8">
+              <div className="flex h-full flex-col bg-bg-card p-8">
                 <div className="mb-4 text-2xl">{g.icon}</div>
                 <div className="text-[0.95rem] font-medium text-text-primary">{g.title}</div>
                 <p className="mt-2 text-[0.8rem] leading-[1.7] text-text-dimmed">{g.text}</p>
