@@ -30,6 +30,21 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Hamburger button — rendered OUTSIDE header at highest z so it's always clickable */}
+      <button
+        type="button"
+        className="fixed top-4 right-6 z-[70] flex h-10 w-10 items-center justify-center lg:hidden"
+        onClick={() => setMobileOpen(!mobileOpen)}
+        aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
+        aria-expanded={mobileOpen}
+      >
+        <div className="flex w-6 flex-col gap-1.5">
+          <span className={`block h-0.5 w-full bg-text-primary transition-all duration-300 ${mobileOpen ? "translate-y-2 rotate-45" : ""}`} />
+          <span className={`block h-0.5 w-full bg-text-primary transition-all duration-300 ${mobileOpen ? "opacity-0" : ""}`} />
+          <span className={`block h-0.5 w-full bg-text-primary transition-all duration-300 ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+        </div>
+      </button>
+
       {/* Navbar bar */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -67,32 +82,8 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Hamburger button — above everything */}
-          <button
-            type="button"
-            className="relative z-[70] flex h-10 w-10 items-center justify-center lg:hidden"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
-            aria-expanded={mobileOpen}
-          >
-            <div className="flex w-6 flex-col gap-1.5">
-              <span
-                className={`block h-0.5 w-full bg-text-primary transition-all duration-300 ${
-                  mobileOpen ? "translate-y-2 rotate-45" : ""
-                }`}
-              />
-              <span
-                className={`block h-0.5 w-full bg-text-primary transition-all duration-300 ${
-                  mobileOpen ? "opacity-0" : ""
-                }`}
-              />
-              <span
-                className={`block h-0.5 w-full bg-text-primary transition-all duration-300 ${
-                  mobileOpen ? "-translate-y-2 -rotate-45" : ""
-                }`}
-              />
-            </div>
-          </button>
+          {/* Spacer for hamburger on mobile (actual button is outside header) */}
+          <div className="h-10 w-10 lg:hidden" />
         </nav>
       </header>
 
