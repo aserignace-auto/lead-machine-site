@@ -6,9 +6,6 @@ import Link from "next/link";
 const navLinks = [
   { href: "/", label: "Accueil" },
   { href: "/immobilier", label: "Immobilier" },
-  { href: "/comment-ca-marche", label: "Comment \u00e7a marche" },
-  { href: "/ia-cest-quoi", label: "L\u2019IA c\u2019est quoi" },
-  { href: "/temoignages", label: "T\u00e9moignages" },
   { href: "/recrutement", label: "Recrutement" },
   { href: "/a-propos", label: "\u00c0 propos" },
 ];

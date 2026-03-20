@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 /* ── Data ── */
 
 const stats = [
-  { value: "+340%", desc: "de mandats generes en moyenne" },
-  { value: "-87%", desc: "de temps de prospection" },
-  { value: "10j", desc: "pour etre operationnel" },
-  { value: "24/7", desc: "votre IA ne dort jamais" },
+  { value: "x3", desc: "Objectif : jusqu'a x3 de mandats generes" },
+  { value: "-80%", desc: "Estimation de temps de prospection economise" },
+  { value: "10j", desc: "Pour etre operationnel" },
+  { value: "24/7", desc: "Votre IA ne dort jamais" },
 ];
 
 const problems = [
@@ -195,24 +195,6 @@ const offers = [
   },
 ];
 
-const testimonials = [
-  {
-    quote: "En 3 semaines, mon pipeline est passe de 8 a 34 leads actifs. Je ne touche plus a PAP depuis le deploiement. Le systeme detecte des vendeurs motives que je n'aurais jamais trouves seul.",
-    author: "Thomas R.",
-    role: "Agent independant — Paris 8e · 6 mois avec Lead Machine",
-  },
-  {
-    quote: "La premiere semaine, j'etais sceptique. La deuxieme, j'avais 3 RDV planifies automatiquement. Aujourd'hui je gere deux fois plus de mandats avec le meme temps de travail.",
-    author: "Sandrine M.",
-    role: "Negociatrice immobiliere — Lyon · 4 mois avec Lead Machine",
-  },
-  {
-    quote: "J'ai deploye Lead Machine sur mes 4 agences simultanement. Le ROI a ete visible des le premier mois. La mise en place a ete fluide et l'equipe tres reactive.",
-    author: "Marc D.",
-    role: "Directeur reseau agences — Bordeaux · 8 mois avec Lead Machine",
-  },
-];
-
 const roiBefore = [
   { label: "Mandats exclusifs / mois", value: "2\u20133" },
   { label: "Temps prospection / semaine", value: "15h" },
@@ -221,10 +203,10 @@ const roiBefore = [
 ];
 
 const roiAfter = [
-  { label: "Mandats exclusifs / mois", value: "6\u20139 (+3x)", positive: true },
-  { label: "Temps prospection / semaine", value: "2h (-87%)", positive: true },
-  { label: "Taux de concretisation", value: "~18% (+260%)", positive: true },
-  { label: "CA moyen / mois", value: "12 000 \u20AC (+167%)", gold: true },
+  { label: "Mandats exclusifs / mois", value: "Objectif : 6\u20139", positive: true },
+  { label: "Temps prospection / semaine", value: "Objectif : 2h", positive: true },
+  { label: "Taux de concretisation", value: "Objectif : ~18%", positive: true },
+  { label: "CA moyen / mois", value: "Objectif : 12 000 \u20AC", gold: true },
 ];
 
 const stopDoing = [
@@ -635,25 +617,25 @@ export default function ImmobilierPage() {
         </div>
       </section>
 
-      {/* ── ROI ── */}
+      {/* ── ROI PROJECTION ── */}
       <section id="roi" className="bg-[#111111] px-[6vw] py-24">
         <ScrollReveal>
           <SectionHeader
-            label="Retour sur investissement"
+            label="Projection estimee"
             title="Un ROI <em>mesurable</em> des le premier mois"
-            subtitle="Base sur les resultats moyens constates chez nos clients immobilier."
+            subtitle="Projection estimee basee sur un scenario type. Les resultats reels varient selon votre zone et votre marche."
           />
         </ScrollReveal>
 
         <div className="mx-auto mt-16 grid max-w-[1100px] grid-cols-1 border border-border bg-border md:grid-cols-2">
           <ScrollReveal>
             <div className="border-b border-border bg-bg-card p-10 md:border-b-0 md:border-r">
-              <h3 className="mb-6 font-serif text-2xl font-normal">Scenario agence — 1 agent</h3>
+              <h3 className="mb-6 font-serif text-2xl font-normal">Projection estimee — 1 agent</h3>
 
               {/* Before */}
               <div className="mb-4 rounded-md border border-gold/10 bg-white/[0.03] p-5">
                 <div className="mb-3 text-[0.68rem] uppercase tracking-[0.15em] text-gold">
-                  Avant Lead Machine
+                  Situation typique sans automatisation
                 </div>
                 {roiBefore.map((r) => (
                   <div
@@ -669,7 +651,7 @@ export default function ImmobilierPage() {
               {/* After */}
               <div className="rounded-md border border-gold/10 bg-white/[0.03] p-5">
                 <div className="mb-3 text-[0.68rem] uppercase tracking-[0.15em] text-gold">
-                  Avec Lead Machine (mois 1)
+                  Objectif avec Lead Machine (mois 1)
                 </div>
                 {roiAfter.map((r) => (
                   <div
@@ -689,8 +671,8 @@ export default function ImmobilierPage() {
               </div>
 
               <p className="mt-4 text-[0.7rem] leading-[1.7] text-white/[0.28]">
-                * Resultats bases sur les donnees moyennes de nos clients. Les performances varient
-                selon la zone geographique et le marche local.
+                * Projection estimee a titre indicatif. Les performances reelles varient
+                selon la zone geographique, le marche local et votre implication.
               </p>
             </div>
           </ScrollReveal>
@@ -725,33 +707,6 @@ export default function ImmobilierPage() {
         </div>
       </section>
 
-      {/* ── TESTIMONIALS ── */}
-      <section className="px-[6vw] py-24">
-        <ScrollReveal>
-          <SectionHeader
-            label="Temoignages"
-            title="Ils ont automatise <em>leur prospection</em>"
-          />
-        </ScrollReveal>
-
-        <div className="mx-auto mt-16 grid max-w-[1100px] grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <ScrollReveal key={t.author} delay={i * 80}>
-              <div className="bg-bg-card p-10">
-                <div className="mb-5 text-[0.9rem] tracking-[0.15em] text-gold">
-                  {"\u2605\u2605\u2605\u2605\u2605"}
-                </div>
-                <p className="mb-6 font-serif text-[1.05rem] font-light italic leading-[1.65] text-white/85">
-                  &laquo; {t.quote} &raquo;
-                </p>
-                <div className="text-[0.78rem] font-medium">{t.author}</div>
-                <div className="mt-1 text-[0.72rem] text-text-dimmed">{t.role}</div>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </section>
-
       {/* ── CTA BAND ── */}
       <section
         id="contact"
@@ -774,8 +729,8 @@ export default function ImmobilierPage() {
             <Button href="/#contact" size="lg">
               Demander ma demo gratuite &rarr;
             </Button>
-            <Button href="tel:+33600000000" variant="secondary" size="lg">
-              Nous appeler directement
+            <Button href="/rdv" variant="secondary" size="lg">
+              Prendre rendez-vous
             </Button>
           </div>
           <p className="mt-6 text-[0.72rem] text-white/[0.22]">

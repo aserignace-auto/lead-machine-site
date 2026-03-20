@@ -9,10 +9,10 @@ import ContactForm from "@/components/ContactForm";
 /* ── Data ── */
 
 const stats = [
-  { value: "+340%", desc: "de leads qualifies generes en moyenne des le 1er mois" },
-  { value: "-87%", desc: "de temps consacre aux taches manuelles de prospection" },
-  { value: "10j", desc: "delai de mise en place de votre solution sur mesure" },
-  { value: "24/7", desc: "votre systeme travaille pour vous, sans interruption" },
+  { value: "x3", desc: "Objectif : jusqu'a x3 de leads qualifies generes" },
+  { value: "-80%", desc: "Estimation de temps economise sur la prospection" },
+  { value: "10j", desc: "Delai de mise en place de votre solution sur mesure" },
+  { value: "24/7", desc: "Votre systeme travaille pour vous, sans interruption" },
 ];
 
 const advantages = [
@@ -110,24 +110,6 @@ const sectors = [
   },
 ];
 
-const testimonials = [
-  {
-    quote: "Lead Machine a transforme notre prospection. En 6 semaines, nous avons triple notre nombre de RDV qualifies sans augmenter notre equipe commerciale.",
-    author: "Thomas R.",
-    role: "Directeur d'agence immobiliere — Paris 8e",
-  },
-  {
-    quote: "La mise en place a ete d'une fluidite remarquable. En 10 jours, le systeme tournait seul. Je gagne minimum 3 heures par jour sur des taches que je faisais manuellement.",
-    author: "Sarah M.",
-    role: "Chasseuse immobiliere — Lyon",
-  },
-  {
-    quote: "Le ROI est immediat. Le systeme identifie des vendeurs motives que je n'aurais jamais trouves moi-meme. C'est simplement un avantage concurrentiel majeur.",
-    author: "Marc D.",
-    role: "Promoteur immobilier — Bordeaux",
-  },
-];
-
 const pricingPlans = [
   {
     tier: "Essentiel",
@@ -204,7 +186,7 @@ const faqItems = [
   {
     question: "Quels resultats puis-je realistement esperer ?",
     answer:
-      "Nos clients constatent en moyenne +340% de leads qualifies et -87% de temps consacre aux taches manuelles dans les 30 premiers jours. Nous communiquerons des objectifs personnalises lors de l'audit initial gratuit.",
+      "Les resultats varient selon votre secteur et votre marche. Notre objectif est de multiplier par 2 a 3 le volume de leads qualifies et de reduire significativement le temps consacre a la prospection manuelle. Nous communiquerons des objectifs personnalises lors de l'audit initial gratuit.",
   },
 ];
 
@@ -496,33 +478,6 @@ export default function Home() {
               </ScrollReveal>
             );
           })}
-        </div>
-      </section>
-
-      {/* ── TESTIMONIALS ── */}
-      <section className="bg-[#111111] px-[6vw] py-28">
-        <ScrollReveal>
-          <SectionHeader
-            label="Temoignages"
-            title="Ce que disent nos <em>clients</em>"
-          />
-        </ScrollReveal>
-
-        <div className="mx-auto mt-16 grid max-w-[1100px] grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <ScrollReveal key={t.author} delay={i * 80}>
-              <div className="bg-bg-card p-10">
-                <div className="mb-5 text-[0.95rem] tracking-[0.15em] text-gold">
-                  \u2605\u2605\u2605\u2605\u2605
-                </div>
-                <p className="mb-6 font-serif text-[1.1rem] font-light italic leading-[1.65] text-white/85">
-                  &laquo; {t.quote} &raquo;
-                </p>
-                <div className="text-sm font-medium">{t.author}</div>
-                <div className="mt-1 text-[0.74rem] text-text-dimmed">{t.role}</div>
-              </div>
-            </ScrollReveal>
-          ))}
         </div>
       </section>
 

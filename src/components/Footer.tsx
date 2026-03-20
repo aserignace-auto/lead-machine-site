@@ -5,27 +5,23 @@ const footerSections = [
     title: "Solutions",
     links: [
       { href: "/immobilier", label: "Immobilier" },
-      { href: "/btp", label: "BTP" },
-      { href: "/sante", label: "Sant\u00e9" },
-      { href: "/sur-mesure", label: "Sur mesure" },
+      { href: "/#secteurs", label: "Autres secteurs" },
+      { href: "/#offres", label: "Nos offres" },
     ],
   },
   {
     title: "Entreprise",
     links: [
       { href: "/a-propos", label: "\u00c0 propos" },
-      { href: "/temoignages", label: "T\u00e9moignages" },
       { href: "/recrutement", label: "Recrutement" },
-      { href: "/blog", label: "Blog" },
+      { href: "/#faq", label: "FAQ" },
     ],
   },
   {
-    title: "Ressources",
+    title: "Contact",
     links: [
-      { href: "/simulateur-roi", label: "Simulateur ROI" },
-      { href: "/ia-cest-quoi", label: "L\u2019IA c\u2019est quoi" },
-      { href: "/comment-ca-marche", label: "Comment \u00e7a marche" },
-      { href: "/faq", label: "FAQ" },
+      { href: "/rdv", label: "Prendre RDV" },
+      { href: "/#contact", label: "Formulaire de contact" },
     ],
   },
 ];
@@ -83,12 +79,6 @@ export default function Footer() {
               className="text-xs text-text-muted transition-colors duration-200 hover:text-text-dimmed"
             >
               Mentions l&eacute;gales
-            </Link>
-            <Link
-              href="/politique-confidentialite"
-              className="text-xs text-text-muted transition-colors duration-200 hover:text-text-dimmed"
-            >
-              Politique de confidentialit&eacute;
             </Link>
           </div>
         </div>

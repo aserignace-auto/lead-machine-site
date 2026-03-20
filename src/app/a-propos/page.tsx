@@ -3,56 +3,27 @@ import Button from '@/components/Button';
 import Link from 'next/link';
 
 /* ── Data ── */
-const NUMBERS = [
-  { big: '+340%', desc: 'de leads qualifiés en moyenne chez nos clients' },
-  { big: '10j', desc: 'délai moyen de déploiement d\u2019une solution' },
-  { big: '\u221287%', desc: 'de temps de prospection chez nos clients actifs' },
-  { big: '100%', desc: 'des clients satisfaits à 30 jours — ou remboursés' },
-];
-
-const TIMELINE = [
-  {
-    year: '2022',
-    title: 'Les premières automatisations',
-    text: 'Premiers systèmes développés pour des clients individuels. Découverte du potentiel massif de l\u2019automatisation dans la prospection immobilière.',
-  },
-  {
-    year: '2023',
-    title: 'Création de MRC',
-    text: 'Structuration de l\u2019activité en SASU. Développement des premières offres packagées et des processus de déploiement reproductibles.',
-  },
-  {
-    year: '2024',
-    title: 'Lancement de Lead Machine',
-    text: 'Création de la marque Lead Machine, structuration de l\u2019équipe commerciale et technique. Premiers clients dans l\u2019immobilier et le coaching.',
-  },
-  {
-    year: '2026',
-    title: "Aujourd'hui",
-    text: 'Expansion sectorielle, déploiement de l\u2019infrastructure Odoo et lancement des offres multi-secteurs. Cap sur 100 clients actifs.',
-  },
-];
 
 const VALUES = [
   {
     icon: '\u2699',
-    title: 'Résultats avant tout',
-    text: 'On ne vous vend pas de la technologie. On vous vend des résultats mesurables. Si votre système ne génère pas plus de leads, on l\u2019optimise jusqu\u2019à ce que ce soit le cas.',
+    title: 'Resultats avant tout',
+    text: 'On ne vous vend pas de la technologie. On vous vend des resultats mesurables. Si votre systeme ne genere pas plus de leads, on l\u2019optimise jusqu\u2019a ce que ce soit le cas.',
   },
   {
     icon: '\u2295',
     title: 'Transparence totale',
-    text: 'Pas de magie noire, pas de jargon. On vous explique exactement ce que fait votre système, pourquoi, et comment mesurer son impact. Vous restez maître de votre outil.',
+    text: 'Pas de magie noire, pas de jargon. On vous explique exactement ce que fait votre systeme, pourquoi, et comment mesurer son impact. Vous restez maitre de votre outil.',
   },
   {
     icon: '\u221E',
     title: 'Partenariat, pas transaction',
-    text: 'Votre succès est notre succès. On ne signe pas un contrat et on disparaît. On reste à vos côtés chaque mois pour ajuster, optimiser et faire grandir votre système avec vous.',
+    text: 'Votre succes est notre succes. On ne signe pas un contrat et on disparait. On reste a vos cotes chaque mois pour ajuster, optimiser et faire grandir votre systeme avec vous.',
   },
   {
     icon: '\u25CE',
-    title: 'Simplicité opérationnelle',
-    text: 'Un bon système IA doit simplifier votre vie, pas la compliquer. Si l\u2019outil vous prend plus de temps qu\u2019il ne vous en fait gagner, on a raté notre objectif.',
+    title: 'Simplicite operationnelle',
+    text: 'Un bon systeme IA doit simplifier votre vie, pas la compliquer. Si l\u2019outil vous prend plus de temps qu\u2019il ne vous en fait gagner, on a rate notre objectif.',
   },
 ];
 
@@ -61,31 +32,31 @@ const TEAM = [
     initial: 'M',
     name: 'Maxime',
     role: 'Fondateur & Responsable Commercial',
-    text: 'À la tête de MRC et de Lead Machine, Maxime pilote la stratégie commerciale, les relations clients et le développement des offres. Passionné par la performance sous toutes ses formes — sportive, commerciale, entrepreneuriale — il a construit Lead Machine pour rendre accessible à tous ce que les grandes entreprises font depuis des années.',
+    text: 'A la tete de MRC et de Lead Machine, Maxime pilote la strategie commerciale, les relations clients et le developpement des offres. Passionne par la performance sous toutes ses formes — sportive, commerciale, entrepreneuriale — il a construit Lead Machine pour rendre accessible a tous ce que les grandes entreprises font depuis des annees.',
   },
   {
     initial: 'B',
     name: 'Bilel',
     role: 'Responsable Technique & Partenaire',
-    text: 'Bilel est le cerveau technique de Lead Machine. Il conçoit, développe et déploie chaque solution sur mesure dans un délai de 10 jours. Expert en automatisation, APIs et intégrations IA, il garantit que chaque système livré est robuste, scalable et parfaitement adapté aux besoins spécifiques de chaque client.',
+    text: 'Bilel est le cerveau technique de Lead Machine. Il concoit, developpe et deploie chaque solution sur mesure dans un delai de 10 jours. Expert en automatisation, APIs et integrations IA, il garantit que chaque systeme livre est robuste, scalable et parfaitement adapte aux besoins specifiques de chaque client.',
   },
 ];
 
 const ENGAGEMENTS = [
   {
     icon: '\u25CE',
-    title: '10 jours de délai garanti',
-    text: 'Votre solution est mise en place dans les 10 jours ouvrés suivant la réception de vos informations techniques. C\u2019est notre engagement contractuel, pas une promesse marketing.',
+    title: '10 jours de delai garanti',
+    text: 'Votre solution est mise en place dans les 10 jours ouvres suivant la reception de vos informations techniques. C\u2019est notre engagement contractuel, pas une promesse marketing.',
   },
   {
     icon: '\u25C8',
-    title: 'Reporting mensuel systématique',
-    text: 'Le 1er de chaque mois, vous recevez un rapport détaillant les performances de votre système : leads générés, taux de conversion, actions déclenchées. Aucune boîte noire.',
+    title: 'Reporting mensuel systematique',
+    text: 'Le 1er de chaque mois, vous recevez un rapport detaillant les performances de votre systeme : leads generes, taux de conversion, actions declenchees. Aucune boite noire.',
   },
   {
     icon: '\u25C6',
-    title: 'Sans engagement, sans piège',
-    text: 'Nos abonnements sont résiliables à tout moment avec 30 jours de préavis. Pas de pénalité de sortie, pas de contrat longue durée imposé. Votre confiance se mérite chaque mois.',
+    title: 'Sans engagement, sans piege',
+    text: 'Nos abonnements sont resiliables a tout moment avec 30 jours de preavis. Pas de penalite de sortie, pas de contrat longue duree impose. Votre confiance se merite chaque mois.',
   },
 ];
 
@@ -111,7 +82,7 @@ export default function AProposPage() {
           <div>
             <div className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-gold/30 px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-gold">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gold shadow-[0_0_8px_var(--gold)]" />
-              MRC &middot; Lead Machine &middot; Fondé par Maxime
+              MRC &middot; Lead Machine &middot; Fonde par Maxime
             </div>
 
             <h1 className="font-serif text-[clamp(2.5rem,5vw,5rem)] font-light leading-[1.1] tracking-tight">
@@ -119,22 +90,22 @@ export default function AProposPage() {
               <br />
               croissance ne devrait pas
               <br />
-              dépendre de votre{' '}
+              dependre de votre{' '}
               <em className="text-gradient-gold italic">temps disponible.</em>
             </h1>
 
             <p className="mt-5 max-w-[540px] text-[0.95rem] leading-[1.8] text-text-dimmed">
-              Lead Machine est né d&apos;une conviction simple : les meilleurs professionnels perdent trop
-              d&apos;énergie sur des tâches qui peuvent être automatisées. Notre mission est de leur rendre ce
-              temps — et de l&apos;utiliser pour les faire croître.
+              Lead Machine est une jeune entreprise specialisee dans l&apos;automatisation par IA pour les
+              professionnels B2B. Notre mission : vous rendre le temps que vous perdez sur des taches
+              repetitives — et l&apos;utiliser pour faire croitre votre activite.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
               <Button href="/rdv" size="md">
                 Rencontrer Maxime &rarr;
               </Button>
-              <Button href="/comment-ca-marche" variant="secondary" size="md">
-                Notre méthode
+              <Button href="/immobilier" variant="secondary" size="md">
+                Decouvrir nos solutions
               </Button>
             </div>
           </div>
@@ -170,23 +141,7 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* ── STATS BAND ── */}
-      <div className="border-y border-border">
-        <div className="grid grid-cols-2 border border-border bg-border lg:grid-cols-4" style={{ gap: '1px' }}>
-          {NUMBERS.map((n, i) => (
-            <ScrollReveal key={n.big} delay={i * 80}>
-              <div className="bg-bg-card p-8 text-center">
-                <div className="text-gradient-gold font-serif text-[clamp(2.5rem,5vw,4rem)] font-light leading-none">
-                  {n.big}
-                </div>
-                <div className="mt-2 text-[0.82rem] text-text-dimmed">{n.desc}</div>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </div>
-
-      {/* ── HISTORY ── */}
+      {/* ── STORY ── */}
       <section className="px-[6vw] py-20">
         <ScrollReveal>
           <div className="mb-12">
@@ -201,53 +156,31 @@ export default function AProposPage() {
           </div>
         </ScrollReveal>
 
-        <div className="mx-auto grid max-w-[1100px] grid-cols-1 border border-border bg-border lg:grid-cols-2" style={{ gap: 0 }}>
-          {/* Left - Story */}
+        <div className="mx-auto max-w-[1100px]">
           <ScrollReveal>
-            <div className="border-b border-border bg-bg-card p-10 lg:border-b-0 lg:border-r">
-              <div className="mb-6 font-serif text-3xl font-light">Le problème qu&apos;on a voulu résoudre</div>
+            <div className="rounded-lg border border-border bg-bg-card p-10">
+              <div className="mb-6 font-serif text-3xl font-light">Le probleme qu&apos;on a voulu resoudre</div>
               <p className="mb-5 text-[0.88rem] leading-[1.9] text-text-dimmed">
-                En travaillant avec des professionnels B2B de secteurs variés, j&apos;ai observé le même
-                problème partout :{' '}
+                En travaillant avec des professionnels B2B de secteurs varies, nous avons observe le meme
+                probleme partout :{' '}
                 <strong className="font-medium text-text-primary">
-                  les meilleurs d&apos;entre eux passaient la moitié de leur journée sur des tâches que
-                  n&apos;importe quel programme pourrait faire à leur place.
+                  les meilleurs d&apos;entre eux passaient la moitie de leur journee sur des taches que
+                  n&apos;importe quel programme pourrait faire a leur place.
                 </strong>
               </p>
               <p className="mb-5 text-[0.88rem] leading-[1.9] text-text-dimmed">
                 Un agent immobilier qui passe 3 heures sur PAP chaque matin. Un coach qui relance ses prospects
-                à la main dans une feuille Excel. Un artisan qui oublie de rappeler un client parce qu&apos;il
-                était sur un chantier.{' '}
+                a la main dans une feuille Excel. Un artisan qui oublie de rappeler un client parce qu&apos;il
+                etait sur un chantier.{' '}
                 <strong className="font-medium text-text-primary">
-                  Ce n&apos;est pas un problème de motivation — c&apos;est un problème de système.
+                  Ce n&apos;est pas un probleme de motivation — c&apos;est un probleme de systeme.
                 </strong>
               </p>
               <p className="text-[0.88rem] leading-[1.9] text-text-dimmed">
-                Lead Machine est né de cette conviction : si vous êtes bon dans votre métier, vous méritez un
-                système qui travaille pour vous en dehors de vos heures — et qui vous ramène uniquement les
-                opportunités qui valent votre attention.
+                Lead Machine est ne de cette conviction : si vous etes bon dans votre metier, vous meritez un
+                systeme qui travaille pour vous en dehors de vos heures — et qui vous ramene uniquement les
+                opportunites qui valent votre attention.
               </p>
-            </div>
-          </ScrollReveal>
-
-          {/* Right - Timeline */}
-          <ScrollReveal delay={80}>
-            <div className="bg-[#0D0D0D] p-10">
-              <div className="mb-6 font-serif text-3xl font-light">Le chemin parcouru</div>
-              <div className="flex flex-col">
-                {TIMELINE.map((t) => (
-                  <div
-                    key={t.year}
-                    className="grid grid-cols-[60px_1fr] gap-5 border-b border-white/5 py-5 last:border-b-0"
-                  >
-                    <div className="pt-0.5 font-serif text-xl font-light text-gold/40">{t.year}</div>
-                    <div>
-                      <div className="mb-1 text-[0.9rem] font-medium text-text-primary">{t.title}</div>
-                      <p className="text-[0.8rem] leading-[1.65] text-text-dimmed">{t.text}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </ScrollReveal>
         </div>
@@ -258,8 +191,8 @@ export default function AProposPage() {
         <ScrollReveal>
           <div className="mx-auto max-w-[900px] rounded-lg border border-gold/20 bg-bg-card p-12 text-center lg:p-16">
             <p className="font-serif text-[clamp(1.5rem,3vw,2.3rem)] font-light italic leading-[1.4] text-white/90">
-              &laquo; Je veux que dans 5 ans, chaque professionnel B2B en France ait accès à un système IA qui
-              travaille pour lui la nuit — et lui ramène des opportunités qualifiées le matin.{' '}
+              &laquo; Je veux que dans 5 ans, chaque professionnel B2B en France ait acces a un systeme IA qui
+              travaille pour lui la nuit — et lui ramene des opportunites qualifiees le matin.{' '}
               <em className="text-gradient-gold not-italic">C&apos;est la mission de Lead Machine.</em> &raquo;
             </p>
             <div className="mt-6 text-[0.8rem] tracking-wide text-text-dimmed">
@@ -299,9 +232,9 @@ export default function AProposPage() {
       <section className="bg-[#111111] px-[6vw] py-20">
         <ScrollReveal>
           <div className="mb-12 text-center">
-            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-gold">L&apos;équipe</span>
+            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-gold">L&apos;equipe</span>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">
-              Les personnes derrière
+              Les personnes derriere
               <br />
               <em className="text-gold-light italic">Lead Machine</em>
             </h2>
@@ -365,15 +298,14 @@ export default function AProposPage() {
             cette <em className="text-gold-light italic">vision ?</em>
           </h2>
           <p className="mx-auto mt-4 max-w-[500px] text-[0.9rem] text-text-dimmed">
-            Rencontrez Maxime en 30 minutes pour voir si Lead Machine peut faire pour vous ce qu&apos;il fait
-            pour nos clients.
+            Rencontrez Maxime en 30 minutes pour voir si Lead Machine peut accelerer votre croissance.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button href="/rdv" size="md">
-              Réserver un appel avec Maxime &rarr;
+              Reserver un appel avec Maxime &rarr;
             </Button>
-            <Button href="/temoignages" variant="secondary" size="md">
-              Voir nos résultats clients
+            <Button href="/immobilier" variant="secondary" size="md">
+              Decouvrir nos solutions
             </Button>
           </div>
         </ScrollReveal>
