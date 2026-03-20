@@ -131,8 +131,9 @@ const testimonials = [
 const pricingPlans = [
   {
     tier: "Essentiel",
-    amount: "Sur devis",
-    period: "/ mois · sans engagement",
+    amount: "1 000\u20AC",
+    period: "HT + 100\u20AC/mois",
+    note: "1er mois de recurrence offert",
     features: [
       "Systeme de prospection automatise",
       "Sequences email & SMS",
@@ -144,8 +145,9 @@ const pricingPlans = [
   },
   {
     tier: "Performance",
-    amount: "Sur devis",
-    period: "/ mois · sans engagement",
+    amount: "2 500\u20AC",
+    period: "HT + 250\u20AC/mois",
+    note: "1er mois de recurrence offert",
     features: [
       "Tout le forfait Essentiel",
       "Scoring IA avance des prospects",
@@ -158,8 +160,9 @@ const pricingPlans = [
   },
   {
     tier: "Excellence",
-    amount: "Sur devis",
-    period: "/ mois · sans engagement",
+    amount: "5 000\u20AC",
+    period: "HT + 500\u20AC/mois",
+    note: "1er mois de recurrence offert",
     features: [
       "Tout le forfait Performance",
       "Automatisation complete sur mesure",
@@ -552,7 +555,11 @@ export default function Home() {
                 <div className="font-serif text-5xl font-light text-gold-light leading-none">
                   {plan.amount}
                 </div>
-                <div className="mt-1 mb-8 text-[0.78rem] text-text-dimmed">{plan.period}</div>
+                <div className="mt-1 text-[0.78rem] text-text-dimmed">{plan.period}</div>
+                {plan.note && (
+                  <div className="mt-1 mb-8 text-[0.68rem] text-green-400">{plan.note}</div>
+                )}
+                {!plan.note && <div className="mb-8" />}
                 <ul className="mb-8 flex flex-col gap-2.5">
                   {plan.features.map((f) => (
                     <li key={f} className="flex gap-2.5 text-[0.84rem] text-white/75">
@@ -569,7 +576,7 @@ export default function Home() {
                       : "border border-gold/35 text-gold hover:bg-gold/10"
                   }`}
                 >
-                  Demander un devis
+                  Demarrer maintenant
                 </Link>
               </div>
             </ScrollReveal>

@@ -148,46 +148,48 @@ const offers = [
   {
     tier: "Forfait Essentiel",
     name: "Prospecteur",
+    amount: "1 000\u20AC",
+    period: "HT + 100\u20AC/mois",
+    note: "1er mois de recurrence offert",
     tagline: "Pour demarrer l'automatisation de votre prospection PAP et Leboncoin.",
     features: [
       "Scraping PAP & Leboncoin sur votre zone",
-      "Scoring IA des vendeurs (0-100)",
-      "Sequence email automatique (3 etapes)",
-      "SMS de 1er contact",
-      "Tableau de bord Google Sheets",
-      "Rapport hebdomadaire automatique",
-      "Mise en place en 10 jours",
+      "Sequences email automatiques",
+      "Dashboard Google Sheets",
+      "Support email",
     ],
     featured: false,
   },
   {
     tier: "Forfait Performance",
     name: "Convertisseur",
+    amount: "2 500\u20AC",
+    period: "HT + 250\u20AC/mois",
+    note: "1er mois de recurrence offert",
     tagline: "La solution complete pour maximiser votre taux de mandats.",
     features: [
       "Tout le forfait Prospecteur",
-      "Scraping SeLoger + LBC + PAP + Bien'ici",
-      "Sequence complete email + SMS (7 etapes)",
-      "Prise de RDV automatique (Calendly integre)",
-      "Integration CRM (Hubspot, Pipedrive, Odoo...)",
-      "Pipeline de suivi 16 statuts",
-      "Nurturing automatique sur 90 jours",
-      "Suivi mensuel avec l'equipe Lead Machine",
+      "Scoring IA avance",
+      "Integration CRM complete",
+      "Prise de RDV automatique",
+      "Suivi mensuel",
+      "Dashboard premium",
     ],
     featured: true,
   },
   {
     tier: "Forfait Excellence",
     name: "Domination",
+    amount: "5 000\u20AC",
+    period: "HT + 500\u20AC/mois",
+    note: "1er mois de recurrence offert",
     tagline: "Pour les structures qui veulent l'automatisation totale et un avantage concurrentiel maximal.",
     features: [
       "Tout le forfait Convertisseur",
-      "Multi-zones & multi-agences",
-      "Prospection LinkedIn automatisee",
-      "IA predictive — anticipation des mises en vente",
-      "Reporting avance & analyses predictives",
+      "Multi-canaux (email + SMS + LinkedIn)",
+      "Reporting IA predictif",
       "Accompagnement strategique mensuel",
-      "SLA prioritaire — support sous 4h",
+      "SLA prioritaire — reponse sous 4h",
     ],
     featured: false,
   },
@@ -595,10 +597,15 @@ export default function ImmobilierPage() {
                 <div className="mb-3 text-[0.7rem] uppercase tracking-[0.18em] text-text-dimmed">
                   {offer.tier}
                 </div>
-                <div className="mb-1.5 font-serif text-3xl font-normal text-gold-light">
+                <div className="mb-1 font-serif text-3xl font-normal text-gold-light">
                   {offer.name}
                 </div>
-                <p className="mb-7 text-[0.8rem] leading-relaxed text-text-dimmed">
+                <div className="font-serif text-[2.8rem] font-light leading-none text-gold-light">
+                  {offer.amount}
+                </div>
+                <div className="mt-1 text-[0.78rem] text-text-dimmed">{offer.period}</div>
+                <div className="mt-1 mb-4 text-[0.68rem] text-green-400">{offer.note}</div>
+                <p className="mb-5 text-[0.8rem] leading-relaxed text-text-dimmed">
                   {offer.tagline}
                 </p>
                 <div className="mb-6 h-px w-10 bg-gold/30" />
@@ -620,7 +627,7 @@ export default function ImmobilierPage() {
                       : "border border-gold/30 text-gold hover:bg-gold/10"
                   }`}
                 >
-                  Demander un devis
+                  Demarrer maintenant
                 </Link>
               </div>
             </ScrollReveal>

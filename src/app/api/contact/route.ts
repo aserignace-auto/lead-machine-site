@@ -8,7 +8,50 @@ export async function POST(req: NextRequest) {
 
     console.log(`[LEAD] ${type}:`, JSON.stringify(fields));
 
-    // 1. Send to n8n webhook if configured
+    // 1. Create lead in Odoo CRM (for contact and rdv types only)
+    if (type === "contact" || type === "rdv") {
+      try {
+        const odooResponse = await fetch("https://lead-machine.odoo.com/jsonrpc", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            jsonrpc: "2.0",
+            method: "call",
+            params: {
+              service: "object",
+              method: "execute_kw",
+              args: [
+                "lead-machine",
+                2,
+                "878711e94ffcd5a77c75b516c8df31ce8bb3ea82",
+                "crm.lead",
+                "create",
+                [
+                  {
+                    name: `Site web - ${type} - ${fields.prenom || ""} ${fields.nom || ""}`,
+                    contact_name: `${fields.prenom || ""} ${fields.nom || ""}`,
+                    email_from: fields.email || "",
+                    phone: fields.telephone || "",
+                    x_source_lead: "inbound",
+                    description: JSON.stringify(fields),
+                  },
+                ],
+              ],
+            },
+          }),
+        });
+        const odooResult = await odooResponse.json();
+        if (odooResult.error) {
+          console.error("[ODOO CRM] Error:", JSON.stringify(odooResult.error));
+        } else {
+          console.log("[ODOO CRM] Lead created, id:", odooResult.result);
+        }
+      } catch (odooErr) {
+        console.error("[ODOO CRM] Request failed:", odooErr);
+      }
+    }
+
+    // 3. Send to n8n webhook if configured
     const webhookUrl = process.env.N8N_WEBHOOK_URL;
     if (webhookUrl) {
       fetch(webhookUrl, {
@@ -18,7 +61,7 @@ export async function POST(req: NextRequest) {
       }).catch((err) => console.error("[N8N WEBHOOK]", err));
     }
 
-    // 2. Send notification email via Gmail
+    // 4. Send notification email via Gmail
     const gmailUser = process.env.GMAIL_USER;
     const gmailPass = process.env.GMAIL_APP_PASSWORD;
     const notifyTo = process.env.NOTIFY_EMAIL || gmailUser;

@@ -77,24 +77,26 @@ const CLOSER_COMMISSION = [
 ];
 
 const SETTER_EXAMPLE = {
-  scenario: 'Scénario — 5 RDV qualifiés / semaine',
+  scenario: 'Scénario réaliste — 5 RDV qualifiés / semaine',
   rows: [
     { label: 'RDV posés / mois', val: '~20' },
-    { label: 'Taux de closing closers (30%)', val: '~6 ventes' },
-    { label: 'Panier moyen client HT', val: '1 500 \u20AC' },
+    { label: 'Taux de closing closers (30%)', val: '~2 ventes/mois' },
+    { label: 'Panier moyen client HT', val: '2 500 \u20AC' },
+    { label: 'Commission 20% sur 2 ventes', val: '1 000 \u20AC' },
   ],
-  total: { label: 'Commission mensuelle estimée', val: '~1 800 \u20AC' },
+  total: { label: 'Commission mensuelle estimée', val: '~1 000 \u20AC' },
 };
 
 const CLOSER_EXAMPLE = {
-  scenario: 'Scénario — 3 ventes / semaine, taux de closing 30%',
+  scenario: 'Scénario réaliste — 3 RDV / semaine, 30% close rate',
   rows: [
-    { label: 'Ventes conclues / mois', val: '~12' },
-    { label: 'Panier moyen client HT', val: '1 500 \u20AC' },
-    { label: 'Commission 30% sur 12 ventes', val: '5 400 \u20AC' },
-    { label: 'Primes récurrence (moy. 75 \u20AC \u00D7 12)', val: '+ 900 \u20AC' },
+    { label: 'RDV reçus / mois', val: '~13' },
+    { label: 'Ventes conclues (30% close rate)', val: '~4 ventes' },
+    { label: 'Panier moyen client HT', val: '2 500 \u20AC' },
+    { label: 'Commission 30% sur 4 ventes', val: '3 000 \u20AC' },
+    { label: 'Primes récurrence (moy. 75 \u20AC \u00D7 4)', val: '+ 300 \u20AC' },
   ],
-  total: { label: 'Commission mensuelle estimée', val: '~6 300 \u20AC' },
+  total: { label: 'Commission mensuelle estimée', val: '~3 300 \u20AC' },
 };
 
 const STEPS = [
@@ -270,16 +272,17 @@ function EarningsSimulator() {
   const [role, setRole] = useState<'setter' | 'closer'>('setter');
   const [rdv, setRdv] = useState(5);
   const [closeRate, setCloseRate] = useState(30);
-  const [panier, setPanier] = useState(1500);
+  const [panier, setPanier] = useState(2500);
   const [forfait, setForfait] = useState(50);
 
   const results = useMemo(() => {
-    const ventes = Math.round(rdv * 4.3 * (closeRate / 100));
+    const rdvMois = Math.round(rdv * 4.3);
+    const ventes = Math.round(rdvMois * (closeRate / 100));
     const tauxComm = role === 'setter' ? 0.2 : 0.3;
     const comm = Math.round(ventes * panier * tauxComm);
     const primesTotal = role === 'closer' ? ventes * forfait : 0;
     const total = comm + primesTotal;
-    return { ventes, comm, primesTotal, total, tauxComm };
+    return { rdvMois, ventes, comm, primesTotal, total, tauxComm };
   }, [role, rdv, closeRate, panier, forfait]);
 
   return (
@@ -361,41 +364,56 @@ function EarningsSimulator() {
       </div>
 
       <div className="flex flex-col justify-center gap-4 bg-[#0D0D0D] p-8">
-        <div className="rounded-md border border-gold/15 bg-gold/6 p-4">
-          <div className="text-[0.65rem] uppercase tracking-[0.14em] text-white/40">Ventes estimées / mois</div>
-          <div className="font-serif text-4xl font-light text-gold-light">{results.ventes}</div>
-          <div className="mt-1 text-[0.72rem] text-white/40">
-            {rdv} RDV/sem &times; {closeRate}% de closing
+        <div className="mb-2 text-[0.68rem] uppercase tracking-[0.16em] text-gold">
+          Projection mensuelle — {role === 'setter' ? 'Setter (20%)' : 'Closer (30% + primes)'}
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          <div className="rounded-md border border-gold/15 bg-gold/6 p-4">
+            <div className="text-[0.62rem] uppercase tracking-[0.14em] text-white/40">RDV / mois</div>
+            <div className="font-serif text-3xl font-light text-gold-light">{results.rdvMois}</div>
+            <div className="mt-1 text-[0.68rem] text-white/35">{rdv}/sem</div>
+          </div>
+          <div className="rounded-md border border-gold/15 bg-gold/6 p-4">
+            <div className="text-[0.62rem] uppercase tracking-[0.14em] text-white/40">Ventes / mois</div>
+            <div className="font-serif text-3xl font-light text-gold-light">{results.ventes}</div>
+            <div className="mt-1 text-[0.68rem] text-white/35">{closeRate}% close rate</div>
           </div>
         </div>
 
         <div className="rounded-md border border-gold/15 bg-gold/6 p-4">
-          <div className="text-[0.65rem] uppercase tracking-[0.14em] text-white/40">Commission mensuelle estimée</div>
+          <div className="text-[0.62rem] uppercase tracking-[0.14em] text-white/40">Commission {results.tauxComm * 100}%</div>
           <div className="font-serif text-4xl font-light text-green-400">
             {results.comm.toLocaleString('fr-FR')} \u20AC
           </div>
           <div className="mt-1 text-[0.72rem] text-white/40">
-            {results.tauxComm * 100}% &times; {results.ventes} ventes &times; {panier} \u20AC HT
+            {results.ventes} ventes &times; {panier.toLocaleString('fr-FR')} \u20AC &times; {results.tauxComm * 100}%
           </div>
         </div>
 
         {role === 'closer' && forfait > 0 && (
           <div className="rounded-md border border-gold/15 bg-gold/6 p-4">
-            <div className="text-[0.65rem] uppercase tracking-[0.14em] text-white/40">Primes récurrence estimées / mois</div>
-            <div className="font-serif text-4xl font-light text-gold-light">
-              {results.primesTotal.toLocaleString('fr-FR')} \u20AC
+            <div className="text-[0.62rem] uppercase tracking-[0.14em] text-white/40">Primes récurrence</div>
+            <div className="font-serif text-3xl font-light text-gold-light">
+              + {results.primesTotal.toLocaleString('fr-FR')} \u20AC
+            </div>
+            <div className="mt-1 text-[0.72rem] text-white/40">
+              {results.ventes} ventes &times; {forfait} \u20AC/vente
             </div>
           </div>
         )}
 
-        <div className="rounded-md border border-green-400/20 bg-green-400/6 p-4">
-          <div className="text-[0.65rem] uppercase tracking-[0.14em] text-white/40">Total mensuel estimé</div>
+        <div className="rounded-md border border-green-400/20 bg-green-400/6 p-5">
+          <div className="text-[0.62rem] uppercase tracking-[0.14em] text-white/40">Total mensuel estime</div>
           <div className="font-serif text-5xl font-light text-green-400">
             {results.total.toLocaleString('fr-FR')} \u20AC
           </div>
-          <p className="mt-3 border-t border-white/6 pt-3 text-[0.74rem] leading-relaxed text-white/30">
-            Estimation indicative basée sur les paramètres saisis. Les résultats réels dépendent de votre
-            implication, du secteur et du marché.
+          <div className="mt-2 text-[0.74rem] text-white/40">
+            soit ~{Math.round(results.total * 12).toLocaleString('fr-FR')} \u20AC / an
+          </div>
+          <p className="mt-3 border-t border-white/6 pt-3 text-[0.72rem] leading-relaxed text-white/30">
+            Estimation indicative basee sur les parametres saisis. Panier moyen reel : 2 500\u20AC HT.
+            Les resultats dependent de votre implication et du marche.
           </p>
         </div>
       </div>
