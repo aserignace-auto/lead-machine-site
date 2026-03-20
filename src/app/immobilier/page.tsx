@@ -106,9 +106,9 @@ const features = [
       title: "Sequence active — M. Dupont",
       sequence: [
         { icon: "\u2709", label: "Email 1er contact", time: "J0 — 09h00", status: "OUVERT", statusClass: "bg-gold/[0.15] text-gold-light" },
-        { icon: "\uD83D\uDCAC", label: "SMS avec lien Calendly", time: "J0 — 11h00", status: "ENVOYE", statusClass: "bg-green-400/10 text-green-400" },
+        { icon: "\u25C7", label: "SMS avec lien Calendly", time: "J0 — 11h00", status: "ENVOYE", statusClass: "bg-green-400/10 text-green-400" },
         { icon: "\u2709", label: "Email relance #1", time: "J+2 — planifie", status: "EN ATTENTE", statusClass: "bg-white/[0.06] text-white/40" },
-        { icon: "\uD83D\uDCDE", label: "Alerte appel qualification", time: "J+3 — alerte agent", status: "EN ATTENTE", statusClass: "bg-white/[0.06] text-white/40" },
+        { icon: "\u260F", label: "Alerte appel qualification", time: "J+3 — alerte agent", status: "EN ATTENTE", statusClass: "bg-white/[0.06] text-white/40" },
       ],
     },
   },

@@ -15,19 +15,19 @@ export const metadata: Metadata = {
 
 const techCards = [
   {
-    icon: "\uD83D\uDD0D",
+    icon: "\u2295",
     title: "Detection & sourcing",
     text: "Des scrapers sur mesure surveillent en temps reel les plateformes pertinentes pour votre secteur. Chaque nouvelle cible est automatiquement importee, dedupliquee et enrichie.",
     chips: ["PAP / Leboncoin", "LinkedIn", "SeLoger", "APIs B2B"],
   },
   {
-    icon: "\uD83E\uDDE0",
+    icon: "\u2234",
     title: "Scoring par IA",
     text: "Un modele d'IA analyse des dizaines de criteres pour attribuer un score de motivation a chaque prospect. Les plus chauds remontent automatiquement en tete de votre pipeline.",
     chips: ["Analyse semantique", "Score 0\u2013100", "Temps reel"],
   },
   {
-    icon: "\uD83D\uDCE1",
+    icon: "\u25C9",
     title: "Sequences multicanal",
     text: "Les sequences email et SMS se declenchent automatiquement selon le comportement de chaque prospect. Le bon message, au bon moment, sur le bon canal.",
     chips: ["Brevo", "Gmail", "SMS auto", "Calendly"],

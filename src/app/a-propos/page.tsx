@@ -35,22 +35,22 @@ const TIMELINE = [
 
 const VALUES = [
   {
-    icon: '\u26A1',
+    icon: '\u2699',
     title: 'Résultats avant tout',
     text: 'On ne vous vend pas de la technologie. On vous vend des résultats mesurables. Si votre système ne génère pas plus de leads, on l\u2019optimise jusqu\u2019à ce que ce soit le cas.',
   },
   {
-    icon: '\uD83D\uDD0D',
+    icon: '\u2295',
     title: 'Transparence totale',
     text: 'Pas de magie noire, pas de jargon. On vous explique exactement ce que fait votre système, pourquoi, et comment mesurer son impact. Vous restez maître de votre outil.',
   },
   {
-    icon: '\uD83E\uDD1D',
+    icon: '\u221E',
     title: 'Partenariat, pas transaction',
     text: 'Votre succès est notre succès. On ne signe pas un contrat et on disparaît. On reste à vos côtés chaque mois pour ajuster, optimiser et faire grandir votre système avec vous.',
   },
   {
-    icon: '\uD83C\uDFAF',
+    icon: '\u25CE',
     title: 'Simplicité opérationnelle',
     text: 'Un bon système IA doit simplifier votre vie, pas la compliquer. Si l\u2019outil vous prend plus de temps qu\u2019il ne vous en fait gagner, on a raté notre objectif.',
   },
@@ -73,17 +73,17 @@ const TEAM = [
 
 const ENGAGEMENTS = [
   {
-    icon: '\u23F1',
+    icon: '\u25CE',
     title: '10 jours de délai garanti',
     text: 'Votre solution est mise en place dans les 10 jours ouvrés suivant la réception de vos informations techniques. C\u2019est notre engagement contractuel, pas une promesse marketing.',
   },
   {
-    icon: '\uD83D\uDCCA',
+    icon: '\u25C8',
     title: 'Reporting mensuel systématique',
     text: 'Le 1er de chaque mois, vous recevez un rapport détaillant les performances de votre système : leads générés, taux de conversion, actions déclenchées. Aucune boîte noire.',
   },
   {
-    icon: '\uD83D\uDD13',
+    icon: '\u25C6',
     title: 'Sans engagement, sans piège',
     text: 'Nos abonnements sont résiliables à tout moment avec 30 jours de préavis. Pas de pénalité de sortie, pas de contrat longue durée imposé. Votre confiance se mérite chaque mois.',
   },

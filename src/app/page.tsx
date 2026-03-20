@@ -17,32 +17,32 @@ const stats = [
 
 const advantages = [
   {
-    icon: "\u26A1",
+    icon: "\u2699",
     title: "Prospection automatique",
     text: "Identification, enrichissement et qualification des prospects 24h/24. Votre pipeline se remplit sans effort humain, avec des contacts cibles selon vos criteres precis.",
   },
   {
-    icon: "\uD83C\uDFAF",
+    icon: "\u25CE",
     title: "Scoring & qualification IA",
     text: "Chaque prospect est analyse et score automatiquement. Vos equipes se concentrent uniquement sur les contacts a fort potentiel de conversion.",
   },
   {
-    icon: "\u2709\uFE0F",
+    icon: "\u2709",
     title: "Sequences de nurturing",
     text: "Emails et SMS personnalises, declenches au bon moment selon le comportement de chaque prospect. Zero action manuelle, taux d'ouverture maximise.",
   },
   {
-    icon: "\uD83D\uDCCA",
+    icon: "\u25C8",
     title: "Tableau de bord en temps reel",
     text: "Visualisez votre pipeline, vos metriques cles et vos performances commerciales en un coup d'oeil. Toutes vos donnees centralisees dans un seul espace.",
   },
   {
-    icon: "\uD83D\uDD17",
+    icon: "\u221E",
     title: "Integration sans friction",
     text: "Compatible avec vos outils existants : CRM, messagerie, agenda. Deploiement cle en main en 10 jours, sans migration ni disruption de votre activite.",
   },
   {
-    icon: "\u267E\uFE0F",
+    icon: "\u2295",
     title: "Optimisation continue",
     text: "Votre systeme apprend et s'ameliore avec le temps. Les performances s'affinent automatiquement grace a l'analyse des resultats en continu.",
   },

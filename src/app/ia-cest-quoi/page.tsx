@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const pillars = [
   {
-    icon: "\u{1F50D}",
+    icon: "\u2295",
     num: "01",
     title: "Chercher \u00e0 votre place",
     text: "L\u2019IA surveille en continu les sources o\u00f9 se trouvent vos prospects : annonces immobili\u00e8res, r\u00e9seaux sociaux professionnels, bases de donn\u00e9es B2B. Elle d\u00e9tecte chaque nouvelle opportunit\u00e9 et la remonte dans votre pipeline \u2014 sans que vous ayez \u00e0 regarder vous-m\u00eame.",
@@ -21,7 +21,7 @@ const pillars = [
       "Un agent immobilier re\u00e7oit chaque matin une liste de 15 vendeurs particuliers qui viennent de publier des annonces dans sa zone, class\u00e9s par score de motivation. Il n\u2019a plus besoin d\u2019aller sur PAP.",
   },
   {
-    icon: "\u{1F3AF}",
+    icon: "\u25CE",
     num: "02",
     title: "Qualifier \u00e0 votre place",
     text: "Un mod\u00e8le d\u2019IA analyse chaque prospect selon des dizaines de crit\u00e8res \u2014 signaux d\u2019urgence, comportement en ligne, historique de contact \u2014 et lui attribue un score de priorit\u00e9. Vous savez qui appeler en premier sans avoir \u00e0 creuser dans chaque fiche.",
@@ -30,7 +30,7 @@ const pillars = [
       "Un coaching business re\u00e7oit 50 demandes par mois. L\u2019IA les score automatiquement selon leur budget apparent, leur urgence et leur profil. Le commercial ne traite que les 15 plus qualifi\u00e9s.",
   },
   {
-    icon: "\u{1F4E1}",
+    icon: "\u25C9",
     num: "03",
     title: "Contacter & relancer \u00e0 votre place",
     text: "Des s\u00e9quences de messages personnalis\u00e9s se d\u00e9clenchent automatiquement selon le comportement de chaque prospect. Si quelqu\u2019un ouvre votre email mais ne r\u00e9pond pas, une relance cibl\u00e9e part automatiquement. Si quelqu\u2019un clique sur votre lien de RDV, vous en \u00eates notifi\u00e9 instantan\u00e9ment.",
@@ -324,7 +324,7 @@ export default function IACestQuoiPage() {
                     {c.text}
                   </p>
                   <div className="mt-3 flex items-center gap-1.5 text-xs text-green-400">
-                    <span className="text-[0.7rem]">{"\u26A1"}</span>
+                    <span className="text-[0.7rem]">{"\u2192"}</span>
                     {c.auto}
                   </div>
                 </div>

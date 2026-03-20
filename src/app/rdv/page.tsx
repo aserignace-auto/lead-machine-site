@@ -50,17 +50,17 @@ const AGENDA_ITEMS = [
 
 const GUARANTEES = [
   {
-    icon: '\uD83C\uDFAF',
+    icon: '\u25CE',
     title: 'Zéro engagement',
     text: 'Cet appel n\u2019engage à rien. Aucune carte bancaire, aucun contrat. Vous repartez avec des informations utiles, que vous travailliez avec nous ou non.',
   },
   {
-    icon: '\u23F1',
+    icon: '\u25CE',
     title: '30 minutes chrono',
     text: 'Nous respectons votre temps. L\u2019appel dure exactement 30 minutes. Pas de débordement, pas de relance excessive après l\u2019appel si vous ne donnez pas suite.',
   },
   {
-    icon: '\uD83D\uDCA1',
+    icon: '\u2299',
     title: 'Valeur immédiate',
     text: 'Même si vous ne devenez pas client, vous repartez avec une analyse concrète de vos axes d\u2019amélioration commerciale et des pistes actionnables.',
   },
@@ -74,10 +74,10 @@ const HERO_BENEFITS = [
 ];
 
 const INFO_ITEMS = [
-  { icon: '\uD83D\uDCC5', label: 'Format', value: 'Visio (Zoom / Google Meet) ou téléphone — au choix' },
-  { icon: '\u23F1', label: 'Durée', value: '30 minutes exactement' },
-  { icon: '\u2709\uFE0F', label: 'Confirmation', value: 'Email immédiat + rappel J-1 et H-1' },
-  { icon: '\uD83D\uDD12', label: 'Confidentialité', value: 'Vos données ne sont jamais partagées avec des tiers' },
+  { icon: '\u2299', label: 'Format', value: 'Visio (Zoom / Google Meet) ou téléphone — au choix' },
+  { icon: '\u25CE', label: 'Durée', value: '30 minutes exactement' },
+  { icon: '\u2709', label: 'Confirmation', value: 'Email immédiat + rappel J-1 et H-1' },
+  { icon: '\u25C6', label: 'Confidentialité', value: 'Vos données ne sont jamais partagées avec des tiers' },
 ];
 
 /* ── Calendar Component ── */
@@ -457,7 +457,7 @@ export default function RdvPage() {
           <div className="bg-[#0F0F0F] p-10">
             {/* Selected slot display */}
             <div className="mb-4 rounded border border-gold/25 bg-gold/8 px-4 py-3 text-[0.82rem] text-gold-lighter">
-              <span className="mr-1.5">{'\uD83D\uDCC5'}</span>
+              <span className="mr-1.5">{'\u2299'}</span>
               Créneau sélectionné : {slotLabel}
             </div>
 
