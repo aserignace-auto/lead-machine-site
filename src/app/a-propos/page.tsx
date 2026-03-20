@@ -1,6 +1,17 @@
+import type { Metadata } from 'next';
 import ScrollReveal from '@/components/ScrollReveal';
 import Button from '@/components/Button';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'A propos — Lead Machine',
+  description:
+    'Decouvrez Lead Machine, jeune entreprise specialisee dans l\'automatisation IA B2B. Fondee par Maxime, notre mission: rendre la croissance accessible a tous les professionnels.',
+  openGraph: {
+    title: 'A propos — Lead Machine',
+    description: 'Automatisation IA B2B sur mesure. Notre equipe, notre vision, nos engagements.',
+  },
+};
 
 /* ── Data ── */
 

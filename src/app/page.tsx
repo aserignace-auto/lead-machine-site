@@ -594,6 +594,19 @@ export default function Home() {
             {/* Right form */}
             <div className="bg-[#0F0F0F] p-12">
               <ContactForm />
+              <div className="mt-6 text-center">
+                <div className="mb-3 flex items-center gap-3">
+                  <div className="h-px flex-1 bg-white/10" />
+                  <span className="text-[0.72rem] uppercase tracking-[0.15em] text-white/30">ou</span>
+                  <div className="h-px flex-1 bg-white/10" />
+                </div>
+                <a
+                  href="/rdv"
+                  className="inline-flex items-center gap-2 rounded-sm border border-gold/30 px-6 py-3 text-[0.82rem] font-medium tracking-wide text-gold transition-all hover:border-gold/60 hover:bg-gold/5"
+                >
+                  Reservez directement un creneau Calendly
+                </a>
+              </div>
             </div>
           </div>
         </ScrollReveal>

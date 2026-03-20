@@ -1,5 +1,16 @@
+import type { Metadata } from 'next';
 import ScrollReveal from '@/components/ScrollReveal';
 import SectionHeader from '@/components/SectionHeader';
+
+export const metadata: Metadata = {
+  title: 'Prendre rendez-vous — Appel decouverte 30 min gratuit',
+  description:
+    'Reservez un appel decouverte gratuit de 30 minutes. Diagnostic de votre prospection, estimation du potentiel IA, zero engagement.',
+  openGraph: {
+    title: 'Appel decouverte gratuit — Lead Machine',
+    description: 'Reservez 30 min pour decouvrir comment automatiser votre prospection B2B.',
+  },
+};
 
 /* ── Data ── */
 
