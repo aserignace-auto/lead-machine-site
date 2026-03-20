@@ -412,9 +412,30 @@ export default function RecrutementPage() {
     setActiveRole(role);
   }, []);
 
-  const handleApply = useCallback((e: FormEvent<HTMLFormElement>) => {
+  const [formSending, setFormSending] = useState(false);
+
+  const handleApply = useCallback(async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setFormSending(true);
+    const fd = new FormData(e.currentTarget);
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "recrutement",
+          prenom: fd.get("prenom"),
+          nom: fd.get("nom"),
+          email: fd.get("email"),
+          telephone: fd.get("telephone"),
+          poste: fd.get("poste"),
+          experience: fd.get("experience"),
+          motivation: fd.get("motivation"),
+        }),
+      });
+    } catch {}
     setFormSubmitted(true);
+    setFormSending(false);
   }, []);
 
   return (
@@ -615,10 +636,7 @@ export default function RecrutementPage() {
                   <label className="mb-1.5 block text-[0.7rem] uppercase tracking-[0.14em] text-text-dimmed">
                     Prénom *
                   </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Jean"
+                  <input name="prenom" type="text" required placeholder="Jean"
                     className="w-full rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors placeholder:text-white/25 focus:border-gold/45 focus:bg-gold/4"
                   />
                 </div>
@@ -626,10 +644,7 @@ export default function RecrutementPage() {
                   <label className="mb-1.5 block text-[0.7rem] uppercase tracking-[0.14em] text-text-dimmed">
                     Nom *
                   </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Dupont"
+                  <input name="nom" type="text" required placeholder="Dupont"
                     className="w-full rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors placeholder:text-white/25 focus:border-gold/45 focus:bg-gold/4"
                   />
                 </div>
@@ -639,36 +654,28 @@ export default function RecrutementPage() {
                 <label className="mb-1.5 block text-[0.7rem] uppercase tracking-[0.14em] text-text-dimmed">
                   Email *
                 </label>
-                <input
-                  type="email"
-                  required
-                  placeholder="jean@email.fr"
+                <input name="email" type="email" required placeholder="jean@email.fr"
                   className="w-full rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors placeholder:text-white/25 focus:border-gold/45 focus:bg-gold/4"
                 />
               </div>
 
               <div className="mb-4">
                 <label className="mb-1.5 block text-[0.7rem] uppercase tracking-[0.14em] text-text-dimmed">
-                  Téléphone *
+                  Telephone *
                 </label>
-                <input
-                  type="tel"
-                  required
-                  placeholder="+33 6 xx xx xx xx"
+                <input name="telephone" type="tel" required placeholder="+33 6 xx xx xx xx"
                   className="w-full rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors placeholder:text-white/25 focus:border-gold/45 focus:bg-gold/4"
                 />
               </div>
 
               <div className="mb-4">
                 <label className="mb-1.5 block text-[0.7rem] uppercase tracking-[0.14em] text-text-dimmed">
-                  Rôle souhaité *
+                  Role souhaite *
                 </label>
-                <select
-                  required
-                  defaultValue=""
+                <select name="poste" required defaultValue=""
                   className="w-full cursor-pointer appearance-none rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors focus:border-gold/45 focus:bg-gold/4"
                 >
-                  <option value="" disabled>Sélectionner</option>
+                  <option value="" disabled>Selectionner</option>
                   <option>Setter uniquement</option>
                   <option>Closer uniquement</option>
                   <option>Setter &amp; Closer</option>
@@ -677,16 +684,15 @@ export default function RecrutementPage() {
 
               <div className="mb-4">
                 <label className="mb-1.5 block text-[0.7rem] uppercase tracking-[0.14em] text-text-dimmed">
-                  Expérience commerciale
+                  Experience commerciale
                 </label>
-                <select
-                  defaultValue=""
+                <select name="experience" defaultValue=""
                   className="w-full cursor-pointer appearance-none rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors focus:border-gold/45 focus:bg-gold/4"
                 >
                   <option value="" disabled>Votre niveau</option>
-                  <option>Débutant (moins de 1 an)</option>
-                  <option>Intermédiaire (1 à 3 ans)</option>
-                  <option>Confirmé (3 à 5 ans)</option>
+                  <option>Debutant (moins de 1 an)</option>
+                  <option>Intermediaire (1 a 3 ans)</option>
+                  <option>Confirme (3 a 5 ans)</option>
                   <option>Expert (+ 5 ans)</option>
                 </select>
               </div>
@@ -695,9 +701,8 @@ export default function RecrutementPage() {
                 <label className="mb-1.5 block text-[0.7rem] uppercase tracking-[0.14em] text-text-dimmed">
                   Pourquoi Lead Machine ? (court)
                 </label>
-                <textarea
-                  rows={3}
-                  placeholder="Qu'est-ce qui vous attire dans cette opportunité ?"
+                <textarea name="motivation" rows={3}
+                  placeholder="Qu'est-ce qui vous attire dans cette opportunite ?"
                   className="w-full resize-none rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors placeholder:text-white/25 focus:border-gold/45 focus:bg-gold/4"
                 />
               </div>

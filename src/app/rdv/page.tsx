@@ -294,10 +294,32 @@ export default function RdvPage() {
     return `${DAY_NAMES_LONG[selectedDate.getDay()]} ${selectedDate.getDate()} ${MONTHS[selectedDate.getMonth()]} ${selectedDate.getFullYear()} à ${selectedSlot}`;
   }, [selectedDate, selectedSlot]);
 
-  const handleSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
+  const [sending, setSending] = useState(false);
+
+  const handleSubmit = useCallback(async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSending(true);
+    const fd = new FormData(e.currentTarget);
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "rdv",
+          prenom: fd.get("prenom"),
+          nom: fd.get("nom"),
+          email: fd.get("email"),
+          telephone: fd.get("telephone"),
+          secteur: fd.get("secteur"),
+          format: fd.get("format"),
+          message: fd.get("message"),
+          creneau: slotLabel,
+        }),
+      });
+    } catch {}
     setSubmitted(true);
-  }, []);
+    setSending(false);
+  }, [slotLabel]);
 
   return (
     <>
@@ -467,10 +489,7 @@ export default function RdvPage() {
                   <label className="mb-1.5 block text-[0.68rem] uppercase tracking-[0.14em] text-text-dimmed">
                     Prénom *
                   </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Jean"
+                  <input name="prenom" type="text" required placeholder="Jean"
                     className="w-full rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors placeholder:text-white/25 focus:border-gold/45 focus:bg-gold/4"
                   />
                 </div>
@@ -478,10 +497,7 @@ export default function RdvPage() {
                   <label className="mb-1.5 block text-[0.68rem] uppercase tracking-[0.14em] text-text-dimmed">
                     Nom *
                   </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Dupont"
+                  <input name="nom" type="text" required placeholder="Dupont"
                     className="w-full rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors placeholder:text-white/25 focus:border-gold/45 focus:bg-gold/4"
                   />
                 </div>
@@ -491,33 +507,25 @@ export default function RdvPage() {
                 <label className="mb-1.5 block text-[0.68rem] uppercase tracking-[0.14em] text-text-dimmed">
                   Email professionnel *
                 </label>
-                <input
-                  type="email"
-                  required
-                  placeholder="jean@votre-entreprise.fr"
+                <input name="email" type="email" required placeholder="jean@votre-entreprise.fr"
                   className="w-full rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors placeholder:text-white/25 focus:border-gold/45 focus:bg-gold/4"
                 />
               </div>
 
               <div className="mb-4">
                 <label className="mb-1.5 block text-[0.68rem] uppercase tracking-[0.14em] text-text-dimmed">
-                  Téléphone *
+                  Telephone *
                 </label>
-                <input
-                  type="tel"
-                  required
-                  placeholder="+33 6 xx xx xx xx"
+                <input name="telephone" type="tel" required placeholder="+33 6 xx xx xx xx"
                   className="w-full rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors placeholder:text-white/25 focus:border-gold/45 focus:bg-gold/4"
                 />
               </div>
 
               <div className="mb-4">
                 <label className="mb-1.5 block text-[0.68rem] uppercase tracking-[0.14em] text-text-dimmed">
-                  Secteur d&apos;activité *
+                  Secteur d&apos;activite *
                 </label>
-                <select
-                  required
-                  defaultValue=""
+                <select name="secteur" required defaultValue=""
                   className="w-full cursor-pointer appearance-none rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors focus:border-gold/45 focus:bg-gold/4"
                 >
                   <option value="" disabled>Votre secteur</option>
@@ -531,19 +539,18 @@ export default function RdvPage() {
                 <label className="mb-1.5 block text-[0.68rem] uppercase tracking-[0.14em] text-text-dimmed">
                   Format de l&apos;appel
                 </label>
-                <select className="w-full cursor-pointer appearance-none rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors focus:border-gold/45 focus:bg-gold/4">
-                  <option>Visio (lien envoyé par email)</option>
-                  <option>Téléphone (je serai appelé)</option>
+                <select name="format" className="w-full cursor-pointer appearance-none rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors focus:border-gold/45 focus:bg-gold/4">
+                  <option>Visio (lien envoye par email)</option>
+                  <option>Telephone (je serai appele)</option>
                 </select>
               </div>
 
               <div className="mb-4">
                 <label className="mb-1.5 block text-[0.68rem] uppercase tracking-[0.14em] text-text-dimmed">
-                  Votre principal défi commercial (optionnel)
+                  Votre principal defi commercial (optionnel)
                 </label>
-                <textarea
-                  rows={3}
-                  placeholder="Ex : je manque de leads qualifiés, ma prospection prend trop de temps, je ne sais pas comment automatiser..."
+                <textarea name="message" rows={3}
+                  placeholder="Ex : je manque de leads qualifies, ma prospection prend trop de temps..."
                   className="w-full resize-none rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors placeholder:text-white/25 focus:border-gold/45 focus:bg-gold/4"
                 />
               </div>
