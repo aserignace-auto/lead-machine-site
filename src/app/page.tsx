@@ -362,7 +362,7 @@ export default function Home() {
                 }`}
               >
                 {plan.featured && (
-                  <div className="absolute -top-px left-1/2 -translate-x-1/2 bg-gold px-4 py-1 text-[0.62rem] font-bold uppercase tracking-[0.15em] text-bg-primary whitespace-nowrap">
+                  <div className="absolute -top-px left-1/2 -translate-x-1/2 bg-gold px-4 py-1 text-xs font-bold uppercase tracking-[0.15em] text-bg-primary whitespace-nowrap">
                     Le plus populaire
                   </div>
                 )}
@@ -446,7 +446,7 @@ export default function Home() {
                     key={perk}
                     className="flex items-center gap-3 text-base text-text-dimmed"
                   >
-                    <span className="flex-shrink-0 text-[0.58rem] text-gold">{"\u2726"}</span>
+                    <span className="flex-shrink-0 text-xs text-gold">{"\u2726"}</span>
                     {perk}
                   </li>
                 ))}

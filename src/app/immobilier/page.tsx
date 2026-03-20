@@ -236,7 +236,7 @@ function ScoreTag({ type, label }: { type: "hot" | "warm" | "cold"; label: strin
     cold: "bg-white/[0.06] text-white/40",
   };
   return (
-    <span className={`rounded px-2 py-0.5 text-[0.62rem] font-semibold ${cls[type]}`}>
+    <span className={`rounded px-2 py-0.5 text-xs font-semibold ${cls[type]}`}>
       {label}
     </span>
   );
@@ -263,7 +263,7 @@ export default function ImmobilierPage() {
 
         <div className="relative z-10 max-w-[640px]">
           <ScrollReveal>
-            <div className="mb-6 flex items-center gap-2.5 text-[0.72rem] uppercase tracking-[0.12em] text-white/30">
+            <div className="mb-6 flex items-center gap-2.5 text-xs uppercase tracking-[0.12em] text-white/30">
               <Link href="/" className="text-gold no-underline hover:text-gold-light">
                 Accueil
               </Link>
@@ -273,7 +273,7 @@ export default function ImmobilierPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={50}>
-            <div className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-gold/30 px-5 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-gold">
+            <div className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-gold/30 px-5 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-gold">
               <span
                 className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold shadow-[0_0_8px_var(--gold)]"
                 style={{ animation: "pulse-dot 2s infinite" }}
@@ -317,19 +317,19 @@ export default function ImmobilierPage() {
               <div className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]" />
               <div className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
               <div className="h-2.5 w-2.5 rounded-full bg-[#27c93f]" />
-              <span className="ml-2 text-[0.66rem] text-white/30">Pipeline Immobilier — Live</span>
+              <span className="ml-2 text-xs text-white/30">Pipeline Immobilier — Live</span>
             </div>
             <div className="flex flex-col gap-4 p-5">
               <div className="flex items-center justify-between rounded-md border border-gold/[0.08] bg-white/[0.03] px-4 py-3">
                 <div>
-                  <div className="text-[0.68rem] uppercase tracking-[0.1em] text-white/40">
+                  <div className="text-xs uppercase tracking-[0.1em] text-white/40">
                     Vendeurs detectes
                   </div>
                   <div className="font-serif text-3xl text-gold-light">43</div>
                 </div>
-                <span className="text-[0.68rem] text-green-400">&uarr; Aujourd&apos;hui</span>
+                <span className="text-xs text-green-400">&uarr; Aujourd&apos;hui</span>
               </div>
-              <div className="text-[0.62rem] uppercase tracking-[0.14em] text-white/30">
+              <div className="text-xs uppercase tracking-[0.14em] text-white/30">
                 Sequences en cours
               </div>
               {[
@@ -346,9 +346,9 @@ export default function ImmobilierPage() {
                     className={`h-1.5 w-1.5 flex-shrink-0 rounded-full ${row.dot}`}
                     style={row.dot === "bg-gold" ? { animation: "pulse-dot 1.5s infinite" } : undefined}
                   />
-                  <span className="text-[0.72rem] text-white/70">{row.text}</span>
+                  <span className="text-xs text-white/70">{row.text}</span>
                   {row.badge && (
-                    <span className={`ml-auto rounded px-2 py-0.5 text-[0.62rem] font-semibold ${row.badge.cls}`}>
+                    <span className={`ml-auto rounded px-2 py-0.5 text-xs font-semibold ${row.badge.cls}`}>
                       {row.badge.label}
                     </span>
                   )}
@@ -393,7 +393,7 @@ export default function ImmobilierPage() {
                 }`}
               >
                 {offer.featured && (
-                  <div className="absolute -top-px left-1/2 -translate-x-1/2 bg-gold px-4 py-1 text-[0.6rem] font-bold uppercase tracking-[0.15em] text-bg-primary whitespace-nowrap">
+                  <div className="absolute -top-px left-1/2 -translate-x-1/2 bg-gold px-4 py-1 text-xs font-bold uppercase tracking-[0.15em] text-bg-primary whitespace-nowrap">
                     Le plus populaire
                   </div>
                 )}
@@ -415,7 +415,7 @@ export default function ImmobilierPage() {
                 <ul className="mb-8 flex flex-col gap-2">
                   {offer.features.map((f) => (
                     <li key={f} className="flex gap-2.5 text-base leading-relaxed text-white/75">
-                      <span className="mt-0.5 flex-shrink-0 text-[0.52rem] text-gold">
+                      <span className="mt-0.5 flex-shrink-0 text-xs text-gold">
                         {"\u2726"}
                       </span>
                       {f}
@@ -505,7 +505,7 @@ export default function ImmobilierPage() {
 
                 {/* Demo */}
                 <div className="flex flex-col justify-center gap-3 bg-[#0D0D0D] p-6 md:p-10">
-                  <div className="mb-3 text-[0.62rem] uppercase tracking-[0.14em] text-white/30">
+                  <div className="mb-3 text-xs uppercase tracking-[0.14em] text-white/30">
                     {feat.demo.title}
                   </div>
                   <div className="rounded-lg border border-gold/10 bg-white/[0.03] p-5">
@@ -516,7 +516,7 @@ export default function ImmobilierPage() {
                           key={row.name}
                           className="flex items-center justify-between border-b border-white/[0.04] py-2 last:border-b-0"
                         >
-                          <span className="text-[0.74rem] text-white/75">{row.name}</span>
+                          <span className="text-sm text-white/75">{row.name}</span>
                           <ScoreTag type={row.type} label={row.score} />
                         </div>
                       ))}
@@ -529,8 +529,8 @@ export default function ImmobilierPage() {
                             key={s.label}
                             className="flex items-center justify-between border-b border-white/[0.04] py-2 last:border-b-0"
                           >
-                            <span className="text-[0.74rem] text-white/75">{s.label}</span>
-                            <span className={`text-[0.72rem] ${s.color}`}>{s.pts}</span>
+                            <span className="text-sm text-white/75">{s.label}</span>
+                            <span className={`text-xs ${s.color}`}>{s.pts}</span>
                           </div>
                         ))}
                         <div className="mt-4 text-right font-serif text-3xl text-gold-light">
@@ -551,11 +551,11 @@ export default function ImmobilierPage() {
                               {s.icon === "email1" || s.icon === "email2" ? <Mail size={16} /> : s.icon === "sms" ? <MessageSquare size={16} /> : <Phone size={16} />}
                             </div>
                             <div className="flex-1">
-                              <div className="text-[0.74rem] text-white/[0.78]">{s.label}</div>
-                              <div className="text-[0.62rem] text-white/30">{s.time}</div>
+                              <div className="text-sm text-white/[0.78]">{s.label}</div>
+                              <div className="text-xs text-white/30">{s.time}</div>
                             </div>
                             <span
-                              className={`rounded px-2 py-0.5 text-[0.62rem] font-semibold ${s.statusClass}`}
+                              className={`rounded px-2 py-0.5 text-xs font-semibold ${s.statusClass}`}
                             >
                               {s.status}
                             </span>
@@ -572,13 +572,13 @@ export default function ImmobilierPage() {
                             key={d.label}
                             className="rounded-md border border-gold/[0.08] bg-white/[0.03] p-3"
                           >
-                            <div className="text-[0.6rem] uppercase tracking-[0.1em] text-white/30">
+                            <div className="text-xs uppercase tracking-[0.1em] text-white/30">
                               {d.label}
                             </div>
                             <div className="font-serif text-2xl text-gold-light leading-none mt-1">
                               {d.val}
                             </div>
-                            <div className="mt-1 text-[0.64rem] text-green-400">&uarr; {d.delta}</div>
+                            <div className="mt-1 text-xs text-green-400">&uarr; {d.delta}</div>
                           </div>
                         ))}
                       </div>
@@ -641,7 +641,7 @@ export default function ImmobilierPage() {
 
               {/* Before */}
               <div className="mb-4 rounded-md border border-gold/10 bg-white/[0.03] p-5">
-                <div className="mb-3 text-[0.68rem] uppercase tracking-[0.15em] text-white/40">
+                <div className="mb-3 text-xs uppercase tracking-[0.15em] text-white/40">
                   Situation typique sans automatisation
                 </div>
                 {roiBefore.map((r) => (
@@ -677,7 +677,7 @@ export default function ImmobilierPage() {
                 ))}
               </div>
 
-              <p className="mt-4 text-[0.7rem] leading-[1.7] text-white/[0.28]">
+              <p className="mt-4 text-xs leading-[1.7] text-white/[0.28]">
                 * Projection estimee a titre indicatif. Les performances reelles varient
                 selon la zone geographique, le marche local et votre implication.
               </p>
@@ -740,7 +740,7 @@ export default function ImmobilierPage() {
               Prendre rendez-vous
             </Button>
           </div>
-          <p className="mt-6 text-[0.72rem] text-white/[0.22]">
+          <p className="mt-6 text-xs text-white/[0.22]">
             Reponse sous 24h &middot; Deploiement en 10 jours &middot; Sans engagement
           </p>
         </ScrollReveal>

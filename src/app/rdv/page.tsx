@@ -87,7 +87,7 @@ export default function RdvPage() {
             {/* Left column: Text content */}
             <ScrollReveal>
               <div>
-                <div className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-gold/30 px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-gold">
+                <div className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-gold/30 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-gold">
                   <span className="h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_8px_var(--gold)]" style={{ animation: 'pulse-dot 2s ease-in-out infinite' }} />
                   Appel decouverte &middot; 30 minutes &middot; Gratuit
                 </div>
@@ -126,9 +126,9 @@ export default function RdvPage() {
                     <div className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]" />
                     <div className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
                     <div className="h-2.5 w-2.5 rounded-full bg-[#27c93f]" />
-                    <span className="ml-3 text-[0.75rem] font-medium text-white/50">Choisir un creneau</span>
+                    <span className="ml-3 text-sm font-medium text-white/50">Choisir un creneau</span>
                   </div>
-                  <div className="rounded-full border border-gold/20 bg-gold/5 px-3 py-1 text-[0.65rem] font-medium text-gold">
+                  <div className="rounded-full border border-gold/20 bg-gold/5 px-3 py-1 text-xs font-medium text-gold">
                     30 min &middot; Visio ou Telephone
                   </div>
                 </div>
@@ -152,7 +152,7 @@ export default function RdvPage() {
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
             <div className="mb-12">
-              <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
+              <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/40">
                 Programme de l&apos;appel
               </span>
               <h2 className="font-serif text-[clamp(1.8rem,3.5vw,3rem)] font-light leading-[1.15]">
@@ -185,7 +185,7 @@ export default function RdvPage() {
       <section className="px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mx-auto max-w-[900px] text-center">
-            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
+            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/40">
               Nos engagements
             </span>
             <h2 className="font-serif text-[clamp(1.8rem,3.5vw,3rem)] font-light leading-[1.15]">

@@ -93,7 +93,7 @@ export default function AProposPage() {
         <div className="relative z-10 mx-auto grid max-w-[1100px] grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_auto] lg:gap-20">
           {/* Left content */}
           <div>
-            <div className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-gold/30 px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-gold">
+            <div className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-gold/30 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-gold">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gold shadow-[0_0_8px_var(--gold)]" />
               MRC &middot; Lead Machine &middot; Fonde par Maxime
             </div>
@@ -130,7 +130,7 @@ export default function AProposPage() {
             </div>
             <div className="p-6">
               <div className="font-serif text-3xl font-normal">Maxime</div>
-              <div className="mt-1 text-[0.72rem] uppercase tracking-[0.14em] text-white/40">
+              <div className="mt-1 text-xs uppercase tracking-[0.14em] text-white/40">
                 Fondateur &amp; CEO — MRC
               </div>
               <div className="mt-4 flex flex-col gap-2">
@@ -158,7 +158,7 @@ export default function AProposPage() {
       <section className="px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mb-12">
-            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
+            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/40">
               Notre histoire
             </span>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">
@@ -219,7 +219,7 @@ export default function AProposPage() {
       <section className="px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mb-12 text-center">
-            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
+            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/40">
               Ce en quoi nous croyons
             </span>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">
@@ -245,7 +245,7 @@ export default function AProposPage() {
       <section className="bg-[#111111] px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mb-12 text-center">
-            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">L&apos;equipe</span>
+            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/40">L&apos;equipe</span>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">
               Les personnes derriere
               <br />
@@ -278,7 +278,7 @@ export default function AProposPage() {
       <section className="px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mb-12 text-center">
-            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
+            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/40">
               Nos engagements clients
             </span>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">

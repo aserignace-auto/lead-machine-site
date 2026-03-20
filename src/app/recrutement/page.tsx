@@ -157,7 +157,7 @@ function JobPanel({
     <section className={`px-5 py-20 md:px-[6vw] ${role === 'setter' ? 'bg-[#111111]' : 'bg-bg-primary'}`}>
       <ScrollReveal>
         <div className="mb-12">
-          <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
+          <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/40">
             Fiche de poste — {role === 'setter' ? 'Setter' : 'Closer'}
           </span>
           <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">
@@ -204,7 +204,7 @@ function JobPanel({
             {chips.map((c) => (
               <span
                 key={c.label}
-                className={`rounded-full border px-3 py-1 text-[0.7rem] tracking-wide ${
+                className={`rounded-full border px-3 py-1 text-xs tracking-wide ${
                   c.green
                     ? 'border-green-400/30 text-green-300'
                     : 'border-gold/25 text-gold-lighter'
@@ -291,7 +291,7 @@ function EarningsSimulator() {
         <div className="mb-6 font-serif text-2xl font-light">Votre profil commercial</div>
 
         <div className="mb-5">
-          <span className="mb-2 block text-[0.68rem] uppercase tracking-[0.14em] text-text-dimmed">Mon rôle</span>
+          <span className="mb-2 block text-xs uppercase tracking-[0.14em] text-text-dimmed">Mon rôle</span>
           <select
             value={role}
             onChange={(e) => setRole(e.target.value as 'setter' | 'closer')}
@@ -303,7 +303,7 @@ function EarningsSimulator() {
         </div>
 
         <div className="mb-5">
-          <span className="mb-2 block text-[0.68rem] uppercase tracking-[0.14em] text-text-dimmed">
+          <span className="mb-2 block text-xs uppercase tracking-[0.14em] text-text-dimmed">
             RDV qualifiés posés ou reçus / semaine : <span className="text-gold-light">{rdv}</span>
           </span>
           <input
@@ -317,7 +317,7 @@ function EarningsSimulator() {
         </div>
 
         <div className="mb-5">
-          <span className="mb-2 block text-[0.68rem] uppercase tracking-[0.14em] text-text-dimmed">
+          <span className="mb-2 block text-xs uppercase tracking-[0.14em] text-text-dimmed">
             Taux de closing des ventes : <span className="text-gold-light">{closeRate}%</span>
           </span>
           <input
@@ -331,7 +331,7 @@ function EarningsSimulator() {
         </div>
 
         <div className="mb-5">
-          <span className="mb-2 block text-[0.68rem] uppercase tracking-[0.14em] text-text-dimmed">
+          <span className="mb-2 block text-xs uppercase tracking-[0.14em] text-text-dimmed">
             Panier moyen client HT : <span className="text-gold-light">{panier} \u20AC</span>
           </span>
           <input
@@ -347,7 +347,7 @@ function EarningsSimulator() {
 
         {role === 'closer' && (
           <div className="mb-5">
-            <span className="mb-2 block text-[0.68rem] uppercase tracking-[0.14em] text-text-dimmed">
+            <span className="mb-2 block text-xs uppercase tracking-[0.14em] text-text-dimmed">
               Forfait récurrence moyen vendu
             </span>
             <select
@@ -364,54 +364,54 @@ function EarningsSimulator() {
       </div>
 
       <div className="flex flex-col justify-center gap-4 bg-[#0D0D0D] p-6 lg:p-8">
-        <div className="mb-2 text-[0.68rem] uppercase tracking-[0.16em] text-white/40">
+        <div className="mb-2 text-xs uppercase tracking-[0.16em] text-white/40">
           Projection mensuelle — {role === 'setter' ? 'Setter (20%)' : 'Closer (30% + primes)'}
         </div>
 
         <div className="grid grid-cols-2 gap-3">
           <div className="rounded-md border border-gold/15 bg-gold/6 p-4">
-            <div className="text-[0.62rem] uppercase tracking-[0.14em] text-white/40">RDV / mois</div>
+            <div className="text-xs uppercase tracking-[0.14em] text-white/40">RDV / mois</div>
             <div className="font-serif text-3xl font-light text-gold-light">{results.rdvMois}</div>
-            <div className="mt-1 text-[0.68rem] text-white/35">{rdv}/sem</div>
+            <div className="mt-1 text-xs text-white/35">{rdv}/sem</div>
           </div>
           <div className="rounded-md border border-gold/15 bg-gold/6 p-4">
-            <div className="text-[0.62rem] uppercase tracking-[0.14em] text-white/40">Ventes / mois</div>
+            <div className="text-xs uppercase tracking-[0.14em] text-white/40">Ventes / mois</div>
             <div className="font-serif text-3xl font-light text-gold-light">{results.ventes}</div>
-            <div className="mt-1 text-[0.68rem] text-white/35">{closeRate}% close rate</div>
+            <div className="mt-1 text-xs text-white/35">{closeRate}% close rate</div>
           </div>
         </div>
 
         <div className="rounded-md border border-gold/15 bg-gold/6 p-4">
-          <div className="text-[0.62rem] uppercase tracking-[0.14em] text-white/40">Commission {results.tauxComm * 100}%</div>
+          <div className="text-xs uppercase tracking-[0.14em] text-white/40">Commission {results.tauxComm * 100}%</div>
           <div className="font-serif text-4xl font-light text-green-400">
             {results.comm.toLocaleString('fr-FR')} \u20AC
           </div>
-          <div className="mt-1 text-[0.72rem] text-white/40">
+          <div className="mt-1 text-xs text-white/40">
             {results.ventes} ventes &times; {panier.toLocaleString('fr-FR')} \u20AC &times; {results.tauxComm * 100}%
           </div>
         </div>
 
         {role === 'closer' && forfait > 0 && (
           <div className="rounded-md border border-gold/15 bg-gold/6 p-4">
-            <div className="text-[0.62rem] uppercase tracking-[0.14em] text-white/40">Primes récurrence</div>
+            <div className="text-xs uppercase tracking-[0.14em] text-white/40">Primes récurrence</div>
             <div className="font-serif text-3xl font-light text-gold-light">
               + {results.primesTotal.toLocaleString('fr-FR')} \u20AC
             </div>
-            <div className="mt-1 text-[0.72rem] text-white/40">
+            <div className="mt-1 text-xs text-white/40">
               {results.ventes} ventes &times; {forfait} \u20AC/vente
             </div>
           </div>
         )}
 
         <div className="rounded-md border border-green-400/20 bg-green-400/6 p-5">
-          <div className="text-[0.62rem] uppercase tracking-[0.14em] text-white/40">Total mensuel estime</div>
+          <div className="text-xs uppercase tracking-[0.14em] text-white/40">Total mensuel estime</div>
           <div className="font-serif text-5xl font-light text-green-400">
             {results.total.toLocaleString('fr-FR')} \u20AC
           </div>
-          <div className="mt-2 text-[0.74rem] text-white/40">
+          <div className="mt-2 text-sm text-white/40">
             soit ~{Math.round(results.total * 12).toLocaleString('fr-FR')} \u20AC / an
           </div>
-          <p className="mt-3 border-t border-white/6 pt-3 text-[0.72rem] leading-relaxed text-white/30">
+          <p className="mt-3 border-t border-white/6 pt-3 text-xs leading-relaxed text-white/30">
             Estimation indicative basee sur les parametres saisis. Panier moyen reel : 2 500\u20AC HT.
             Les resultats dependent de votre implication et du marche.
           </p>
@@ -476,7 +476,7 @@ export default function RecrutementPage() {
         <div className="animate-[float_18s_ease-in-out_infinite_reverse] pointer-events-none absolute -left-15 bottom-10 h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(201,168,76,0.06)_0%,transparent_70%)] blur-[90px]" />
 
         <div className="relative z-10 max-w-[820px]">
-          <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-gold/30 px-5 py-1.5 text-[0.72rem] font-medium uppercase tracking-[0.2em] text-gold">
+          <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-gold/30 px-5 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-gold">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gold shadow-[0_0_8px_var(--gold)]" />
             Recrutement &middot; Commission uniquement &middot; 100% remote
           </div>
@@ -571,7 +571,7 @@ export default function RecrutementPage() {
       <section className="bg-[#111111] px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mb-12">
-            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
+            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/40">
               Comment ça se passe
             </span>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">
@@ -599,7 +599,7 @@ export default function RecrutementPage() {
       <section className="px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mb-12">
-            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
+            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/40">
               Simulateur de revenus
             </span>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">
@@ -623,7 +623,7 @@ export default function RecrutementPage() {
         <div className="mx-auto grid max-w-[1000px] grid-cols-1 border border-border bg-border lg:grid-cols-2" style={{ gap: 0 }}>
           {/* Left */}
           <div className="border-b border-border bg-bg-card p-6 lg:border-b-0 lg:border-r lg:p-10">
-            <span className="mb-4 block text-[0.7rem] uppercase tracking-[0.2em] text-white/40">
+            <span className="mb-4 block text-xs uppercase tracking-[0.2em] text-white/40">
               Postuler maintenant
             </span>
             <h2 className="font-serif text-4xl font-light leading-[1.2]">
@@ -639,7 +639,7 @@ export default function RecrutementPage() {
             <ul className="mt-8 flex flex-col gap-3">
               {PERKS.map((perk) => (
                 <li key={perk} className="flex items-start gap-3 text-base text-text-dimmed">
-                  <span className="mt-1 flex-shrink-0 text-[0.55rem] text-gold">{'\u2726'}</span>
+                  <span className="mt-1 flex-shrink-0 text-xs text-gold">{'\u2726'}</span>
                   {perk}
                 </li>
               ))}
@@ -651,7 +651,7 @@ export default function RecrutementPage() {
             <form onSubmit={handleApply}>
               <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="mb-1.5 block text-[0.7rem] uppercase tracking-[0.14em] text-text-dimmed">
+                  <label className="mb-1.5 block text-xs uppercase tracking-[0.14em] text-text-dimmed">
                     Prénom *
                   </label>
                   <input name="prenom" type="text" required placeholder="Jean"
@@ -659,7 +659,7 @@ export default function RecrutementPage() {
                   />
                 </div>
                 <div>
-                  <label className="mb-1.5 block text-[0.7rem] uppercase tracking-[0.14em] text-text-dimmed">
+                  <label className="mb-1.5 block text-xs uppercase tracking-[0.14em] text-text-dimmed">
                     Nom *
                   </label>
                   <input name="nom" type="text" required placeholder="Dupont"
@@ -669,7 +669,7 @@ export default function RecrutementPage() {
               </div>
 
               <div className="mb-4">
-                <label className="mb-1.5 block text-[0.7rem] uppercase tracking-[0.14em] text-text-dimmed">
+                <label className="mb-1.5 block text-xs uppercase tracking-[0.14em] text-text-dimmed">
                   Email *
                 </label>
                 <input name="email" type="email" required placeholder="jean@email.fr"
@@ -678,7 +678,7 @@ export default function RecrutementPage() {
               </div>
 
               <div className="mb-4">
-                <label className="mb-1.5 block text-[0.7rem] uppercase tracking-[0.14em] text-text-dimmed">
+                <label className="mb-1.5 block text-xs uppercase tracking-[0.14em] text-text-dimmed">
                   Telephone *
                 </label>
                 <input name="telephone" type="tel" required placeholder="+33 6 xx xx xx xx"
@@ -687,7 +687,7 @@ export default function RecrutementPage() {
               </div>
 
               <div className="mb-4">
-                <label className="mb-1.5 block text-[0.7rem] uppercase tracking-[0.14em] text-text-dimmed">
+                <label className="mb-1.5 block text-xs uppercase tracking-[0.14em] text-text-dimmed">
                   Role souhaite *
                 </label>
                 <select name="poste" required defaultValue=""
@@ -701,7 +701,7 @@ export default function RecrutementPage() {
               </div>
 
               <div className="mb-4">
-                <label className="mb-1.5 block text-[0.7rem] uppercase tracking-[0.14em] text-text-dimmed">
+                <label className="mb-1.5 block text-xs uppercase tracking-[0.14em] text-text-dimmed">
                   Experience commerciale
                 </label>
                 <select name="experience" defaultValue=""
@@ -716,7 +716,7 @@ export default function RecrutementPage() {
               </div>
 
               <div className="mb-4">
-                <label className="mb-1.5 block text-[0.7rem] uppercase tracking-[0.14em] text-text-dimmed">
+                <label className="mb-1.5 block text-xs uppercase tracking-[0.14em] text-text-dimmed">
                   Pourquoi Lead Machine ? (court)
                 </label>
                 <textarea name="motivation" rows={3}
@@ -738,7 +738,7 @@ export default function RecrutementPage() {
                   ? '\u2713 Candidature reçue — Nous vous contactons sous 48h'
                   : 'Envoyer ma candidature →'}
               </button>
-              <p className="mt-3 text-center text-[0.7rem] text-white/28">
+              <p className="mt-3 text-center text-xs text-white/28">
                 Réponse sous 48h &middot; Entretien de 20 min &middot; Sans engagement
               </p>
             </form>
