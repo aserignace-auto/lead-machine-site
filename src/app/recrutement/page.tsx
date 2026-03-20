@@ -154,10 +154,10 @@ function JobPanel({
   footerNote: string;
 }) {
   return (
-    <section className={`px-5 py-20 md:px-[6vw] ${role === 'setter' ? 'bg-[#141414]' : 'bg-bg-primary'}`}>
+    <section className={`px-5 py-20 md:px-[6vw] ${role === 'setter' ? 'bg-[#181818]' : 'bg-bg-primary'}`}>
       <ScrollReveal>
         <div className="mb-12">
-          <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/60">
+          <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/75">
             Fiche de poste — {role === 'setter' ? 'Setter' : 'Closer'}
           </span>
           <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">
@@ -172,11 +172,11 @@ function JobPanel({
       <div className="mx-auto grid max-w-[1100px] grid-cols-1 border border-border bg-border lg:grid-cols-2" style={{ gap: 0 }}>
         {/* Left - Role details */}
         <div className="border-b border-border bg-bg-card p-6 lg:border-b-0 lg:border-r lg:p-10">
-          <span className="mb-3 block text-xs uppercase tracking-[0.2em] text-white/60">{roleLabel}</span>
+          <span className="mb-3 block text-xs uppercase tracking-[0.2em] text-white/75">{roleLabel}</span>
           <div className="font-serif text-3xl font-light md:text-4xl">Ton role au quotidien</div>
           <p className="mt-4 text-base leading-[1.8] text-text-dimmed">{description}</p>
 
-          <span className="mb-3 mt-6 block text-xs uppercase tracking-[0.16em] text-white/60">
+          <span className="mb-3 mt-6 block text-xs uppercase tracking-[0.16em] text-white/75">
             Missions principales
           </span>
           <ul className="flex flex-col gap-2">
@@ -188,7 +188,7 @@ function JobPanel({
             ))}
           </ul>
 
-          <span className="mb-3 mt-6 block text-xs uppercase tracking-[0.16em] text-white/60">
+          <span className="mb-3 mt-6 block text-xs uppercase tracking-[0.16em] text-white/75">
             Profil recherche
           </span>
           <ul className="flex flex-col gap-2">
@@ -220,7 +220,7 @@ function JobPanel({
         <div className="bg-[#0D0D0D] p-6 lg:p-10">
           {/* Commission box */}
           <div className="mb-6 rounded-md border border-gold/20 bg-gold/6 p-4 md:p-5">
-            <div className="mb-4 text-xs uppercase tracking-[0.16em] text-white/60">{commissionTitle}</div>
+            <div className="mb-4 text-xs uppercase tracking-[0.16em] text-white/75">{commissionTitle}</div>
             {commissionRows.map((r) => (
               <div
                 key={r.label}
@@ -233,11 +233,11 @@ function JobPanel({
           </div>
 
           {/* Example */}
-          <span className="mb-3 block text-xs uppercase tracking-[0.16em] text-white/60">
+          <span className="mb-3 block text-xs uppercase tracking-[0.16em] text-white/75">
             Exemple de revenus
           </span>
           <div className="mb-5 rounded-md border border-white/6 bg-white/3 p-4 md:p-5">
-            <div className="mb-3 text-xs uppercase tracking-[0.12em] text-white/55">
+            <div className="mb-3 text-xs uppercase tracking-[0.12em] text-white/70">
               {example.scenario}
             </div>
             {example.rows.map((r) => (
@@ -253,7 +253,7 @@ function JobPanel({
           </div>
 
           {/* Access note */}
-          <span className="mb-2 block text-xs uppercase tracking-[0.16em] text-white/60">
+          <span className="mb-2 block text-xs uppercase tracking-[0.16em] text-white/75">
             Condition d&apos;acces au CRM
           </span>
           <p className="text-base leading-[1.75] text-text-dimmed">{accessNote}</p>
@@ -364,54 +364,54 @@ function EarningsSimulator() {
       </div>
 
       <div className="flex flex-col justify-center gap-4 bg-[#0D0D0D] p-6 lg:p-8">
-        <div className="mb-2 text-xs uppercase tracking-[0.16em] text-white/60">
+        <div className="mb-2 text-xs uppercase tracking-[0.16em] text-white/75">
           Projection mensuelle — {role === 'setter' ? 'Setter (20%)' : 'Closer (30% + primes)'}
         </div>
 
         <div className="grid grid-cols-2 gap-3">
           <div className="rounded-md border border-gold/15 bg-gold/6 p-4">
-            <div className="text-xs uppercase tracking-[0.14em] text-white/60">RDV / mois</div>
+            <div className="text-xs uppercase tracking-[0.14em] text-white/75">RDV / mois</div>
             <div className="font-serif text-3xl font-light text-gold-light">{results.rdvMois}</div>
-            <div className="mt-1 text-xs text-white/55">{rdv}/sem</div>
+            <div className="mt-1 text-xs text-white/70">{rdv}/sem</div>
           </div>
           <div className="rounded-md border border-gold/15 bg-gold/6 p-4">
-            <div className="text-xs uppercase tracking-[0.14em] text-white/60">Ventes / mois</div>
+            <div className="text-xs uppercase tracking-[0.14em] text-white/75">Ventes / mois</div>
             <div className="font-serif text-3xl font-light text-gold-light">{results.ventes}</div>
-            <div className="mt-1 text-xs text-white/55">{closeRate}% close rate</div>
+            <div className="mt-1 text-xs text-white/70">{closeRate}% close rate</div>
           </div>
         </div>
 
         <div className="rounded-md border border-gold/15 bg-gold/6 p-4">
-          <div className="text-xs uppercase tracking-[0.14em] text-white/60">Commission {results.tauxComm * 100}%</div>
+          <div className="text-xs uppercase tracking-[0.14em] text-white/75">Commission {results.tauxComm * 100}%</div>
           <div className="font-serif text-4xl font-light text-green-400">
             {results.comm.toLocaleString('fr-FR')} \u20AC
           </div>
-          <div className="mt-1 text-xs text-white/60">
+          <div className="mt-1 text-xs text-white/75">
             {results.ventes} ventes &times; {panier.toLocaleString('fr-FR')} \u20AC &times; {results.tauxComm * 100}%
           </div>
         </div>
 
         {role === 'closer' && forfait > 0 && (
           <div className="rounded-md border border-gold/15 bg-gold/6 p-4">
-            <div className="text-xs uppercase tracking-[0.14em] text-white/60">Primes récurrence</div>
+            <div className="text-xs uppercase tracking-[0.14em] text-white/75">Primes récurrence</div>
             <div className="font-serif text-3xl font-light text-gold-light">
               + {results.primesTotal.toLocaleString('fr-FR')} \u20AC
             </div>
-            <div className="mt-1 text-xs text-white/60">
+            <div className="mt-1 text-xs text-white/75">
               {results.ventes} ventes &times; {forfait} \u20AC/vente
             </div>
           </div>
         )}
 
         <div className="rounded-md border border-green-400/20 bg-green-400/6 p-5">
-          <div className="text-xs uppercase tracking-[0.14em] text-white/60">Total mensuel estime</div>
+          <div className="text-xs uppercase tracking-[0.14em] text-white/75">Total mensuel estime</div>
           <div className="font-serif text-5xl font-light text-green-400">
             {results.total.toLocaleString('fr-FR')} \u20AC
           </div>
-          <div className="mt-2 text-sm text-white/60">
+          <div className="mt-2 text-sm text-white/75">
             soit ~{Math.round(results.total * 12).toLocaleString('fr-FR')} \u20AC / an
           </div>
-          <p className="mt-3 border-t border-white/6 pt-3 text-xs leading-relaxed text-white/50">
+          <p className="mt-3 border-t border-white/6 pt-3 text-xs leading-relaxed text-white/70">
             Estimation indicative basee sur les parametres saisis. Panier moyen reel : 2 500\u20AC HT.
             Les resultats dependent de votre implication et du marche.
           </p>
@@ -568,10 +568,10 @@ export default function RecrutementPage() {
       )}
 
       {/* ── ONBOARDING STEPS ── */}
-      <section className="bg-[#141414] px-5 py-20 md:px-[6vw]">
+      <section className="bg-[#181818] px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mb-12">
-            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/60">
+            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/75">
               Comment ça se passe
             </span>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">
@@ -599,7 +599,7 @@ export default function RecrutementPage() {
       <section className="px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mb-12">
-            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/60">
+            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/75">
               Simulateur de revenus
             </span>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">
@@ -619,11 +619,11 @@ export default function RecrutementPage() {
       </section>
 
       {/* ── APPLICATION FORM ── */}
-      <section className="bg-[#141414] px-5 py-20 md:px-[6vw]" id="candidature">
+      <section className="bg-[#181818] px-5 py-20 md:px-[6vw]" id="candidature">
         <div className="mx-auto grid max-w-[1000px] grid-cols-1 border border-border bg-border lg:grid-cols-2" style={{ gap: 0 }}>
           {/* Left */}
           <div className="border-b border-border bg-bg-card p-6 lg:border-b-0 lg:border-r lg:p-10">
-            <span className="mb-4 block text-xs uppercase tracking-[0.2em] text-white/60">
+            <span className="mb-4 block text-xs uppercase tracking-[0.2em] text-white/75">
               Postuler maintenant
             </span>
             <h2 className="font-serif text-4xl font-light leading-[1.2]">
@@ -655,7 +655,7 @@ export default function RecrutementPage() {
                     Prénom *
                   </label>
                   <input name="prenom" type="text" required placeholder="Jean"
-                    className="w-full rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors placeholder:text-white/50 focus:border-gold/45 focus:bg-gold/4"
+                    className="w-full rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors placeholder:text-white/70 focus:border-gold/45 focus:bg-gold/4"
                   />
                 </div>
                 <div>
@@ -663,7 +663,7 @@ export default function RecrutementPage() {
                     Nom *
                   </label>
                   <input name="nom" type="text" required placeholder="Dupont"
-                    className="w-full rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors placeholder:text-white/50 focus:border-gold/45 focus:bg-gold/4"
+                    className="w-full rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors placeholder:text-white/70 focus:border-gold/45 focus:bg-gold/4"
                   />
                 </div>
               </div>
@@ -673,7 +673,7 @@ export default function RecrutementPage() {
                   Email *
                 </label>
                 <input name="email" type="email" required placeholder="jean@email.fr"
-                  className="w-full rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors placeholder:text-white/50 focus:border-gold/45 focus:bg-gold/4"
+                  className="w-full rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors placeholder:text-white/70 focus:border-gold/45 focus:bg-gold/4"
                 />
               </div>
 
@@ -682,7 +682,7 @@ export default function RecrutementPage() {
                   Telephone *
                 </label>
                 <input name="telephone" type="tel" required placeholder="+33 6 xx xx xx xx"
-                  className="w-full rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors placeholder:text-white/50 focus:border-gold/45 focus:bg-gold/4"
+                  className="w-full rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors placeholder:text-white/70 focus:border-gold/45 focus:bg-gold/4"
                 />
               </div>
 
@@ -721,7 +721,7 @@ export default function RecrutementPage() {
                 </label>
                 <textarea name="motivation" rows={3}
                   placeholder="Qu'est-ce qui vous attire dans cette opportunite ?"
-                  className="w-full resize-none rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors placeholder:text-white/50 focus:border-gold/45 focus:bg-gold/4"
+                  className="w-full resize-none rounded-sm border border-white/10 bg-white/4 px-4 py-3 text-[0.88rem] text-text-primary outline-none transition-colors placeholder:text-white/70 focus:border-gold/45 focus:bg-gold/4"
                 />
               </div>
 

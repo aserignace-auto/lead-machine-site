@@ -126,7 +126,7 @@ export default function RdvPage() {
                     <div className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]" />
                     <div className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
                     <div className="h-2.5 w-2.5 rounded-full bg-[#27c93f]" />
-                    <span className="ml-3 text-sm font-medium text-white/50">Choisir un creneau</span>
+                    <span className="ml-3 text-sm font-medium text-white/70">Choisir un creneau</span>
                   </div>
                   <div className="rounded-full border border-gold/20 bg-gold/5 px-3 py-1 text-xs font-medium text-gold">
                     30 min &middot; Visio ou Telephone
@@ -148,11 +148,11 @@ export default function RdvPage() {
       </section>
 
       {/* ── AGENDA ── */}
-      <section className="bg-[#141414] px-5 py-20 md:px-[6vw]">
+      <section className="bg-[#181818] px-5 py-20 md:px-[6vw]">
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
             <div className="mb-12">
-              <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/60">
+              <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/75">
                 Programme de l&apos;appel
               </span>
               <h2 className="font-serif text-[clamp(1.8rem,3.5vw,3rem)] font-light leading-[1.15]">
@@ -171,7 +171,7 @@ export default function RdvPage() {
               <ScrollReveal key={item.time} delay={i * 80}>
                 <div className="flex h-full flex-col bg-bg-card p-6 md:p-7">
                   <div className="font-serif text-3xl font-light leading-none text-gold-light">{item.time}</div>
-                  <div className="mt-2 text-xs uppercase tracking-[0.14em] text-white/55">Minutes</div>
+                  <div className="mt-2 text-xs uppercase tracking-[0.14em] text-white/70">Minutes</div>
                   <div className="mt-3 text-base font-medium text-text-primary">{item.title}</div>
                   <p className="mt-2 text-base leading-[1.7] text-text-dimmed">{item.text}</p>
                 </div>
@@ -185,7 +185,7 @@ export default function RdvPage() {
       <section className="px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mx-auto max-w-[900px] text-center">
-            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/60">
+            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/75">
               Nos engagements
             </span>
             <h2 className="font-serif text-[clamp(1.8rem,3.5vw,3rem)] font-light leading-[1.15]">

@@ -110,7 +110,7 @@ export default function ContactForm() {
             ? "Envoi en cours..."
             : "Demander ma demo gratuite"}
       </button>
-      <p className="mt-3 text-center text-xs text-white/50">
+      <p className="mt-3 text-center text-xs text-white/70">
         Reponse garantie sous 24h — Donnees traitees conformement a notre politique RGPD
       </p>
     </form>

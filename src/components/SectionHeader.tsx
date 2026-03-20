@@ -14,7 +14,7 @@ export default function SectionHeader({
   return (
     <div className={centered ? "text-center" : ""}>
       {label && (
-        <span className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-white/60 mb-4">
+        <span className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-white/75 mb-4">
           {label}
         </span>
       )}

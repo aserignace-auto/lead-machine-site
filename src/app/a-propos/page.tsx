@@ -130,7 +130,7 @@ export default function AProposPage() {
             </div>
             <div className="p-6">
               <div className="font-serif text-3xl font-normal">Maxime</div>
-              <div className="mt-1 text-xs uppercase tracking-[0.14em] text-white/60">
+              <div className="mt-1 text-xs uppercase tracking-[0.14em] text-white/75">
                 Fondateur &amp; CEO — MRC
               </div>
               <div className="mt-4 flex flex-col gap-2">
@@ -158,7 +158,7 @@ export default function AProposPage() {
       <section className="px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mb-12">
-            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/60">
+            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/75">
               Notre histoire
             </span>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">
@@ -200,7 +200,7 @@ export default function AProposPage() {
       </section>
 
       {/* ── VISION QUOTE ── */}
-      <section className="bg-[#141414] px-5 py-20 md:px-[6vw]">
+      <section className="bg-[#181818] px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mx-auto max-w-[900px] rounded-lg border border-gold/20 bg-bg-card p-8 text-center md:p-12 lg:p-16">
             <p className="font-serif text-[clamp(1.5rem,3vw,2.3rem)] font-light italic leading-[1.4] text-white/90">
@@ -219,7 +219,7 @@ export default function AProposPage() {
       <section className="px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mb-12 text-center">
-            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/60">
+            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/75">
               Ce en quoi nous croyons
             </span>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">
@@ -242,10 +242,10 @@ export default function AProposPage() {
       </section>
 
       {/* ── TEAM ── */}
-      <section className="bg-[#141414] px-5 py-20 md:px-[6vw]">
+      <section className="bg-[#181818] px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mb-12 text-center">
-            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/60">L&apos;equipe</span>
+            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/75">L&apos;equipe</span>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">
               Les personnes derriere
               <br />
@@ -263,7 +263,7 @@ export default function AProposPage() {
                 </div>
                 <div>
                   <div className="font-serif text-xl font-light">{member.name}</div>
-                  <div className="mt-0.5 text-xs uppercase tracking-[0.15em] text-white/60">
+                  <div className="mt-0.5 text-xs uppercase tracking-[0.15em] text-white/75">
                     {member.role}
                   </div>
                   <p className="mt-2.5 text-base leading-[1.75] text-text-dimmed">{member.text}</p>
@@ -278,7 +278,7 @@ export default function AProposPage() {
       <section className="px-5 py-20 md:px-[6vw]">
         <ScrollReveal>
           <div className="mb-12 text-center">
-            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/60">
+            <span className="mb-3 block text-xs uppercase tracking-[0.22em] text-white/75">
               Nos engagements clients
             </span>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">

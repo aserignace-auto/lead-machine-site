@@ -223,7 +223,7 @@ export default function Home() {
             <ScrollReveal key={adv.title} delay={i * 80}>
               <div
                 className={`flex flex-col gap-5 px-6 py-8 sm:flex-row sm:items-start sm:gap-8 md:px-10 md:py-10 ${
-                  i % 2 === 1 ? "bg-[#141414]" : "bg-transparent"
+                  i % 2 === 1 ? "bg-[#181818]" : "bg-transparent"
                 } transition-colors duration-300 hover:bg-gold/[0.04]`}
               >
                 <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl border border-gold/20 bg-gold/[0.06] text-gold">
@@ -240,7 +240,7 @@ export default function Home() {
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section id="fonctionnement" className="bg-[#141414] px-5 py-20 md:px-[6vw] md:py-36">
+      <section id="fonctionnement" className="bg-[#181818] px-5 py-20 md:px-[6vw] md:py-36">
         <ScrollReveal>
           <SectionHeader
             label="Comment ca fonctionne"
@@ -274,7 +274,7 @@ export default function Home() {
             {steps.map((step, i) => (
               <ScrollReveal key={step.num} delay={i * 80}>
                 <div className="relative flex gap-6 pl-0">
-                  <div className="relative z-10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-gold/40 bg-[#141414] font-serif text-sm text-gold">
+                  <div className="relative z-10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-gold/40 bg-[#181818] font-serif text-sm text-gold">
                     {step.num}
                   </div>
                   <div className="pt-1">
@@ -311,7 +311,7 @@ export default function Home() {
                 {!sector.dimmed && (
                   <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-gold to-gold-light scale-x-0 origin-left transition-transform duration-400 group-hover:scale-x-100" />
                 )}
-                <span className="text-xs uppercase tracking-[0.18em] text-white/60">
+                <span className="text-xs uppercase tracking-[0.18em] text-white/75">
                   {sector.tag}
                 </span>
                 <h3 className="font-serif text-3xl font-light">{sector.title}</h3>
@@ -319,7 +319,7 @@ export default function Home() {
                 <span
                   className={`text-sm font-medium uppercase tracking-wider transition-all duration-200 ${
                     sector.dimmed
-                      ? "text-white/50"
+                      ? "text-white/70"
                       : "text-gold group-hover:tracking-[0.14em]"
                   }`}
                 >
@@ -402,7 +402,7 @@ export default function Home() {
       </section>
 
       {/* ── FAQ ── */}
-      <section id="faq" className="bg-[#141414] px-5 py-20 md:px-[6vw] md:py-36">
+      <section id="faq" className="bg-[#181818] px-5 py-20 md:px-[6vw] md:py-36">
         <ScrollReveal>
           <SectionHeader
             label="Questions frequentes"
@@ -422,7 +422,7 @@ export default function Home() {
             {/* Left info */}
             <div className="flex flex-col justify-between border-b border-border bg-bg-card p-8 md:border-b-0 md:border-r md:p-12">
               <div>
-                <span className="mb-6 block text-xs uppercase tracking-[0.2em] text-white/60">
+                <span className="mb-6 block text-xs uppercase tracking-[0.2em] text-white/75">
                   Demarrer maintenant
                 </span>
                 <h2 className="mb-6 font-serif text-3xl font-light leading-[1.2] md:text-4xl">
@@ -459,7 +459,7 @@ export default function Home() {
               <div className="mt-6 text-center">
                 <div className="mb-3 flex items-center gap-3">
                   <div className="h-px flex-1 bg-white/10" />
-                  <span className="text-xs uppercase tracking-[0.15em] text-white/50">ou</span>
+                  <span className="text-xs uppercase tracking-[0.15em] text-white/70">ou</span>
                   <div className="h-px flex-1 bg-white/10" />
                 </div>
                 <a
