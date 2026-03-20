@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Logo from "@/components/Logo";
 
@@ -16,107 +16,101 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
+  const close = useCallback(() => setMobileOpen(false), []);
+
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-bg-primary/95 backdrop-blur-md border-b border-border"
-          : "bg-transparent"
-      }`}
-    >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        {/* Logo */}
-        <Link href="/" className="flex-shrink-0 flex items-center gap-3" onClick={() => setMobileOpen(false)}>
-          <Logo size="sm" />
-          <span className="font-serif text-2xl font-bold tracking-wider text-gradient-gold">
-            LEAD MACHINE
-          </span>
-        </Link>
-
-        {/* Desktop nav links */}
-        <div className="hidden items-center gap-8 lg:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-text-dimmed transition-colors duration-200 hover:text-gold-light"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-
-        {/* Desktop CTA */}
-        <div className="hidden lg:block">
-          <Link
-            href="/rdv"
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-gold px-6 py-2.5 text-sm font-semibold text-bg-primary transition-all duration-300 hover:shadow-[0_0_24px_rgba(201,168,76,0.3)] hover:scale-105"
-          >
-            Prendre RDV
+    <>
+      {/* Navbar bar */}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-bg-primary/95 backdrop-blur-md border-b border-border"
+            : "bg-transparent"
+        }`}
+      >
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+          <Link href="/" className="flex-shrink-0 flex items-center gap-3" onClick={close}>
+            <Logo size="sm" />
+            <span className="font-serif text-2xl font-bold tracking-wider text-gradient-gold">
+              LEAD MACHINE
+            </span>
           </Link>
-        </div>
 
-        {/* Mobile hamburger button */}
-        <button
-          type="button"
-          className="relative z-[70] flex h-10 w-10 items-center justify-center lg:hidden"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
-          aria-expanded={mobileOpen}
-        >
-          <div className="flex w-6 flex-col gap-1.5">
-            <span
-              className={`block h-0.5 w-full bg-text-primary transition-all duration-300 ${
-                mobileOpen ? "translate-y-2 rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-full bg-text-primary transition-all duration-300 ${
-                mobileOpen ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-full bg-text-primary transition-all duration-300 ${
-                mobileOpen ? "-translate-y-2 -rotate-45" : ""
-              }`}
-            />
+          <div className="hidden items-center gap-8 lg:flex">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-text-dimmed transition-colors duration-200 hover:text-gold-light"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
-        </button>
-      </nav>
 
-      {/* Mobile menu overlay */}
+          <div className="hidden lg:block">
+            <Link
+              href="/rdv"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-gold px-6 py-2.5 text-sm font-semibold text-bg-primary transition-all duration-300 hover:shadow-[0_0_24px_rgba(201,168,76,0.3)] hover:scale-105"
+            >
+              Prendre RDV
+            </Link>
+          </div>
+
+          {/* Hamburger button — above everything */}
+          <button
+            type="button"
+            className="relative z-[70] flex h-10 w-10 items-center justify-center lg:hidden"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={mobileOpen}
+          >
+            <div className="flex w-6 flex-col gap-1.5">
+              <span
+                className={`block h-0.5 w-full bg-text-primary transition-all duration-300 ${
+                  mobileOpen ? "translate-y-2 rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-full bg-text-primary transition-all duration-300 ${
+                  mobileOpen ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-full bg-text-primary transition-all duration-300 ${
+                  mobileOpen ? "-translate-y-2 -rotate-45" : ""
+                }`}
+              />
+            </div>
+          </button>
+        </nav>
+      </header>
+
+      {/* Mobile menu — OUTSIDE header, uses fixed + 100dvh for correct mobile viewport */}
       <div
-        className={`fixed inset-0 z-[60] bg-bg-primary backdrop-blur-lg transition-all duration-500 lg:hidden ${
+        className={`fixed top-0 left-0 w-full z-[60] bg-bg-primary transition-all duration-500 lg:hidden ${
           mobileOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
+        style={{ height: "100dvh" }}
       >
-        <div className="flex h-full flex-col items-center justify-center gap-8 px-6">
+        <div className="flex h-full w-full flex-col items-center justify-center gap-8 px-6">
           {navLinks.map((link, i) => (
             <Link
               key={link.href}
               href={link.href}
-              onClick={() => setMobileOpen(false)}
+              onClick={close}
               className="text-2xl font-serif font-semibold text-text-primary transition-colors duration-200 hover:text-gold-light"
               style={{
                 transitionDelay: mobileOpen ? `${i * 50}ms` : "0ms",
@@ -130,7 +124,7 @@ export default function Navbar() {
           ))}
           <Link
             href="/rdv"
-            onClick={() => setMobileOpen(false)}
+            onClick={close}
             className="mt-4 inline-flex items-center gap-2 rounded-full bg-gradient-gold px-8 py-3 text-lg font-semibold text-bg-primary transition-all duration-300 hover:shadow-[0_0_24px_rgba(201,168,76,0.3)]"
             style={{
               transitionDelay: mobileOpen ? `${navLinks.length * 50}ms` : "0ms",
@@ -143,6 +137,6 @@ export default function Navbar() {
           </Link>
         </div>
       </div>
-    </header>
+    </>
   );
 }
