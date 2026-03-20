@@ -157,7 +157,7 @@ function JobPanel({
     <section className={`px-[6vw] py-20 ${role === 'setter' ? 'bg-[#111111]' : 'bg-bg-primary'}`}>
       <ScrollReveal>
         <div className="mb-12">
-          <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-gold">
+          <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
             Fiche de poste — {role === 'setter' ? 'Setter' : 'Closer'}
           </span>
           <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">
@@ -172,7 +172,7 @@ function JobPanel({
       <div className="mx-auto grid max-w-[1100px] grid-cols-1 border border-border bg-border lg:grid-cols-2" style={{ gap: 0 }}>
         {/* Left - Role details */}
         <div className="border-b border-border bg-bg-card p-8 lg:border-b-0 lg:border-r lg:p-10">
-          <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.2em] text-gold">{roleLabel}</span>
+          <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.2em] text-white/40">{roleLabel}</span>
           <div className="font-serif text-4xl font-light">Ton rôle au quotidien</div>
           <p className="mt-4 text-[0.88rem] leading-[1.8] text-text-dimmed">{description}</p>
 
@@ -220,7 +220,7 @@ function JobPanel({
         <div className="bg-[#0D0D0D] p-8 lg:p-10">
           {/* Commission box */}
           <div className="mb-6 rounded-md border border-gold/20 bg-gold/6 p-5">
-            <div className="mb-4 text-[0.68rem] uppercase tracking-[0.16em] text-gold">{commissionTitle}</div>
+            <div className="mb-4 text-[0.68rem] uppercase tracking-[0.16em] text-white/40">{commissionTitle}</div>
             {commissionRows.map((r) => (
               <div
                 key={r.label}
@@ -364,7 +364,7 @@ function EarningsSimulator() {
       </div>
 
       <div className="flex flex-col justify-center gap-4 bg-[#0D0D0D] p-8">
-        <div className="mb-2 text-[0.68rem] uppercase tracking-[0.16em] text-gold">
+        <div className="mb-2 text-[0.68rem] uppercase tracking-[0.16em] text-white/40">
           Projection mensuelle — {role === 'setter' ? 'Setter (20%)' : 'Closer (30% + primes)'}
         </div>
 
@@ -571,7 +571,7 @@ export default function RecrutementPage() {
       <section className="bg-[#111111] px-[6vw] py-20">
         <ScrollReveal>
           <div className="mb-12">
-            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-gold">
+            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
               Comment ça se passe
             </span>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">
@@ -599,7 +599,7 @@ export default function RecrutementPage() {
       <section className="px-[6vw] py-20">
         <ScrollReveal>
           <div className="mb-12">
-            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-gold">
+            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
               Simulateur de revenus
             </span>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">
@@ -623,7 +623,7 @@ export default function RecrutementPage() {
         <div className="mx-auto grid max-w-[1000px] grid-cols-1 border border-border bg-border lg:grid-cols-2" style={{ gap: 0 }}>
           {/* Left */}
           <div className="border-b border-border bg-bg-card p-10 lg:border-b-0 lg:border-r">
-            <span className="mb-4 block text-[0.7rem] uppercase tracking-[0.2em] text-gold">
+            <span className="mb-4 block text-[0.7rem] uppercase tracking-[0.2em] text-white/40">
               Postuler maintenant
             </span>
             <h2 className="font-serif text-4xl font-light leading-[1.2]">
@@ -736,7 +736,7 @@ export default function RecrutementPage() {
               >
                 {formSubmitted
                   ? '\u2713 Candidature reçue — Nous vous contactons sous 48h'
-                  : 'Envoyer ma candidature \u2192'}
+                  : 'Envoyer ma candidature →'}
               </button>
               <p className="mt-3 text-center text-[0.7rem] text-white/28">
                 Réponse sous 48h &middot; Entretien de 20 min &middot; Sans engagement

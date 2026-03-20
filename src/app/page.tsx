@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { Zap, Target, Link2, ArrowRight } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import Button from "@/components/Button";
 import ScrollReveal from "@/components/ScrollReveal";
 import FaqAccordion from "@/components/FaqAccordion";
 import ContactForm from "@/components/ContactForm";
+import type { ReactNode } from "react";
 
 /* ── Data ── */
 
@@ -14,19 +16,19 @@ const stats = [
   { value: "24/7", desc: "Actif en continu" },
 ];
 
-const advantages = [
+const advantages: { icon: ReactNode; title: string; text: string }[] = [
   {
-    icon: "\u2699",
+    icon: <Zap size={20} />,
     title: "Prospection automatique",
     text: "Identification, enrichissement et qualification de vos prospects 24h/24. Votre pipeline se remplit sans effort, avec des contacts cibles selon vos criteres.",
   },
   {
-    icon: "\u25CE",
+    icon: <Target size={20} />,
     title: "Scoring & qualification IA",
     text: "Chaque prospect est analyse et score automatiquement. Vos equipes se concentrent uniquement sur les contacts a fort potentiel de conversion.",
   },
   {
-    icon: "\u221E",
+    icon: <Link2 size={20} />,
     title: "Integration sans friction",
     text: "Compatible avec vos outils existants : CRM, messagerie, agenda. Deploiement cle en main en 10 jours, sans migration ni disruption.",
   },
@@ -220,7 +222,7 @@ export default function Home() {
           {advantages.map((adv) => (
             <ScrollReveal key={adv.title}>
               <div className="bg-bg-card p-12 transition-colors duration-300 hover:bg-gold/[0.04]">
-                <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-lg border border-gold/30 text-2xl">
+                <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-lg border border-white/15 text-white/70">
                   {adv.icon}
                 </div>
                 <h3 className="mb-4 font-serif text-2xl font-normal">{adv.title}</h3>
@@ -281,7 +283,7 @@ export default function Home() {
                 {!sector.dimmed && (
                   <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-gold to-gold-light scale-x-0 origin-left transition-transform duration-400 group-hover:scale-x-100" />
                 )}
-                <span className="text-[0.7rem] uppercase tracking-[0.18em] text-gold">
+                <span className="text-[0.7rem] uppercase tracking-[0.18em] text-white/40">
                   {sector.tag}
                 </span>
                 <h3 className="font-serif text-3xl font-light">{sector.title}</h3>
@@ -293,7 +295,7 @@ export default function Home() {
                       : "text-gold group-hover:tracking-[0.14em]"
                   }`}
                 >
-                  {sector.arrow} {!sector.dimmed && "\u2192"}
+                  {sector.arrow} {!sector.dimmed && <ArrowRight size={14} className="inline ml-1" />}
                 </span>
               </div>
             );
@@ -392,7 +394,7 @@ export default function Home() {
             {/* Left info */}
             <div className="flex flex-col justify-between border-b border-border bg-bg-card p-12 md:border-b-0 md:border-r">
               <div>
-                <span className="mb-6 block text-[0.7rem] uppercase tracking-[0.2em] text-gold">
+                <span className="mb-6 block text-[0.7rem] uppercase tracking-[0.2em] text-white/40">
                   Demarrer maintenant
                 </span>
                 <h2 className="mb-6 font-serif text-4xl font-light leading-[1.2]">

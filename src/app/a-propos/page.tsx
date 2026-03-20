@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
+import { Zap, Search, Link2, Target, BarChart3, Shield } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 import Button from '@/components/Button';
 import Link from 'next/link';
@@ -15,24 +17,24 @@ export const metadata: Metadata = {
 
 /* ── Data ── */
 
-const VALUES = [
+const VALUES: { icon: ReactNode; title: string; text: string }[] = [
   {
-    icon: '\u2699',
+    icon: <Zap size={20} />,
     title: 'Resultats avant tout',
     text: 'On ne vous vend pas de la technologie. On vous vend des resultats mesurables. Si votre systeme ne genere pas plus de leads, on l\u2019optimise jusqu\u2019a ce que ce soit le cas.',
   },
   {
-    icon: '\u2295',
+    icon: <Search size={20} />,
     title: 'Transparence totale',
     text: 'Pas de magie noire, pas de jargon. On vous explique exactement ce que fait votre systeme, pourquoi, et comment mesurer son impact. Vous restez maitre de votre outil.',
   },
   {
-    icon: '\u221E',
+    icon: <Link2 size={20} />,
     title: 'Partenariat, pas transaction',
     text: 'Votre succes est notre succes. On ne signe pas un contrat et on disparait. On reste a vos cotes chaque mois pour ajuster, optimiser et faire grandir votre systeme avec vous.',
   },
   {
-    icon: '\u25CE',
+    icon: <Target size={20} />,
     title: 'Simplicite operationnelle',
     text: 'Un bon systeme IA doit simplifier votre vie, pas la compliquer. Si l\u2019outil vous prend plus de temps qu\u2019il ne vous en fait gagner, on a rate notre objectif.',
   },
@@ -53,19 +55,19 @@ const TEAM = [
   },
 ];
 
-const ENGAGEMENTS = [
+const ENGAGEMENTS: { icon: ReactNode; title: string; text: string }[] = [
   {
-    icon: '\u25CE',
+    icon: <Target size={20} />,
     title: '10 jours de delai garanti',
     text: 'Votre solution est mise en place dans les 10 jours ouvres suivant la reception de vos informations techniques. C\u2019est notre engagement contractuel, pas une promesse marketing.',
   },
   {
-    icon: '\u25C8',
+    icon: <BarChart3 size={20} />,
     title: 'Reporting mensuel systematique',
     text: 'Le 1er de chaque mois, vous recevez un rapport detaillant les performances de votre systeme : leads generes, taux de conversion, actions declenchees. Aucune boite noire.',
   },
   {
-    icon: '\u25C6',
+    icon: <Shield size={20} />,
     title: 'Sans engagement, sans piege',
     text: 'Nos abonnements sont resiliables a tout moment avec 30 jours de preavis. Pas de penalite de sortie, pas de contrat longue duree impose. Votre confiance se merite chaque mois.',
   },
@@ -128,7 +130,7 @@ export default function AProposPage() {
             </div>
             <div className="p-6">
               <div className="font-serif text-3xl font-normal">Maxime</div>
-              <div className="mt-1 text-[0.72rem] uppercase tracking-[0.14em] text-gold">
+              <div className="mt-1 text-[0.72rem] uppercase tracking-[0.14em] text-white/40">
                 Fondateur &amp; CEO — MRC
               </div>
               <div className="mt-4 flex flex-col gap-2">
@@ -156,7 +158,7 @@ export default function AProposPage() {
       <section className="px-[6vw] py-20">
         <ScrollReveal>
           <div className="mb-12">
-            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-gold">
+            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
               Notre histoire
             </span>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">
@@ -217,7 +219,7 @@ export default function AProposPage() {
       <section className="px-[6vw] py-20">
         <ScrollReveal>
           <div className="mb-12 text-center">
-            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-gold">
+            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
               Ce en quoi nous croyons
             </span>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">
@@ -230,7 +232,7 @@ export default function AProposPage() {
           {VALUES.map((v, i) => (
             <ScrollReveal key={v.title} delay={i * 80}>
               <div className="bg-bg-card p-8 text-center transition-colors hover:bg-gold/4">
-                <span className="mb-4 block text-3xl">{v.icon}</span>
+                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg border border-white/15 text-white/70">{v.icon}</div>
                 <div className="font-serif text-xl font-light">{v.title}</div>
                 <p className="mt-3 text-[0.82rem] leading-[1.75] text-text-dimmed">{v.text}</p>
               </div>
@@ -243,7 +245,7 @@ export default function AProposPage() {
       <section className="bg-[#111111] px-[6vw] py-20">
         <ScrollReveal>
           <div className="mb-12 text-center">
-            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-gold">L&apos;equipe</span>
+            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">L&apos;equipe</span>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">
               Les personnes derriere
               <br />
@@ -261,7 +263,7 @@ export default function AProposPage() {
                 </div>
                 <div>
                   <div className="font-serif text-xl font-light">{member.name}</div>
-                  <div className="mt-0.5 text-[0.68rem] uppercase tracking-[0.15em] text-gold">
+                  <div className="mt-0.5 text-[0.68rem] uppercase tracking-[0.15em] text-white/40">
                     {member.role}
                   </div>
                   <p className="mt-2.5 text-[0.82rem] leading-[1.75] text-text-dimmed">{member.text}</p>
@@ -276,7 +278,7 @@ export default function AProposPage() {
       <section className="px-[6vw] py-20">
         <ScrollReveal>
           <div className="mb-12 text-center">
-            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-gold">
+            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
               Nos engagements clients
             </span>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15]">
@@ -291,7 +293,7 @@ export default function AProposPage() {
           {ENGAGEMENTS.map((eng, i) => (
             <ScrollReveal key={eng.title} delay={i * 80}>
               <div className="bg-bg-card p-8">
-                <span className="mb-4 block text-3xl">{eng.icon}</span>
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg border border-white/15 text-white/70">{eng.icon}</div>
                 <div className="font-serif text-2xl font-light">{eng.title}</div>
                 <p className="mt-3 text-[0.83rem] leading-[1.8] text-text-dimmed">{eng.text}</p>
               </div>

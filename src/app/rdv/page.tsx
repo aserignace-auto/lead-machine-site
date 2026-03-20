@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
+import { Target, Lightbulb } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 
 export const metadata: Metadata = {
@@ -36,19 +38,19 @@ const AGENDA_ITEMS = [
   },
 ];
 
-const GUARANTEES = [
+const GUARANTEES: { icon: ReactNode; title: string; text: string }[] = [
   {
-    icon: '\u25CE',
+    icon: <Target size={20} />,
     title: 'Zero engagement',
     text: 'Cet appel n\u2019engage a rien. Aucune carte bancaire, aucun contrat. Vous repartez avec des informations utiles, que vous travailliez avec nous ou non.',
   },
   {
-    icon: '\u25CE',
+    icon: <Target size={20} />,
     title: '30 minutes chrono',
     text: 'Nous respectons votre temps. L\u2019appel dure exactement 30 minutes. Pas de debordement, pas de relance excessive apres l\u2019appel si vous ne donnez pas suite.',
   },
   {
-    icon: '\u2299',
+    icon: <Lightbulb size={20} />,
     title: 'Valeur immediate',
     text: 'Meme si vous ne devenez pas client, vous repartez avec une analyse concrete de vos axes d\u2019amelioration commerciale et des pistes actionnables.',
   },
@@ -132,7 +134,7 @@ export default function RdvPage() {
                 </div>
                 {/* Calendly iframe */}
                 <iframe
-                  src="https://calendly.com/aserignace/nouvelle-reunion"
+                  src="https://calendly.com/aserignace/nouvelle-reunion?background_color=161616&text_color=fafaf8&primary_color=c9a84c"
                   width="100%"
                   height="620"
                   frameBorder="0"
@@ -150,7 +152,7 @@ export default function RdvPage() {
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
             <div className="mb-12">
-              <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-gold">
+              <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
                 Programme de l&apos;appel
               </span>
               <h2 className="font-serif text-[clamp(1.8rem,3.5vw,3rem)] font-light leading-[1.15]">
@@ -183,7 +185,7 @@ export default function RdvPage() {
       <section className="px-[6vw] py-20">
         <ScrollReveal>
           <div className="mx-auto max-w-[900px] text-center">
-            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-gold">
+            <span className="mb-3 block text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
               Nos engagements
             </span>
             <h2 className="font-serif text-[clamp(1.8rem,3.5vw,3rem)] font-light leading-[1.15]">
@@ -196,7 +198,7 @@ export default function RdvPage() {
           {GUARANTEES.map((g, i) => (
             <ScrollReveal key={g.title} delay={i * 80}>
               <div className="flex h-full flex-col bg-bg-card p-8">
-                <div className="mb-4 text-2xl">{g.icon}</div>
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg border border-white/15 text-white/70">{g.icon}</div>
                 <div className="text-[0.95rem] font-medium text-text-primary">{g.title}</div>
                 <p className="mt-2 text-[0.8rem] leading-[1.7] text-text-dimmed">{g.text}</p>
               </div>

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Mail, MessageSquare, Phone } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import Button from "@/components/Button";
 import ScrollReveal from "@/components/ScrollReveal";
+import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Lead Machine Immobilier — Prospection IA pour agences et mandataires",
@@ -105,10 +107,10 @@ const features = [
     demo: {
       title: "Sequence active — M. Dupont",
       sequence: [
-        { icon: "\u2709", label: "Email 1er contact", time: "J0 — 09h00", status: "OUVERT", statusClass: "bg-gold/[0.15] text-gold-light" },
-        { icon: "\u25C7", label: "SMS avec lien Calendly", time: "J0 — 11h00", status: "ENVOYE", statusClass: "bg-green-400/10 text-green-400" },
-        { icon: "\u2709", label: "Email relance #1", time: "J+2 — planifie", status: "EN ATTENTE", statusClass: "bg-white/[0.06] text-white/40" },
-        { icon: "\u260F", label: "Alerte appel qualification", time: "J+3 — alerte agent", status: "EN ATTENTE", statusClass: "bg-white/[0.06] text-white/40" },
+        { icon: "email1" as const, label: "Email 1er contact", time: "J0 — 09h00", status: "OUVERT", statusClass: "bg-gold/[0.15] text-gold-light" },
+        { icon: "sms" as const, label: "SMS avec lien Calendly", time: "J0 — 11h00", status: "ENVOYE", statusClass: "bg-green-400/10 text-green-400" },
+        { icon: "email2" as const, label: "Email relance #1", time: "J+2 — planifie", status: "EN ATTENTE", statusClass: "bg-white/[0.06] text-white/40" },
+        { icon: "phone" as const, label: "Alerte appel qualification", time: "J+3 — alerte agent", status: "EN ATTENTE", statusClass: "bg-white/[0.06] text-white/40" },
       ],
     },
   },
@@ -484,7 +486,7 @@ export default function ImmobilierPage() {
                   <div className="mb-1 font-serif text-6xl font-light text-gold/[0.15] leading-none">
                     {feat.num}
                   </div>
-                  <span className="mb-3 block text-[0.65rem] uppercase tracking-[0.2em] text-gold">
+                  <span className="mb-3 block text-[0.65rem] uppercase tracking-[0.2em] text-white/40">
                     {feat.tag}
                   </span>
                   <h3 className="mb-4 font-serif text-[1.8rem] font-normal leading-tight">
@@ -545,8 +547,8 @@ export default function ImmobilierPage() {
                             key={s.label}
                             className="flex items-center gap-3 border-b border-white/[0.04] py-2.5 last:border-b-0"
                           >
-                            <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded text-base">
-                              {s.icon}
+                            <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded text-white/60">
+                              {s.icon === "email1" || s.icon === "email2" ? <Mail size={16} /> : s.icon === "sms" ? <MessageSquare size={16} /> : <Phone size={16} />}
                             </div>
                             <div className="flex-1">
                               <div className="text-[0.74rem] text-white/[0.78]">{s.label}</div>
@@ -634,7 +636,7 @@ export default function ImmobilierPage() {
 
               {/* Before */}
               <div className="mb-4 rounded-md border border-gold/10 bg-white/[0.03] p-5">
-                <div className="mb-3 text-[0.68rem] uppercase tracking-[0.15em] text-gold">
+                <div className="mb-3 text-[0.68rem] uppercase tracking-[0.15em] text-white/40">
                   Situation typique sans automatisation
                 </div>
                 {roiBefore.map((r) => (
@@ -650,7 +652,7 @@ export default function ImmobilierPage() {
 
               {/* After */}
               <div className="rounded-md border border-gold/10 bg-white/[0.03] p-5">
-                <div className="mb-3 text-[0.68rem] uppercase tracking-[0.15em] text-gold">
+                <div className="mb-3 text-[0.68rem] uppercase tracking-[0.15em] text-white/40">
                   Objectif avec Lead Machine (mois 1)
                 </div>
                 {roiAfter.map((r) => (
