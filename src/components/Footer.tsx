@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "@/components/Logo";
 
 const footerSections = [
   {
@@ -33,7 +34,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5">
           {/* Brand column */}
           <div className="lg:col-span-2">
-            <Link href="/">
+            <Link href="/" className="flex items-center gap-3">
+              <Logo size="md" />
               <span className="font-serif text-2xl font-bold tracking-wider text-gradient-gold">
                 LEAD MACHINE
               </span>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Logo from "@/components/Logo";
 
 const navLinks = [
   { href: "/", label: "Accueil" },
@@ -44,7 +45,8 @@ export default function Navbar() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex-shrink-0" onClick={() => setMobileOpen(false)}>
+        <Link href="/" className="flex-shrink-0 flex items-center gap-3" onClick={() => setMobileOpen(false)}>
+          <Logo size="sm" />
           <span className="font-serif text-2xl font-bold tracking-wider text-gradient-gold">
             LEAD MACHINE
           </span>

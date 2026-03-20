@@ -372,6 +372,70 @@ export default function ImmobilierPage() {
         ))}
       </section>
 
+      {/* ── OFFERS ── */}
+      <section id="offres" className="px-[6vw] py-24">
+        <ScrollReveal>
+          <SectionHeader
+            label="Nos offres immobilier"
+            title="Choisissez votre <em>niveau d'automatisation</em>"
+            subtitle="Sans engagement de duree. Resiliation sous 30 jours. Evolution de forfait possible a tout moment."
+          />
+        </ScrollReveal>
+
+        <div className="mx-auto mt-16 grid max-w-[1100px] grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
+          {offers.map((offer, i) => (
+            <ScrollReveal key={offer.name} delay={i * 80}>
+              <div
+                className={`relative p-10 ${
+                  offer.featured ? "bg-gold/[0.04]" : "bg-bg-card"
+                }`}
+              >
+                {offer.featured && (
+                  <div className="absolute -top-px left-1/2 -translate-x-1/2 bg-gold px-4 py-1 text-[0.6rem] font-bold uppercase tracking-[0.15em] text-bg-primary whitespace-nowrap">
+                    Le plus populaire
+                  </div>
+                )}
+                <div className="mb-3 text-[0.7rem] uppercase tracking-[0.18em] text-text-dimmed">
+                  {offer.tier}
+                </div>
+                <div className="mb-1 font-serif text-3xl font-normal text-gold-light">
+                  {offer.name}
+                </div>
+                <div className="font-serif text-[2.8rem] font-light leading-none text-gold-light">
+                  {offer.amount}
+                </div>
+                <div className="mt-1 text-[0.78rem] text-text-dimmed">{offer.period}</div>
+                <div className="mt-1 mb-4 text-[0.68rem] text-green-400">{offer.note}</div>
+                <p className="mb-5 text-[0.8rem] leading-relaxed text-text-dimmed">
+                  {offer.tagline}
+                </p>
+                <div className="mb-6 h-px w-10 bg-gold/30" />
+                <ul className="mb-8 flex flex-col gap-2">
+                  {offer.features.map((f) => (
+                    <li key={f} className="flex gap-2.5 text-[0.81rem] leading-relaxed text-white/75">
+                      <span className="mt-0.5 flex-shrink-0 text-[0.52rem] text-gold">
+                        {"\u2726"}
+                      </span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="#contact"
+                  className={`block rounded-sm py-3.5 text-center text-[0.78rem] uppercase tracking-[0.12em] transition-all duration-200 no-underline ${
+                    offer.featured
+                      ? "bg-gold font-semibold text-bg-primary"
+                      : "border border-gold/30 text-gold hover:bg-gold/10"
+                  }`}
+                >
+                  Demarrer maintenant
+                </Link>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </section>
+
       {/* ── BEFORE / AFTER ── */}
       <section className="bg-[#111111] px-[6vw] py-24">
         <ScrollReveal>
@@ -547,70 +611,6 @@ export default function ImmobilierPage() {
                 <span className="hidden whitespace-nowrap rounded-full border border-gold/25 px-3 py-1 text-[0.68rem] uppercase tracking-[0.1em] text-gold sm:block">
                   {step.time}
                 </span>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </section>
-
-      {/* ── OFFERS ── */}
-      <section id="offres" className="px-[6vw] py-24">
-        <ScrollReveal>
-          <SectionHeader
-            label="Nos offres immobilier"
-            title="Choisissez votre <em>niveau d'automatisation</em>"
-            subtitle="Sans engagement de duree. Resiliation sous 30 jours. Evolution de forfait possible a tout moment."
-          />
-        </ScrollReveal>
-
-        <div className="mx-auto mt-16 grid max-w-[1100px] grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
-          {offers.map((offer, i) => (
-            <ScrollReveal key={offer.name} delay={i * 80}>
-              <div
-                className={`relative p-10 ${
-                  offer.featured ? "bg-gold/[0.04]" : "bg-bg-card"
-                }`}
-              >
-                {offer.featured && (
-                  <div className="absolute -top-px left-1/2 -translate-x-1/2 bg-gold px-4 py-1 text-[0.6rem] font-bold uppercase tracking-[0.15em] text-bg-primary whitespace-nowrap">
-                    Le plus populaire
-                  </div>
-                )}
-                <div className="mb-3 text-[0.7rem] uppercase tracking-[0.18em] text-text-dimmed">
-                  {offer.tier}
-                </div>
-                <div className="mb-1 font-serif text-3xl font-normal text-gold-light">
-                  {offer.name}
-                </div>
-                <div className="font-serif text-[2.8rem] font-light leading-none text-gold-light">
-                  {offer.amount}
-                </div>
-                <div className="mt-1 text-[0.78rem] text-text-dimmed">{offer.period}</div>
-                <div className="mt-1 mb-4 text-[0.68rem] text-green-400">{offer.note}</div>
-                <p className="mb-5 text-[0.8rem] leading-relaxed text-text-dimmed">
-                  {offer.tagline}
-                </p>
-                <div className="mb-6 h-px w-10 bg-gold/30" />
-                <ul className="mb-8 flex flex-col gap-2">
-                  {offer.features.map((f) => (
-                    <li key={f} className="flex gap-2.5 text-[0.81rem] leading-relaxed text-white/75">
-                      <span className="mt-0.5 flex-shrink-0 text-[0.52rem] text-gold">
-                        {"\u2726"}
-                      </span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="#contact"
-                  className={`block rounded-sm py-3.5 text-center text-[0.78rem] uppercase tracking-[0.12em] transition-all duration-200 no-underline ${
-                    offer.featured
-                      ? "bg-gold font-semibold text-bg-primary"
-                      : "border border-gold/30 text-gold hover:bg-gold/10"
-                  }`}
-                >
-                  Demarrer maintenant
-                </Link>
               </div>
             </ScrollReveal>
           ))}
